@@ -1,5 +1,2 @@
 # webpackBasedProject
 
-testing...\
-
-wtf???
