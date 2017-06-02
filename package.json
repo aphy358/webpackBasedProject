@@ -4,13 +4,14 @@
   "description": "webpack实验",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aphy358/webpackBasedProject.git"
   },
-  "keywords": [   
+  "keywords": [
     "webpack"
   ],
   "author": "Kevin",
@@ -18,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/aphy358/webpackBasedProject/issues"
   },
-  "homepage": "https://github.com/aphy358/webpackBasedProject#readme"
+  "homepage": "https://github.com/aphy358/webpackBasedProject#readme",
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "webpack": "^2.6.1"
+  }
 }
