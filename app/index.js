@@ -1,4 +1,6 @@
 
+import $ from 'jquery'
+
 function component () {
   var element = document.createElement('div');
 
@@ -7,4 +9,5 @@ function component () {
   return element;
 }
 
-document.body.appendChild(component());
+$('body').append(component());
+//document.body.appendChild(component());

@@ -4,8 +4,7 @@
   "description": "webpack实验",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "start": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +20,12 @@
   },
   "homepage": "https://github.com/aphy358/webpackBasedProject#readme",
   "dependencies": {
+  },
+  "devDependencies": {
+  	"css-loader": "^0.28.4",
+  	"extract-text-webpack-plugin": "^2.1.0",
     "jquery": "^2.2.4",
+    "style-loader": "^0.18.1",
     "webpack": "^2.6.1"
   }
 }
