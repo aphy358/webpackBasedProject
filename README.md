@@ -1,7 +1,35 @@
-# webpackBasedProject
+# my-project
 
-webpack 在线文档：
-https://doc.webpack-china.org/guides/ 
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+webpack 在线文档： https://doc.webpack-china.org/guides/
 
 1、新建一个项目文件夹 webpack sample
 
@@ -12,3 +40,6 @@ https://doc.webpack-china.org/guides/
 4、新建文件 .gitignore，内容为 '/node_modules/'，意思为git忽略文件夹node_modules下的所有文件
 
 5、npm install --dev-save css-loader style-loader extract-text-webpack-plugin
+
+
+

@@ -1,0 +1,24 @@
+{
+  "presets": [
+    ["latest", {
+      "es2015": { "modules": false }
+    }],
+    "stage-2"
+  ],
+  "ignore":[
+        "jquery.js",
+        "jquery.min.js",
+        "angular.js",
+        "angular.min.js",
+        "bootstrap.js",
+        "bootstrap.min.js"
+    ],
+  "plugins": ["transform-runtime"],
+  "comments": false,
+  "env": {
+    "test": {
+      "presets": ["latest", "stage-2"],
+      "plugins": [ "istanbul" ]
+    }
+  }
+}
