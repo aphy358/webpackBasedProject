@@ -11,7 +11,7 @@ module.exports = {
   entry: {
     vendor: ['jquery'],
     app: './src/main.js',
-  },
+  },  
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -28,7 +28,14 @@ module.exports = {
   },
   module: {
     rules: [
-      {
+    	{
+		    test: /\.html$/,
+	      loader: 'html-loader',
+	      options: {
+	        minimize: true
+	      }
+	    },
+      /*{
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: "pre",
@@ -36,7 +43,7 @@ module.exports = {
         options: {
           formatter: require('eslint-friendly-formatter')
         }
-      },
+      },*/
       {
         test: /\.vue$/,
         loader: 'vue-loader',

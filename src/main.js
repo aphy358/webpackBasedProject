@@ -2,4 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import $ from 'jquery'
-$('#app').html('halo')
+
+require.ensure('./components/commonHead/commonHead.js', function(data){
+	const commonHeadjs = require('./components/commonHead/commonHead.js')
+	$('#app').html(commonHeadjs.tmp())
+}, null, 'commonHead');

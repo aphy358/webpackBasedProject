@@ -1,0 +1,3 @@
+
+.head-wrap{display: flex;}
+.head-item{flex: 1;height: 30px;line-height: 30px; background: yellow;text-align: center;}

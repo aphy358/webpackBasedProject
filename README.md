@@ -41,5 +41,7 @@ webpack 在线文档： https://doc.webpack-china.org/guides/
 
 5、npm install --dev-save css-loader style-loader extract-text-webpack-plugin
 
+6、/* eslint-disable */ 关闭语法检查
+
 
 
