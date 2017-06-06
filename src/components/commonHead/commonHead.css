@@ -1,3 +1,16 @@
+.head-wrap {
+    display: flex;
+}
 
-.head-wrap{display: flex;}
-.head-item{flex: 1;height: 30px;line-height: 30px; background: yellow;text-align: center;}
+.head-item {
+    flex: 1;
+    height: 30px;
+    line-height: 30px;
+    background: yellow;
+    text-align: center;
+}
+
+body {
+    color: red;
+    background: #654;
+}

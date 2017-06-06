@@ -3,75 +3,77 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
 }
 
+//先获取所有入口文件名，然后再逐个拼接 entry 对象，最后传参。
+var Entries = utils.getAllEntries();
+var entry = { common: ['jquery'] };
+Entries.forEach((item) => {
+    entry[item] = ['./src/entries/' + item + '.js']
+});
+
 module.exports = {
-  entry: {
-    common: ['jquery'],
-    app: ['./src/main.js'],
-    user: ['./src/user.js'],
-  },  
-  output: {
-    path: config.build.assetsRoot,
-    filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
-  },
-  resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-      '$': resolve('src/js/jquery.js')
+    entry: entry,
+    output: {
+        path: config.build.assetsRoot,
+        filename: '[name].js',
+        publicPath: process.env.NODE_ENV === 'production' ?
+            config.build.assetsPublicPath : config.dev.assetsPublicPath
+    },
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': resolve('src'),
+            '$': resolve('src/js/jquery.js'),
+            '~': resolve('src/components'),
+        }
+    },
+    module: {
+        rules: [{
+                test: /\.html$/,
+                loader: 'html-loader',
+                options: {
+                    minimize: true
+                }
+            },
+            /*{
+              test: /\.(js|vue)$/,
+              loader: 'eslint-loader',
+              enforce: "pre",
+              include: [resolve('src'), resolve('test')],
+              options: {
+                formatter: require('eslint-friendly-formatter')
+              }
+            },*/
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: vueLoaderConfig
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: [resolve('src'), resolve('test')]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                query: {
+                    limit: 10000,
+                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                query: {
+                    limit: 10000,
+                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                }
+            }
+        ]
     }
-  },
-  module: {
-    rules: [
-    	{
-		    test: /\.html$/,
-	      loader: 'html-loader',
-	      options: {
-	        minimize: true
-	      }
-	    },
-      /*{
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: "pre",
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },*/
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        query: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        query: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
-      }
-    ]
-  }
 }
