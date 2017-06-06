@@ -13,20 +13,33 @@ var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
 
-var webpackConfig = merge(baseWebpackConfig, {
-  module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
-      extract: true
-    })
-  },
-  devtool: config.build.productionSourceMap ? '#source-map' : false,
-  output: {
-    path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-  },
-  plugins: [
+var plugins = []
+//获取所有入口文件名
+var Entries = ['index.html', 'user.html']
+Entries.forEach((page) => {
+	// generate dist index.html with correct asset hash for caching.
+	// you can customize output by editing /index.html
+	// see https://github.com/ampedandwired/html-webpack-plugin
+	var htmlPlugin = new HtmlWebpackPlugin({
+	  filename: process.env.NODE_ENV === 'testing'
+	    ? 'template.html'
+	    : utils.assetsPath('html/' + page), //config.build.index,
+	  template: 'template.html',
+	  inject: true,
+	  minify: {
+	    removeComments: true,
+	    collapseWhitespace: true,
+	    removeAttributeQuotes: true
+	    // more options:
+	    // https://github.com/kangax/html-minifier#options-quick-reference
+	  },
+	  // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+	  chunksSortMode: 'dependency'
+	})
+	plugins.push(htmlPlugin)
+})
+
+var otherPlugins = [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -43,40 +56,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
-    new OptimizeCSSPlugin(),
-    // generate dist index.html with correct asset hash for caching.
-    // you can customize output by editing /index.html
-    // see https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: process.env.NODE_ENV === 'testing'
-        ? 'index.html'
-        : utils.assetsPath('html/index.html'), //config.build.index,
-      template: 'index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
-    }),
-    new HtmlWebpackPlugin({
-      filename: utils.assetsPath('html/user.html'), //config.build.index,
-      template: 'user.html',
-      inject: false,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
-    }),
+    new OptimizeCSSPlugin(),    
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
@@ -111,6 +91,21 @@ var webpackConfig = merge(baseWebpackConfig, {
     	"window.jQuery": "jquery"
     }),
   ]
+
+var webpackConfig = merge(baseWebpackConfig, {
+  module: {
+    rules: utils.styleLoaders({
+      sourceMap: config.build.productionSourceMap,
+      extract: true
+    })
+  },
+  devtool: config.build.productionSourceMap ? '#source-map' : false,
+  output: {
+    path: config.build.assetsRoot,
+    filename: utils.assetsPath('js/[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+  },
+  plugins: plugins.concat(otherPlugins)
 })
 
 if (config.build.productionGzip) {

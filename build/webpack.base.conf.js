@@ -10,8 +10,8 @@ function resolve (dir) {
 module.exports = {
   entry: {
     common: ['jquery'],
-    app: ['./src/main.js'],
-    user: ['./src/user.js'],
+    index: ['./src/entries/index.js'],
+    user: ['./src/entries/user.js'],
   },  
   output: {
     path: config.build.assetsRoot,
@@ -25,7 +25,8 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      '$': resolve('src/js/jquery.js')
+      '$': resolve('src/js/jquery.js'),
+      '~': resolve('src/components'),
     }
   },
   module: {
