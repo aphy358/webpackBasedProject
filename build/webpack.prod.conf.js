@@ -14,7 +14,7 @@ var env = process.env.NODE_ENV === 'testing' ?
     config.build.env
 
 var plugins = [];
-//获取所有入口文件名
+//***获取所有入口文件名
 var Entries = utils.getAllEntries()
 Entries.forEach((page) => {
     // generate dist index.html with correct asset hash for caching.

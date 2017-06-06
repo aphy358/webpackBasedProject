@@ -74,13 +74,9 @@ exports.styleLoaders = function(options) {
 exports.getAllEntries = function() {
     var entriesFolder = path.join(__dirname, '..', 'src/entries')
     var dirs = fs.readdirSync(entriesFolder);
-    var matchs = [],
-        files = [];
-    dirs.forEach(function(item) {
-        matchs = item.match(/(.+)\.js$/);
-        if (matchs) {
-            files.push(matchs[1])
-        }
+    var tmpArr = [];
+    dirs.forEach((item) => {
+        if (typeof item === 'string') tmpArr.push(item.split('.')[0]);
     });
-    return files;
+    return tmpArr;
 }
