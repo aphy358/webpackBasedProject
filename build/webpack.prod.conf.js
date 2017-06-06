@@ -25,7 +25,7 @@ Entries.forEach((page) => {
             'template.html' : utils.assetsPath('html/' + page + '.html'), //config.build.index,
         template: 'template.html',
         inject: true,
-        injectItem: ['manifest', 'common', page],
+        injectItem: ['manifest', 'common', page], //***新添加一个option选项
         minify: {
             removeComments: true,
             collapseWhitespace: true,
