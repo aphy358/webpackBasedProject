@@ -39,12 +39,6 @@ var otherPlugins = [
         jQuery: "jquery",
         "window.jQuery": "jquery"
     }),
-    new webpack.SourceMapDevToolPlugin({
-        filename: '[file].map',
-        include: ['index.js'],
-        exclude: ['common.js'],
-        columns: false,
-    }),
 ]
 
 module.exports = merge(baseWebpackConfig, {
