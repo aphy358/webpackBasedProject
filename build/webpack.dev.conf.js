@@ -33,16 +33,17 @@ var otherPlugins = [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
-    // new HtmlWebpackPlugin({
-    //     filename: 'index.html',
-    //     template: 'template.html',
-    //     inject: true,
-    // }),
     new FriendlyErrorsPlugin(),
     new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
         "window.jQuery": "jquery"
+    }),
+    new webpack.SourceMapDevToolPlugin({
+        filename: '[file].map',
+        include: ['index.js'],
+        exclude: ['common.js'],
+        columns: false,
     }),
 ]
 
@@ -50,7 +51,7 @@ module.exports = merge(baseWebpackConfig, {
     module: {
         rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
     },
-    // cheap-module-eval-source-map is faster for development
+    // cheap-module-eval-source-map is faster for development  '#cheap-module-eval-source-map'
     devtool: '#cheap-module-eval-source-map',
     plugins: plugins.concat(otherPlugins)
 })
