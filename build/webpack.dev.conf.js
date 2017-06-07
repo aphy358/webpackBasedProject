@@ -11,22 +11,8 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
     baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
-var plugins = [];
-//***获取所有入口文件名
-var Entries = utils.getAllEntries()
-Entries.forEach((page) => {
-    var htmlPlugin = new HtmlWebpackPlugin({
-        filename: page + '.html',
-        template: 'template.html',
-        inject: true,
-        injectItem: ['manifest', 'common', page], //***新添加一个option选项
-        chunksSortMode: 'dependency'
-    })
-    plugins.push(htmlPlugin)
-})
-
-var otherPlugins = [
-    new webpack.DefinePlugin({
+var plugins = [
+	new webpack.DefinePlugin({
         'process.env': config.dev.env
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
@@ -39,7 +25,18 @@ var otherPlugins = [
         jQuery: "jquery",
         "window.jQuery": "jquery"
     }),
-]
+];
+//***获取所有入口文件名
+var Entries = utils.getAllEntries()
+Entries.forEach((page) => {
+    var htmlPlugin = new HtmlWebpackPlugin({
+        filename: page + '.html',
+        template: 'template.html',
+        injectItem: ['manifest', 'common', page], //***新添加一个option选项
+        //chunksSortMode: 'dependency',
+    })
+    plugins.push(htmlPlugin)
+})
 
 module.exports = merge(baseWebpackConfig, {
     module: {
@@ -47,5 +44,5 @@ module.exports = merge(baseWebpackConfig, {
     },
     // cheap-module-eval-source-map is faster for development  '#cheap-module-eval-source-map'
     devtool: '#cheap-module-eval-source-map',
-    plugins: plugins.concat(otherPlugins)
+    plugins: plugins
 })

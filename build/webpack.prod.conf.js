@@ -13,34 +13,8 @@ var env = process.env.NODE_ENV === 'testing' ?
     require('../config/test.env') :
     config.build.env
 
-var plugins = [];
-//***获取所有入口文件名
-var Entries = utils.getAllEntries()
-Entries.forEach((page) => {
-    // generate dist index.html with correct asset hash for caching.
-    // you can customize output by editing /index.html
-    // see https://github.com/ampedandwired/html-webpack-plugin
-    var htmlPlugin = new HtmlWebpackPlugin({
-        filename: process.env.NODE_ENV === 'testing' ?
-            'template.html' : utils.assetsPath('html/' + page + '.html'), //config.build.index,
-        template: 'template.html',
-        inject: true,
-        injectItem: ['manifest', 'common', page], //***新添加一个option选项
-        minify: {
-            removeComments: true,
-            collapseWhitespace: true,
-            removeAttributeQuotes: true
-                // more options:
-                // https://github.com/kangax/html-minifier#options-quick-reference
-        },
-        // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-        chunksSortMode: 'dependency'
-    })
-    plugins.push(htmlPlugin)
-})
-
-var otherPlugins = [
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
+var plugins = [
+	// http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
         'process.env': env
     }),
@@ -88,7 +62,32 @@ var otherPlugins = [
         jQuery: "jquery",
         "window.jQuery": "jquery"
     }),
-]
+];
+
+//***获取所有入口文件名
+var Entries = utils.getAllEntries()
+Entries.forEach((page) => {
+    // generate dist index.html with correct asset hash for caching.
+    // you can customize output by editing /index.html
+    // see https://github.com/ampedandwired/html-webpack-plugin
+    var htmlPlugin = new HtmlWebpackPlugin({
+        filename: process.env.NODE_ENV === 'testing' ?
+            'template.html' : utils.assetsPath('html/' + page + '.html'), //config.build.index,
+        template: 'template.html',
+        inject: true,
+        injectItem: ['manifest', 'common', page], //***新添加一个option选项
+        minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true
+                // more options:
+                // https://github.com/kangax/html-minifier#options-quick-reference
+        },
+        // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+        chunksSortMode: 'dependency'
+    })
+    plugins.push(htmlPlugin)
+})
 
 var webpackConfig = merge(baseWebpackConfig, {
     module: {
@@ -103,7 +102,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         filename: utils.assetsPath('js/[name].[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
-    plugins: plugins.concat(otherPlugins)
+    plugins: plugins
 })
 
 if (config.build.productionGzip) {
