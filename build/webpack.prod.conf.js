@@ -73,7 +73,7 @@ Entries.forEach((page) => {
     var htmlPlugin = new HtmlWebpackPlugin({
         filename: process.env.NODE_ENV === 'testing' ?
             'template.html' : utils.assetsPath('html/' + page + '.html'), //config.build.index,
-        template: 'template.html',
+        template: utils.resolve('src/pages/' + page + '/template.js'),          //'template.html',
         inject: true,
         injectItem: ['manifest', 'common', page], //***新添加一个option选项
         minify: {

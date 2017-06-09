@@ -1,0 +1,1 @@
+console.log('首页 scripts...');

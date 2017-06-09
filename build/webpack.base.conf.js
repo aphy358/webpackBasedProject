@@ -3,15 +3,11 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve(dir) {
-    return path.join(__dirname, '..', dir)
-}
-
 //先获取所有入口文件名，然后再逐个拼接 entry 对象，最后传参。
 var Entries = utils.getAllEntries();
 var entry = { common: ['jquery'] };
-Entries.forEach((item) => {
-    entry[item] = ['./src/entries/' + item + '.js']
+Entries.forEach((page) => {
+    entry[page] = utils.resolve('src/pages/' + page + '/entry.js')
 });
 
 module.exports = {
@@ -26,9 +22,9 @@ module.exports = {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '@': resolve('src'),
-            '$': resolve('src/thirdpart/js/jquery.js'),
-            '~': resolve('src/components'),
+            '@': utils.resolve('src'),
+            '$': utils.resolve('src/thirdpart/js/jquery.js'),
+            '~': utils.resolve('src/components'),
         }
     },
     module: {
@@ -42,13 +38,13 @@ module.exports = {
             {
                 test: /\.ejs$/,
                 loader: 'ejs-loader',
-                include: [resolve('src')]
+                include: [utils.resolve('src')]
             },
             /*{
               test: /\.(js|vue)$/,
               loader: 'eslint-loader',
               enforce: "pre",
-              include: [resolve('src'), resolve('test')],
+              include: [utils.resolve('src'), utils.resolve('test')],
               options: {
                 formatter: require('eslint-friendly-formatter')
               }
@@ -61,7 +57,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                include: [resolve('src'), resolve('test')]
+                include: [utils.resolve('src'), utils.resolve('test')]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

@@ -71,8 +71,12 @@ exports.styleLoaders = function(options) {
     return output
 }
 
+exports.resolve = function(dir) {
+    return path.join(__dirname, '..', dir)
+}
+
 exports.getAllEntries = function() {
-    var entriesFolder = path.join(__dirname, '..', 'src/entries')
+    var entriesFolder = path.join(__dirname, '..', 'src/pages');
     var dirs = fs.readdirSync(entriesFolder);
     var tmpArr = [];
     dirs.forEach((item) => {
@@ -80,3 +84,4 @@ exports.getAllEntries = function() {
     });
     return tmpArr;
 }
+
