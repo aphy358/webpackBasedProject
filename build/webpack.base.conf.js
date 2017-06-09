@@ -39,6 +39,11 @@ module.exports = {
                     minimize: true
                 }
             },
+            {
+                test: /\.ejs$/,
+                loader: 'ejs-loader',
+                include: [resolve('src')]
+            },
             /*{
               test: /\.(js|vue)$/,
               loader: 'eslint-loader',
