@@ -72,10 +72,11 @@ Entries.forEach((page) => {
     // see https://github.com/ampedandwired/html-webpack-plugin
     var htmlPlugin = new HtmlWebpackPlugin({
         filename: process.env.NODE_ENV === 'testing' ?
-            'template.html' : utils.assetsPath('html/' + page + '.html'), //config.build.index,
-        template: utils.resolve('src/pages/' + page + '/template.js'),          //'template.html',
+            'template.html' : utils.assetsPath(page + '/' + page + '.html'),
+        template: utils.resolve('src/pages/' + page + '/template.js'),
         inject: true,
-        injectItem: ['manifest', 'common', page], //***新添加一个option选项
+        chunks: [page, 'commons/commons', 'manifest'],
+        //injectItem: ['manifest', 'common', page], //***新添加一个option选项
         minify: {
             removeComments: true,
             collapseWhitespace: true,
@@ -99,8 +100,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     devtool: config.build.productionSourceMap ? '#source-map' : false,
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('js/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+        filename: utils.assetsPath('[name]/[name].[chunkhash].js'),
+        chunkFilename: utils.assetsPath('[name]/[id].[chunkhash].js')
     },
     plugins: plugins
 })

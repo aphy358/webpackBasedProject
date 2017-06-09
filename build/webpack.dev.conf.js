@@ -32,7 +32,8 @@ Entries.forEach((page) => {
     var htmlPlugin = new HtmlWebpackPlugin({
         filename: page + '.html',
         template: utils.resolve('src/pages/' + page + '/template.js'),
-        injectItem: ['manifest', 'common', page], //***新添加一个option选项
+        chunks: [page, 'commons/commons'],
+        //injectItem: ['manifest', 'common', page], //***新添加一个option选项
         //chunksSortMode: 'dependency',
     })
     plugins.push(htmlPlugin)
