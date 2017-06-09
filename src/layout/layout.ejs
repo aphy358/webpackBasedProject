@@ -9,9 +9,17 @@
 
     <title><%= pageTitle %></title>
     
+    <link rel="stylesheet" href="<%= verderConfig.css.reset %>">
+    <!--[if lt IE 10]>
+        <script src="<%= verderConfig.js.html5shiv %>"></script>
+    <![endif]-->
 </head>
 
 <body>
+
+    <!--[if lt IE 9]>
+        <script src="<%= verderConfig.js.respond %>"></script>
+    <![endif]-->
 
     <!--引入页面头部，导航栏-->
     <%= header %>
@@ -24,6 +32,7 @@
     <!--引入页面页脚部分-->
     <%= footer %>
 
+    <script src="<%= verderConfig.js.jquery %>"></script>
 </body>
 
 </html>

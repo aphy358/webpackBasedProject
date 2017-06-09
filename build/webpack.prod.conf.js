@@ -57,11 +57,11 @@ var plugins = [
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
     }]),
-    new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery"
-    }),
+    // new webpack.ProvidePlugin({
+    //     $: "jquery",
+    //     jQuery: "jquery",
+    //     "window.jQuery": "jquery"
+    // }),
 ];
 
 //***获取所有入口文件名

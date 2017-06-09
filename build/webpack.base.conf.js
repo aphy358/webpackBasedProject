@@ -5,7 +5,7 @@ var vueLoaderConfig = require('./vue-loader.conf')
 
 //先获取所有入口文件名，然后再逐个拼接 entry 对象，最后传参。
 var Entries = utils.getAllEntries();
-var entry = { common: ['jquery'] };
+var entry = {  };   //common: ['jquery']
 Entries.forEach((page) => {
     entry[page] = utils.resolve('src/pages/' + page + '/entry.js')
 });
@@ -23,7 +23,7 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             '@': utils.resolve('src'),
-            '$': utils.resolve('src/thirdpart/js/jquery.js'),
+            //'$': utils.resolve('src/thirdpart/js/jquery.js'),
             '~': utils.resolve('src/components'),
         }
     },
