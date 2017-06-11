@@ -1,0 +1,131 @@
+
+.fzg-logo{
+    height: 43px;
+    margin: 30px 0 30px 358px;
+}
+
+.main-wrap{
+    height: 536px;
+    margin: auto;
+    position: relative;
+
+    .login-bg{
+        float: left;
+    }
+
+    @at-root .login-dialog{
+        width: 340px - 60px;
+        height: 316px - 40px;
+        background: white;
+        position: absolute;
+        top: 45px;
+        left: 900px;
+        padding: 20px 30px;
+
+        .login-title{
+            height: 40px;
+            
+            div{
+                display: inline-block;
+            }
+            .login-text{
+                font-size: 16px;
+                color: #333;
+                font-weight: bold;
+            }
+            .login-reg{
+                float: right;
+                cursor: pointer;
+
+                &:hover{
+                    color: blue;
+                }
+            }
+        }
+
+        .login-row{
+            height: 50px;
+            line-height: 50px;
+            position: relative;
+
+            &:after{
+                content: '';
+                display: block;
+                height: 1px;
+                width: 100%;
+                background: #eceef4;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            .login-row-icon{
+                float: left;
+                width: 20px;
+                height: 50px;
+                text-align: center;
+                margin-left: 15px;
+
+                .iconfont{
+                    color: #bfbfbf;
+                }
+            }
+            .login-row-input{
+                width: calc(100% - 55px);
+                float: left;
+                padding: 0 10px;
+
+                input{
+                    border: none;
+                    outline:none;
+                    width: 100%;
+                    height: 50px;
+                    line-height: 18px;
+                }
+            }
+        }
+
+        .login-bline{
+            height: 16px;
+            line-height: 16px;
+            margin: 10px 0 20px;
+            color: #666;
+
+            .login-auto{
+                float: left;
+
+                input{
+                    float: left;
+                    position: relative;
+                    top: 2px;
+                    margin-right: 5px;
+                }
+            }
+            .forget-pw{
+                float: right;
+                cursor: pointer;
+
+                &:hover{
+                    color: blue;
+                }
+            }
+        }
+
+        .login-submit{
+            height: 40px;
+            line-height: 40px;
+            background: #33A6FF;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            letter-spacing: 10px;
+            cursor: pointer;
+            
+            &:hover{
+                background: darken(#33A6FF , 10%);
+            }
+        }
+    }
+}
+

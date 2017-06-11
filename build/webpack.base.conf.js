@@ -60,19 +60,19 @@ module.exports = {
                 include: [utils.resolve('src'), utils.resolve('test')]
             },
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                test: /\.(png|jpe?g|gif)(\?.*)?$/,
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                    name: utils.assetsPath('static/img/[name].[hash:7].[ext]')
                 }
             },
             {
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                    name: utils.assetsPath('static/fonts/[name].[hash:7].[ext]')
                 }
             }
         ]

@@ -26,7 +26,7 @@ var plugins = [
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-        filename: utils.assetsPath('css/[name].[contenthash].css')
+        filename: utils.assetsPath('pages/[name]/[name].[contenthash].css')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
@@ -49,7 +49,7 @@ var plugins = [
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
         name: 'manifest',
-        //chunks: ['vendor', 'manifest']
+        //chunks: ['manifest']
     }),
     // copy custom static assets
     new CopyWebpackPlugin([{
@@ -72,10 +72,10 @@ Entries.forEach((page) => {
     // see https://github.com/ampedandwired/html-webpack-plugin
     var htmlPlugin = new HtmlWebpackPlugin({
         filename: process.env.NODE_ENV === 'testing' ?
-            'template.html' : utils.assetsPath(page + '/' + page + '.html'),
+            'template.html' : utils.assetsPath('pages/' + page + '/' + page + '.html'),
         template: utils.resolve('src/pages/' + page + '/template.js'),
         inject: true,
-        chunks: [page, 'commons/commons', 'manifest'],
+        chunks: ['manifest', 'common', page],
         //injectItem: ['manifest', 'common', page], //***新添加一个option选项
         minify: {
             removeComments: true,
@@ -100,8 +100,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     devtool: config.build.productionSourceMap ? '#source-map' : false,
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('[name]/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsPath('[name]/[id].[chunkhash].js')
+        filename: utils.assetsPath('pages/[name]/[name].[chunkhash].js'),
+        chunkFilename: utils.assetsPath('pages/[name]/[name].[chunkhash].js')
     },
     plugins: plugins
 })
