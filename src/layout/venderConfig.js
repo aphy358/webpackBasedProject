@@ -6,7 +6,9 @@ module.exports = {
   },
   js: {
     html5shiv: require('!!file-loader?name=static/ie-fix/[name].[ext]!../static/ie-fix/html5shiv.min.js'),
+    es5_sham: require('!!file-loader?name=static/ie-fix/[name].[ext]!../static/ie-fix/es5-sham.min.js'),
+    es5_shim: require('!!file-loader?name=static/ie-fix/[name].[ext]!../static/ie-fix/es5-shim.min.js'),
     respond: require('!!file-loader?name=static/ie-fix/[name].[ext]!../static/ie-fix/respond.min.js'),
-    jquery: require('!!file-loader?name=static/js/[name].[ext]!../static/js/jquery.js'),
+    jquery: require('!!file-loader?name=static/js/[name].[ext]!../static/js/jquery.min.js'),
   }
 };

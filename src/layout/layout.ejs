@@ -19,7 +19,25 @@
 <body>
 
     <!--[if lt IE 9]>
+        <script src="<%= venderConfig.js.es5_shim %>"></script>
+        <script src="<%= venderConfig.js.es5_sham %>"></script>
         <script src="<%= venderConfig.js.respond %>"></script>
+        <script>
+            (function() {
+            var testObject = {};
+            if (!(Object.setPrototypeOf || testObject.__proto__)) {
+                var nativeGetPrototypeOf = Object.getPrototypeOf;
+
+                Object.getPrototypeOf = function(object) {
+                    if (object.__proto__) {
+                        return object.__proto__;
+                    } else {
+                        return nativeGetPrototypeOf.call(Object, object);
+                    }
+                }
+            }
+            })();
+        </script>
     <![endif]-->
 
     <!--引入页面头部，导航栏-->
@@ -34,6 +52,16 @@
     <%= footer %>
 
     <script src="<%= venderConfig.js.jquery %>"></script>
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('input').placeholder();
+            })
+        </script>
+    <![endif]-->
+    
 </body>
 
 </html>
