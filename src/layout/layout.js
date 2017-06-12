@@ -12,8 +12,8 @@ module.exports = {
     run(pageTitle, content, no_Header_Footer) {
         const renderData = {
             pageTitle,
-            header: no_Header_Footer ? '' : header(),
-            footer: no_Header_Footer ? '' : footer(),
+            header: no_Header_Footer ? '' : header({venderConfig}),  //这里一定要传对象，而不能单纯的只传一个“venderConfig”
+            footer: no_Header_Footer ? '' : footer({venderConfig}),
             content,
             venderConfig
         };

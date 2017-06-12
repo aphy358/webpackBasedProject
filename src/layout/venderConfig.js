@@ -10,5 +10,8 @@ module.exports = {
     es5_shim: require('!!file-loader?name=static/ie-fix/[name].[ext]!../static/ie-fix/es5-shim.min.js'),
     respond: require('!!file-loader?name=static/ie-fix/[name].[ext]!../static/ie-fix/respond.min.js'),
     jquery: require('!!file-loader?name=static/js/[name].[ext]!../static/js/jquery.min.js'),
+  },
+  img: {
+    fzg_logo: require('!!file-loader?name=static/img/[name].[ext]!../static/img/fzg_logo.png'),
   }
 };

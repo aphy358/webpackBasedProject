@@ -1,0 +1,152 @@
+@import "./base.scss";
+
+//页面顶部样式，包括捷旅logo、微信版入口图标、客服电话等
+.index-top{
+    width: 1180px;
+    height: 43px;
+    margin: 15px auto;
+
+    img{
+        float: left;
+    }
+
+    @at-root .contact-us-wrap{
+        float: right;
+
+        .contact-item{
+            float: left;
+            margin-left: 40px;
+
+            >div{
+                float: left;
+            }
+
+            @at-root .contact-icon{
+                width: 43px;
+                height: 43px;
+                background: $wxRed;
+                border-radius: 50%;
+
+                &.darken-blue{
+                    background: $darkenBlue;
+                }
+
+                >div{
+                    height: 100%;
+                    text-align: center;
+                }
+
+                .iconfont{
+                    color: white;
+                    text-align: center;
+                    font-size: 30px;
+                }
+            }
+            @at-root .contact-text{
+                color: $wxRed;
+                font-size: 14px;
+                margin: 5px 10px;
+
+                >div{
+                    line-height: 17px;
+                }
+                .gray-9{
+                    color: $gray-9;
+                }
+                .darken-blue{
+                    color: $darkenBlue;
+                }
+            }
+        }
+    }
+}
+
+//导航栏样式
+.fzg_nav{
+    height: 40px;
+    font-size: 15px;
+    background: $baseBlue;
+
+    @at-root .fzg-nav-inner{
+        width: 1180px;
+        height: 40px;
+        margin: auto;
+
+        @at-root .fzg-nav-wrap{
+            float: left;
+
+            @at-root .fzg-nav-ul{
+                line-height: 40px;
+
+                li{
+                    float: left;
+                    color: white;                    
+                    background: $baseBlue;
+                    padding: 0 10px;
+                    position: relative;
+                    margin-right: 5px;
+                    margin-left: 4px;
+
+                    &.current, &:hover{
+                        background: darken($darkenBlue, 5%);
+                    }
+
+                    a{
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                    &:after{
+                        content: '';
+                        display: block;
+                        width: 1px;
+                        height: 14px;
+                        position: absolute;
+                        top: 13px;
+                        right: -5px;
+                        background: white; //darken($darkenBlue, 5%);
+                    }
+
+                    &:last-child:after{
+                        content: none;
+                    }
+                }
+            }
+        }
+    
+        @at-root .fzg-login-reg{
+            float: right;
+            width: 118px - 19px * 2;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 19px;
+            background: darken($darkenBlue, 5%);
+
+            >div{
+                float: left;
+                position: relative;
+                margin: 0 5px;
+                cursor: pointer;
+                
+                a{
+                    color: white;
+                }
+
+                &:after{
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    height: 14px;
+                    position: absolute;
+                    top: 13px;
+                    right: -5px;
+                    background: white;
+                }
+
+                &:last-child:after{
+                    content: none;
+                }
+            }
+        }
+    }
+}
