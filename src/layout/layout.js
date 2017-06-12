@@ -1,7 +1,7 @@
 var header = require('./header.ejs');
 var footer = require('./footer.ejs');
 var layout = require('./layout.ejs');
-var venderConfig = require('./venderConfig.js');
+var staticConfig = require('../static/staticConfig.js');
 
 module.exports = {
     /**
@@ -12,10 +12,10 @@ module.exports = {
     run(pageTitle, content, no_Header_Footer) {
         const renderData = {
             pageTitle,
-            header: no_Header_Footer ? '' : header({venderConfig}),  //这里一定要传对象，而不能单纯的只传一个“venderConfig”
-            footer: no_Header_Footer ? '' : footer({venderConfig}),
+            header: no_Header_Footer ? '' : header({staticConfig}),  //这里一定要传对象，而不能单纯的只传一个“staticConfig”
+            footer: no_Header_Footer ? '' : footer({staticConfig}),
             content,
-            venderConfig
+            staticConfig
         };
         return layout(renderData);
     },

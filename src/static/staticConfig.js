@@ -16,7 +16,7 @@ module.exports = {
   img: {
     fzg_logo: require('!!file-loader?name=static/img/[name].[ext]!./img/fzg_logo.png'),
     erweima: require('!!file-loader?name=static/img/[name].[ext]!./img/erweima.png'),
-    login_bg: require('!!file-loader?name=static/img/login/[name].[ext]!./img/login/login_bg.png'),
+    login_bg: require('!!file-loader?name=static/img/login/[name].[ext]!./img/login/login_bg.jpg'),
     sprites: require('!!file-loader?name=static/sprites/[name].[ext]!./sprites/sprites.png'),
   }
 };

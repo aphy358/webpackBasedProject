@@ -9,19 +9,19 @@
 
     <title><%= pageTitle %></title>
     
-    <link rel="stylesheet" href="<%= venderConfig.css.reset %>">
+    <link rel="stylesheet" href="<%= staticConfig.css.reset %>">
     
     <!--[if lt IE 10]>
-        <script src="<%= venderConfig.js.html5shiv %>"></script>
+        <script src="<%= staticConfig.js.html5shiv %>"></script>
     <![endif]-->
 </head>
 
 <body>
 
     <!--[if lt IE 9]>
-        <script src="<%= venderConfig.js.es5_shim %>"></script>
-        <script src="<%= venderConfig.js.es5_sham %>"></script>
-        <script src="<%= venderConfig.js.respond %>"></script>
+        <script src="<%= staticConfig.js.es5_shim %>"></script>
+        <script src="<%= staticConfig.js.es5_sham %>"></script>
+        <script src="<%= staticConfig.js.respond %>"></script>
         <script>
             (function() {
             var testObject = {};
@@ -51,7 +51,7 @@
     <!--引入页面页脚部分-->
     <%= footer %>
 
-    <script src="<%= venderConfig.js.jquery %>"></script>
+    <script src="<%= staticConfig.js.jquery %>"></script>
 
     <!--[if lt IE 9]>
         <script src="https://cdn.bootcss.com/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
