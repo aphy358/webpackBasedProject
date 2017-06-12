@@ -13,5 +13,6 @@ module.exports = {
   },
   img: {
     fzg_logo: require('!!file-loader?name=static/img/[name].[ext]!../static/img/fzg_logo.png'),
+    erweima: require('!!file-loader?name=static/img/[name].[ext]!../static/img/erweima.png'),
   }
 };
