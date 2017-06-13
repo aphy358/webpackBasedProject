@@ -113,6 +113,10 @@
                         background: white; //darken($darkenBlue, 5%);
                     }
 
+                    &.last-one:after{   //兼容IE8
+                        content: none;
+                        background: red;    //很奇怪，只是设置上面一条还不能生效，还要随便加上诸如这条才行...
+                    }
                     &:last-child:after{
                         content: none;
                     }
@@ -150,6 +154,11 @@
                     background: white;
                 }
 
+                &.last-one:after{   //兼容IE8
+                    content: none;
+                    background: red;    //很奇怪，只是设置上面一条还不能生效，还要随便加上诸如这条才行...
+                }
+                
                 &:last-child:after{
                     content: none;
                 }
