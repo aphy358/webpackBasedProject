@@ -2,11 +2,18 @@
 @import "./base.scss";
 @import "./sprites.scss";
 
+//覆盖图片轮播分页按钮的样式
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+    width: 1180px - 700px;
+    margin: -30px auto 0;
+    padding-left: 700px;
+    position: relative;
+}
+
 .banner-wrap{
     overflow: hidden;
 
     @at-root .swiper-container {
-        width: 1600px;
         height: 376px;
     }
 }
