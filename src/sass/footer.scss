@@ -4,18 +4,22 @@
 .footer-wrap{
     background: #EAEAEA;
 
+    /*
+       清除 inline-block 之间间隙的方法
+       方法1：父元素设置 font-size: 0 ，然后子元素设置 display: inline-block而低版本IE则用（*display: inline;*zoom: 1;）代替，
+              或者直接用*float: left代替（可能不是很正宗）， 再设置vertical-align: top用来去除纵向间隙，
+       方法2：子元素直接float: left，但是这样的话，其父元素的高度就坍塌了，给父元素设置overflow: hidden，使其具有包裹性，高度就有了，
+              从而不影响布局，然而IE6/7却不认账，需要再给子元素加*zoom: 1，这样就兼容了。
+    */
     @at-root .footer-inner{
         width: 1180px - 150px * 2;
         margin: auto;
         padding: 50px 150px;
-        font-size: 0;
+        overflow: hidden;
 
         @at-root .f-i-block{
-            display: inline-block;
-            //*float: left;               //兼容IE7，在IE7下浮动，DOM仍然占着空间
-            *display: inline;
+            float: left;
             *zoom: 1;
-            vertical-align: top;        //去除纵向间隙
             width: 25%;
 
             .inner{
