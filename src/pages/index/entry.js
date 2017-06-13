@@ -2,6 +2,7 @@ require('../../sass/header.scss');
 require('../../sass/footer.scss');
 require('../../static/fonts/iconfont.css');
 require('../../static/css/swiper.min.css');
+require('../../sass/index.scss');
 
 //异步加载 swiper 插件
 require.ensure(['swiper.jquery.min'], function(){

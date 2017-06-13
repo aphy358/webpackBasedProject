@@ -1,6 +1,6 @@
 
-@import "../../sass/base.scss";
-@import "../../sass/sprites.scss";
+@import "./base.scss";
+@import "./sprites.scss";
 
 input, textarea { color: #000; }
 .placeholder { color: #aaa; }
@@ -11,7 +11,7 @@ input, textarea { color: #000; }
     margin: 30px auto;
 
     @at-root .sprites{
-        background:url('../../static/sprites/sprites.png') no-repeat;   //注意这里不能引用原来的minxi地址，而要重新设置url
+        @include  sprites;  //注意这里的url有时候需要更改
 
         &.fzg_logo{
             @include fzg_logo;
