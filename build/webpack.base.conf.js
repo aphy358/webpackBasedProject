@@ -7,7 +7,7 @@ var vueLoaderConfig = require('./vue-loader.conf')
 var Entries = utils.getAllEntries();
 var entry = {  };   //common: ['jquery']
 Entries.forEach((page) => {
-    entry[page] = utils.resolve('src/pages/' + page + '/entry.js')
+    entry[page] = utils.resolve('src/pages/' + page + '/' + page + '.js')
 });
 
 module.exports = {
