@@ -2,8 +2,28 @@
 @import "./base.scss";
 @import "./sprites.scss";
 
-.swiper-container {
-    width: 1600px;
+.banner-wrap{
+    overflow: hidden;
+
+    @at-root .swiper-container {
+        width: 1600px;
+        height: 376px;
+    }
+}
+
+.search-wrap{
+    position: relative;
+    width: 1180px;
     height: 376px;
-    margin: auto;
+    margin: -376px auto 0;
+
+    @at-root .search-box{
+        position: absolute;
+        margin: 40px 0;
+        width: 590px;
+        height: 296px;
+        background: white;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+    }
 }
