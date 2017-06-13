@@ -14,6 +14,12 @@
             @include fzg_logo;
             float: left;
         }
+        &.weixinban{
+            @include weixinban;
+        }
+        &.dianhua{
+            @include dianhua;
+        }
     }
 
     @at-root .contact-us-wrap{
@@ -30,12 +36,6 @@
             @at-root .contact-icon{
                 width: 43px;
                 height: 43px;
-                background: $wxRed;
-                border-radius: 50%;
-
-                &.darken-blue{
-                    background: $darkenBlue;
-                }
 
                 >div{
                     height: 100%;
@@ -129,6 +129,7 @@
             background: darken($darkenBlue, 5%);
 
             >div{
+                min-width: 30px;        //兼容IE
                 float: left;
                 position: relative;
                 margin: 0 5px;
