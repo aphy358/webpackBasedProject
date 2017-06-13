@@ -1,4 +1,4 @@
-*{margin: 0;padding: 0;list-style: none;}
+*{margin: 0;padding: 0;list-style: none;outline: none;}
 
 /* 兼容IE8，IE8下，点击之后周围有一圈虚线，加上这个属性可以去掉,但貌似对IE7没用 */
 *:focus{outline: none;}
