@@ -1,4 +1,5 @@
 @import "./base.scss";
+@import "../sass/sprites.scss";
 
 //页面顶部样式，包括捷旅logo、微信版入口图标、客服电话等
 .index-top{
@@ -6,8 +7,13 @@
     height: 43px;
     margin: 15px auto;
 
-    img{
-        float: left;
+    @at-root .sprites{
+        @include sprites;
+
+        &.fzg_logo{
+            @include fzg_logo;
+            float: left;
+        }
     }
 
     @at-root .contact-us-wrap{
