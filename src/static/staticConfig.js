@@ -5,6 +5,7 @@ module.exports = {
   css: {
     reset: require('!!file-loader?name=static/css/[name].[ext]!./css/reset.css'),
     fonts: require('!!file-loader?name=static/fonts/[name].[ext]!./fonts/iconfont.css'),
+    swiper: require('!!file-loader?name=static/fonts/[name].[ext]!./css/swiper.min.css'),
   },
   js: {
     html5shiv: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/html5shiv.min.js'),
@@ -12,6 +13,7 @@ module.exports = {
     es5_shim: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/es5-shim.min.js'),
     respond: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/respond.min.js'),
     jquery: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery.min.js'),
+    swiper: require('!!file-loader?name=static/js/[name].[ext]!./js/swiper.jquery.min.js'),
   },
   img: {
     login_bg: require('!!file-loader?name=static/img/login/[name].[ext]!./img/login/login_bg.jpg'),
