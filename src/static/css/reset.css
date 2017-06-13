@@ -20,7 +20,7 @@ form, fieldset, legend, button, input, textarea, /* form elements 表单元素 *
 th, td /* table elements 表格元素 */ {
   margin: 0;
   padding: 0;
-  background: white;
+  background: white;  /* 有些浏览器默认背景色不是白色 */
 }
 
 /** 设置默认字体 **/
