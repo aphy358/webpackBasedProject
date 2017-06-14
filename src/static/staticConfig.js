@@ -19,6 +19,6 @@ module.exports = {
     login_bg: require('!!file-loader?name=static/img/login/[name].[ext]!./img/login/login_bg.jpg'),
     sprites: require('!!file-loader?name=static/sprites/[name].[ext]!./sprites/sprites.png'),
 
-    tmp_banner: require('!!file-loader?name=static/sprites/[name].[ext]!./img/index/tmp_banner.jpg'),
+    tmp_banner: require('!!file-loader?name=static/img/index/[name].[ext]!./img/index/tmp_banner.jpg'),
   }
 };
