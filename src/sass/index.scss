@@ -24,6 +24,7 @@
     height: 376px;
     margin: -376px auto 0;
 
+    //搜索框
     @at-root .search-box{
         position: absolute;
         margin: 40px 0;
@@ -33,10 +34,12 @@
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         z-index: 10;
 
+        //搜索框左边的tab，酒店、门票、手机版的切换
         @at-root .s-tab{
             width: 110px;
             height: 296px;
             background: #F3F3F3;
+            float: left;
             overflow: hidden;
 
             li{
@@ -102,7 +105,15 @@
                 &.p-h{
                     height: 120px;
                 }
-            }
-        }        
+            }                
+        }    
+
+        //搜索框右边的搜索内容编辑框
+        @at-root .s-box-wrap{
+            display: inline-block;
+            width: 480px;
+            height: 296px;
+            background: red;
+        }
     }
 }
