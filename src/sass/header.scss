@@ -37,15 +37,16 @@
                 width: 43px;
                 height: 43px;
 
-                >div{
-                    height: 100%;
-                    text-align: center;
+                .test-one{
+                    position: absolute;
+                    display: none;
                 }
 
-                .iconfont{
-                    color: white;
-                    text-align: center;
-                    font-size: 30px;
+                &:hover{
+                    .test-one{
+                        color: red;
+                        display: block;
+                    }
                 }
             }
             @at-root .contact-text{
