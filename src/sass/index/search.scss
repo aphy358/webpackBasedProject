@@ -229,12 +229,19 @@
                                 bottom: 30px;
                                 cursor: pointer;
 
+                                &:hover{
+                                    background: $darkenBlue;
+                                }
+
                                 .sp-sousuo{
                                     @include sousuo;
                                     display: inline-block;
+                                    *display: inline;
+                                    *zoom: 1;
                                     margin-right: 5px;
                                     position: relative;
                                     top: 3px;
+                                    *top: 0;
                                 }
                             }
                         }
