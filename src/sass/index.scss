@@ -113,7 +113,17 @@
             display: inline-block;
             width: 480px;
             height: 296px;
-            background: red;
+            overflow: hidden;
+
+            @at-root .s-box{
+                height: 296px;
+                background: red;
+                display: none;
+
+                &.current{
+                    display: block;
+                }
+            }
         }
     }
 }

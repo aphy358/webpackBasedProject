@@ -14,20 +14,24 @@
 <div class="search-wrap">
     <div class="search-box">
         <ul class="s-tab">
-            <li class="s-tab-item current">
+            <li class="s-tab-item current" data-for="s-hotel">
                 <div class="sprites sp-jiudian"></div>
                 <div class="s-tab-text">酒店</div>
             </li>
-            <li class="s-tab-item">
+            <li class="s-tab-item" data-for="s-ticket">
                 <div class="sprites sp-menpiao"></div>
                 <div class="s-tab-text">门票</div>
             </li>
-            <li class="s-tab-item">
+            <li class="s-tab-item" data-for="s-wx">
                 <div class="sprites sp-shoujiban"></div>
                 <div class="s-tab-text">手机版</div>
             </li>
             <li class="p-h"></li>
         </ul>
-        <div class="s-box-wrap"></div>
+        <div class="s-box-wrap">
+            <div class="s-box current" data-target="s-hotel"></div>
+            <div class="s-box" data-target="s-ticket"></div>
+            <div class="s-box" data-target="s-wx"></div>
+        </div>
     </div>
 </div>
