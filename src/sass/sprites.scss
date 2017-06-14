@@ -1,4 +1,5 @@
 @mixin sprites{background:url(../static/sprites/sprites.png) no-repeat; }
+@mixin sprites2{background:url(../../static/sprites/sprites.png) no-repeat; }  //这个路径是给页面相关scss文件引用的，因为它的相对路径更深一层。
 @mixin gengduo{height:12px;width:7px;background-position: 0 0;}
 @mixin gengduo2{height:12px;width:7px;background-position: -7px 0;}
 @mixin honghua{height:14px;width:14px;background-position: -14px 0;}
