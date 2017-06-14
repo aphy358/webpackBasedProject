@@ -12,13 +12,21 @@
 
         &.fzg_logo{
             @include fzg_logo;
-            float: left;
+            float: left;            
         }
         &.weixinban{
             @include weixinban;
+
+            &:hover{
+                @include weixinban2;
+            }
         }
         &.dianhua{
             @include dianhua;
+
+            &:hover{
+                @include dianhua2;
+            }
         }
     }
 
@@ -36,18 +44,6 @@
             @at-root .contact-icon{
                 width: 43px;
                 height: 43px;
-
-                .test-one{
-                    position: absolute;
-                    display: none;
-                }
-
-                &:hover{
-                    .test-one{
-                        color: red;
-                        display: block;
-                    }
-                }
             }
             @at-root .contact-text{
                 color: $wxRed;
@@ -59,9 +55,6 @@
                 }
                 .gray-9{
                     color: $gray-9;
-                }
-                .darken-blue{
-                    color: $darkenBlue;
                 }
             }
         }
@@ -83,16 +76,19 @@
             float: left;
 
             @at-root .fzg-nav-ul{
-                line-height: 40px;
+                line-height: 40px;                
 
                 li{
                     float: left;
                     color: white;                    
                     background: $baseBlue;
-                    padding: 0 10px;
+                    padding: 0 5px;
+                    margin: 0 2px;
                     position: relative;
-                    margin-right: 5px;
-                    margin-left: 4px;
+
+                    +.divider{  // '+' 是非的意思
+                        padding: 0;
+                    }
 
                     &.current, &:hover{
                         background: darken($darkenBlue, 5%);
@@ -103,65 +99,39 @@
                         cursor: pointer;
                     }
 
-                    &:after{    //该属性IE6/7没办法轻松兼容，需要配合js
-                        content: '';
-                        display: block;
+                    &.divider{
                         width: 1px;
-                        height: 14px;
-                        position: absolute;
-                        top: 13px;
-                        right: -5px;
-                        background: white; //darken($darkenBlue, 5%);
-                    }
-
-                    &.last-one:after{   //兼容IE8
-                        content: none;
-                        background: red;    //很奇怪，只是设置上面一条还不能生效，还要随便加上诸如这条才行...
-                    }
-                    &:last-child:after{
-                        content: none;
+                        height: 16px;
+                        margin-top: 12px;
+                        background: white;
                     }
                 }
+                
             }
         }
     
         @at-root .fzg-login-reg{
             float: right;
-            width: 118px - 19px * 2;
+            width: 118px - 23px * 2;
             height: 40px;
             line-height: 40px;
-            padding: 0 19px;
+            padding: 0 23px;
             background: darken($darkenBlue, 5%);
 
             >div{
                 min-width: 30px;        //兼容IE
                 float: left;
-                position: relative;
-                margin: 0 5px;
                 cursor: pointer;
                 
-                a{
-                    color: white;
-                }
-
-                &:after{        //该属性IE6/7没办法轻松兼容，需要配合js
-                    content: '';
-                    display: block;
+                &.divider{
+                    min-width: 1px;
                     width: 1px;
-                    height: 14px;
-                    position: absolute;
-                    top: 13px;
-                    right: -5px;
+                    height: 16px;
+                    margin: 12px 5px 0;
                     background: white;
                 }
-
-                &.last-one:after{   //兼容IE8
-                    content: none;
-                    background: red;    //很奇怪，只是设置上面一条还不能生效，还要随便加上诸如这条才行...
-                }
-                
-                &:last-child:after{
-                    content: none;
+                a{
+                    color: white;
                 }
             }
         }
