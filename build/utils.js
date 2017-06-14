@@ -76,7 +76,7 @@ exports.resolve = function(dir) {
 }
 
 exports.getAllEntries = function() {
-    var entriesFolder = path.join(__dirname, '..', 'src/pages');
+    var entriesFolder = path.join(__dirname, '..', 'src/js');
     var dirs = fs.readdirSync(entriesFolder);
     var tmpArr = [];
     dirs.forEach((item) => {
