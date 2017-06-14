@@ -117,13 +117,107 @@
 
             @at-root .s-box{
                 height: 296px;
-                background: red;
+                color: $gray-3;
+                font-size: 15px;
                 display: none;
 
                 &.current{
                     display: block;
                 }
+
+                @at-root .sbox-hotel{
+                    height: 100px;
+                    margin: 20px 30px 0;
+
+                    @at-root .sbox-hotel-tab{
+                        overflow: hidden;
+
+                        .s-h-item{
+                            position: relative;
+                            border-bottom: 3px solid #aaa;
+                            float: left;
+                            padding: 0 15px 8px;
+                            cursor: pointer;
+                            *zoom: 1;
+
+                            i{
+                                display: none;
+                                position: absolute;
+                                left: 50%;
+                                margin-left: -6px;
+                                bottom: 0;
+                                width: 0;
+                                height: 0;
+                                overflow: hidden;
+                                line-height: 0;
+                                font-size: 0;
+                                vertical-align: middle;
+                                border-bottom: 6px solid #33A6FF;
+                                border-top: 0 none;
+                                border-left: 6px solid transparent;
+                                border-right: 6px solid transparent;
+                            }
+
+                            &.current{
+                                color: $baseBlue;
+                                border-bottom: 3px solid $baseBlue;
+
+                                i{
+                                    display: block;
+                                }
+                            }
+
+                            &:hover{
+                                color: $baseBlue;
+                            }
+
+                        }
+                        .s-h-holder{
+                            color: white;
+                            width: 210px;
+                            border-bottom: 3px solid #aaa;
+                            float: left;
+                            padding: 0 15px 8px;
+                            *zoom: 1;
+                        }
+                    }
+
+                    @at-root .sbox-hotel-item{
+                        margin-top: 16px;
+                        overflow: hidden;
+
+                        >div{
+                            float: left;
+                            *zoom: 1;
+                        }
+                        @at-root .s-h-i-title{
+                            width: 60px;
+                            height: 35px;
+                            line-height: 35px;
+                            color: $gray-6;
+                            text-align: right;
+                            margin-right: 10px;
+                        }
+
+                        @at-root .s-h-i-input{
+                            width: 350px;
+                            width: calc(100% - 70px);
+
+                            input{
+                                padding-left: 6px;
+                                height: 33px;
+                                width: 342px;
+                                line-height: 2.2\9;
+                                border-radius: 5px;
+                                border: 1px solid $gray-9;
+                            }
+                        }
+
+                    }
+
+                }
             }
+        
         }
     }
 }
