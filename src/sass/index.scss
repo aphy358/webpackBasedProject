@@ -32,5 +32,77 @@
         background: white;
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         z-index: 10;
+
+        @at-root .s-tab{
+            width: 110px;
+            height: 296px;
+            background: #F3F3F3;
+            overflow: hidden;
+
+            li{
+                background: #F3F3F3;
+                border-right: 1px solid #E2E2E2;
+                overflow: hidden;
+                *vertical-align: top;
+                
+                .sprites{
+                    @include sprites;
+                    margin-top: 1px;
+
+                    &.sp-jiudian{
+                        @include jiudian1;
+                    }
+                    &.sp-menpiao{
+                        @include menpiao1;
+                    }
+                    &.sp-shoujiban{
+                        @include shouji1;
+                    }
+                }
+
+                &.s-tab-item{
+                    font-size: 15px;
+                    color: $gray-3;
+                    padding: 20px;
+                    border-bottom: 1px solid #E2E2E2;
+                    cursor: pointer;
+
+                    &.current, &:hover{
+                        color: $baseBlue;
+                        background: white;
+                        border-right: none;
+
+                        .sp-jiudian{
+                            @include jiudian2;
+                        }
+                        .sp-menpiao{
+                            @include menpiao2;
+                        }
+                        .sp-shoujiban{
+                            @include shouji2;
+                        }
+                    }
+                }
+
+                >div{
+                    float: left;
+                    *zoom: 1;
+                }
+                
+                .s-tab-text{
+                    min-width: 45px;
+                    height: 19px;
+                }
+
+                .sprites{
+                    margin-right: 6px;
+                }
+
+                // 占位li，只为展示一个右边框
+                &.p-h{
+                    height: 120px;
+                }
+            }
+        }        
     }
 }
