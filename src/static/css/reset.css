@@ -54,4 +54,5 @@ button, input, select, textarea { font-size: 100%; } /* 使得表单元素在 ie
 table { border-collapse: collapse; border-spacing: 0; }
 
 body{ min-width: 1400px; }
+.hidden{ display: none; }
 .placeholder { color: #aaa; }
