@@ -109,6 +109,7 @@
             &.width-480{ width: 480px; }
             &.width-220{ width: 220px; }
             &.height-210{ height: 210px; }
+            &.height-300{ height: 300px; }
             &.height-440{ height: 440px; }
 
             @at-root .ad-one-wrap{
@@ -120,7 +121,7 @@
                 margin-right: 20px;
                 margin-bottom: 20px;
 
-                &.height-440{ height: 440px; }
+                &.height-140{ height: 140px; }
 
                 &:last-child{
                     margin-right: 0;

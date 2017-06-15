@@ -3,6 +3,7 @@ var search = require('./chunks/search.ejs');
 var hotSales = require('./chunks/hotSales.ejs');
 var hotelRecommands = require('./chunks/hotelRecommands.ejs');
 var ticket = require('./chunks/ticket.ejs');
+var promotion = require('./chunks/promotion.ejs');
 
 
 var staticConfig = require('../../static/staticConfig');
@@ -17,6 +18,7 @@ var params = {
     hotSales: hotSales({staticConfig}),                 //当季热销
     hotelRecommands: hotelRecommands({staticConfig}),   //国内酒店、国际酒店
     ticket: ticket({staticConfig}),                     //景点门票
+    promotion: promotion({staticConfig}),               //促销特卖
 }
 
 module.exports = layout.run(pageTitle, pageContent(params));
