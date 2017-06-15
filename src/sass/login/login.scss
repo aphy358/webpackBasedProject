@@ -8,8 +8,8 @@
     margin: 30px auto;
 
     @at-root .sprites{
-        @include  sprites2;  //注意这里的url有时候需要更改
-
+        @include  sprites;
+        
         &.fzg_logo{
             @include fzg_logo;
             float: left;

@@ -39,7 +39,7 @@
                 }
 
                 @at-root .sprites{
-                    @include sprites;
+                    background:url(../static/sprites/sprites.png) no-repeat;
 
                     &.erweima{
                         @include erweima;

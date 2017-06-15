@@ -33,7 +33,7 @@
                 *vertical-align: top;
                 
                 .sprites{
-                    @include sprites2;
+                    @include sprites;
                     margin-top: 1px;
 
                     &.sp-jiudian{

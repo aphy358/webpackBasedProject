@@ -1,9 +1,9 @@
-var banner = require('./content/banner.ejs');
-var search = require('./content/search.ejs');
+var banner = require('./chunks/banner.ejs');
+var search = require('./chunks/search.ejs');
 
 
 var staticConfig = require('../../static/staticConfig');
-var content = require('./content.ejs');
+var pageContent = require('./index.ejs');
 var layout = require('../../layout/layout');
 var pageTitle = '房掌柜 · 首页';
 
@@ -13,4 +13,4 @@ var params = {
     search: search(),
 }
 
-module.exports = layout.run(pageTitle, content(params));
+module.exports = layout.run(pageTitle, pageContent(params));

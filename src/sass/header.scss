@@ -8,7 +8,7 @@
     margin: 15px auto;
 
     @at-root .sprites{
-        @include sprites;
+        background:url(../static/sprites/sprites.png) no-repeat;
 
         &.fzg_logo{
             @include fzg_logo;
