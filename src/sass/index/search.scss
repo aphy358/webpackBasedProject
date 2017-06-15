@@ -110,15 +110,15 @@
                 }
 
                 @at-root .sbox-hotel{
-                    height: 100px;
                     margin: 20px 30px 0;
 
                     @at-root .sbox-hotel-tab{
+                        height: 32px;
                         overflow: hidden;
+                        position: relative;
 
                         .s-h-item{
                             position: relative;
-                            border-bottom: 2px solid #aaa;
                             float: left;
                             padding: 0 15px 8px;
                             cursor: pointer;
@@ -156,13 +156,14 @@
                             }
 
                         }
-                        .s-h-holder{
-                            color: white;
-                            width: 210px;
+                        .s-h-bline{
+                            width: 100%;
                             border-bottom: 2px solid #aaa;
-                            float: left;
-                            padding: 0 15px 8px;
-                            *zoom: 1;
+                            position: absolute;
+                            top: 30px;
+                            left: 0;
+                            height: 0;      //在IE7下，一个空div会有一个默认高度
+                            z-index: -1;
                         }
                     }
 
