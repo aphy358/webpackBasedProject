@@ -9,6 +9,16 @@
     left: 50%;
     margin-left: 100px;
 }
+.swiper-pagination-bullet{
+    width: 24px;
+    height: 4px;
+    border-radius: 0;
+    background: #002452;
+    opacity: 1;
+}
+.swiper-pagination-bullet-active{
+    background: white;
+}
     
 
 .banner-wrap{
