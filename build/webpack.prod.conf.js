@@ -27,7 +27,7 @@ var plugins = [
     // }),
     // extract css into its own file
     new ExtractTextPlugin({
-        filename: utils.assetsPath('pages/css/[name].[contenthash].css')
+        filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
@@ -74,7 +74,7 @@ Entries.forEach((page) => {
     // see https://github.com/ampedandwired/html-webpack-plugin
     var htmlPlugin = new HtmlWebpackPlugin({
         filename: process.env.NODE_ENV === 'testing' ?
-            'template.html' : utils.assetsPath('pages/html/' + page + '.html'),
+            'template.html' : utils.assetsPath('html/' + page + '.html'),
         template: utils.resolve('src/html/' + page + '/' + page + '.html.js'),
         inject: true,
         chunks: ['manifest', 'common', page],
@@ -102,8 +102,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     devtool: config.build.productionSourceMap ? '#source-map' : false,
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('pages/js/[name]/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsPath('pages/js/[name]/[name].[chunkhash].js')
+        filename: utils.assetsPath('js/[name]/[name].[chunkhash].js'),
+        chunkFilename: utils.assetsPath('async.js/[name]/[name].[chunkhash].js')
     },
     plugins: plugins
 })
