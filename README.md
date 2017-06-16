@@ -45,3 +45,13 @@ webpack 在线文档： https://doc.webpack-china.org/guides/
 
 
 
+webpack打包导致的 js 报错 cases：
+
+解决 default、catch 等关键字方法：
+1、cnpm install --save-dev es3ify-webpack-plugin
+2、在 module.exports.plugis 插入一条 new es3ifyPlugin()
+
+解决Promise 兼容方法：
+1、cnpm install --save-dev es6-promise
+2、在入口文件顶部全局引入  window.Promise = require('es6-promise');
+
