@@ -26,7 +26,6 @@ module.exports = {
     reset: require('!!file-loader?name=static/css/[name].[ext]!./css/reset.css'),
     fonts: require('!!file-loader?name=static/fonts/[name].[ext]!./fonts/iconfont.css'),
     swiper: require('!!file-loader?name=static/fonts/[name].[ext]!./css/swiper.min.css'),               //3.x版本
-    swiper2: require('!!file-loader?name=static/fonts/[name].[ext]!./css/idangerous.swiper.min.css'),   //2.x版本
   },
   js: {
     html5shiv: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/html5shiv.min.js'),
@@ -35,7 +34,6 @@ module.exports = {
     respond: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/respond.min.js'),
     jquery: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery.min.js'),
     swiper: require('!!file-loader?name=static/js/[name].[ext]!./js/swiper.jquery.min.js'),       //3.x版本
-    swiper2: require('!!file-loader?name=static/js/[name].[ext]!./js/idangerous.swiper.min.js'),  //2.x版本
   },
   img: merge(img, getTmpImgs()),
    

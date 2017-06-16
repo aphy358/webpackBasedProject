@@ -6,11 +6,11 @@ require('../../static/css/swiper.min.css');
 require('../../sass/index/index.scss');
 
 //异步加载 swiper 插件
-require.ensure(['idangerous.swiper.min'], function(){
+require.ensure(['swiper.jquery.min'], function(){
     
-    let Swiper = require('idangerous.swiper.min');
-
-    //IE8以下不兼容
+    require('swiper.jquery.min');
+    
+    //IE6/7/8不兼容，IE9/10下勉强能用，但表现不佳。后期如要改进，可能要重写该插件。
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
