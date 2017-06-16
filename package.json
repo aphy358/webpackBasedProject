@@ -42,6 +42,7 @@
     "cross-spawn": "^5.1.0",
     "css-loader": "^0.28.4",
     "ejs-loader": "^0.3.0",
+    "es3ify-webpack-plugin": "^0.0.1",
     "es6-promise": "^4.1.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",

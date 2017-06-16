@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var es3ifyPlugin = require('es3ify-webpack-plugin');
 
 var env = process.env.NODE_ENV === 'testing' ?
     require('../config/test.env') :
@@ -51,6 +52,7 @@ var plugins = [
         name: 'manifest',
         //chunks: ['manifest']
     }),
+    new es3ifyPlugin(),
     // copy custom static assets //***暂时没发现这么搬运文件的必要，先注释
     // new CopyWebpackPlugin([{
     //     from: path.resolve(__dirname, '../static'),

@@ -9,12 +9,14 @@ require('../../sass/index/index.scss');
 require.ensure(['swiper.jquery.min'], function(){
     
     require('swiper.jquery.min');
-
+    
+    //IE8以下不兼容
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
         autoplay: 5000,								//可选选项，自动滑动
         autoplayDisableOnInteraction: false,		//轮播区域滑动、点击底部控制条不中断轮播
     });
+
 
 }, 'swiper');

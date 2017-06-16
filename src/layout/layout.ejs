@@ -22,22 +22,6 @@
         <script src="<%= staticConfig.js.es5_shim %>"></script>
         <script src="<%= staticConfig.js.es5_sham %>"></script>
         <script src="<%= staticConfig.js.respond %>"></script>
-        <script>
-            (function() {
-            var testObject = {};
-            if (!(Object.setPrototypeOf || testObject.__proto__)) {
-                var nativeGetPrototypeOf = Object.getPrototypeOf;
-
-                Object.getPrototypeOf = function(object) {
-                    if (object.__proto__) {
-                        return object.__proto__;
-                    } else {
-                        return nativeGetPrototypeOf.call(Object, object);
-                    }
-                }
-            }
-            })();
-        </script>
     <![endif]-->
 
     <!--引入页面头部，导航栏-->
