@@ -6,6 +6,7 @@ var merge = require('webpack-merge');
 let img = {
             login_bg: require('!!file-loader?name=static/img/login/[name].[ext]!./img/login/login_bg.jpg'),
             sprites: require('!!file-loader?name=static/sprites/[name].[ext]!./sprites/sprites.png'),
+            favicon: require('!!file-loader?name=static/[name].[ext]!./favicon.ico'),
 
             //静态页酒店图片
             tmp_banner: require('!!file-loader?name=static/img/index/[name].[ext]!./img/index/tmp_banner.jpg'),
