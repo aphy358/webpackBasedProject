@@ -75,7 +75,7 @@ Entries.forEach((page) => {
     var htmlPlugin = new HtmlWebpackPlugin({
         filename: process.env.NODE_ENV === 'testing' ?
             'template.html' : utils.assetsPath('pages/html/' + page + '.html'),
-        template: utils.resolve('src/pages/' + page + '/' + page + '.html.js'),
+        template: utils.resolve('src/html/' + page + '/' + page + '.html.js'),
         inject: true,
         chunks: ['manifest', 'common', page],
         //injectItem: ['manifest', 'common', page], //***新添加一个option选项
