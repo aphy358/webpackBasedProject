@@ -3,11 +3,13 @@
 
 //覆盖图片轮播分页按钮的样式
 .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
-    width: 1180px - 700px;
-    margin: -30px auto 0;
-    padding-left: 700px;
-    position: relative;
+    width: 480px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: 100px;
 }
+    
 
 .banner-wrap{
     overflow: hidden;

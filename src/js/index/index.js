@@ -1,3 +1,4 @@
+window.Promise = require('es6-promise');    //全局变量Promise，兼容ie
 require('../../sass/header.scss');
 require('../../sass/footer.scss');
 require('../../static/fonts/iconfont.css');
