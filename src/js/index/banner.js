@@ -35,13 +35,14 @@ module.exports = {
         }
 
         if( paginationStr !== '' ){
-            $(".swiper-container").addClass('swiper-container-horizontal');
-            $(".swiper-pagination").append(paginationStr);
-            $($(".swiper-slide")[0]).addClass('swiper-slide-active');
-            $($(".swiper-pagination-bullet")[0]).addClass('swiper-pagination-bullet-active');
+            
+            //初始化并设置banner区域相关DOM的class
+            initBannerDom();
 
+            //开启定时器，进行banner图片的切换显示
             slideTimeOut();
 
+            //初始化banner分页条的鼠标移进移出事件
             initMouseEvent();
         }
         
@@ -49,6 +50,15 @@ module.exports = {
 
 }
 
+//初始化并设置banner区域相关DOM的class
+function initBannerDom(){
+    $(".swiper-container").addClass('swiper-container-horizontal');
+    $(".swiper-pagination").append(paginationStr);
+    $($(".swiper-slide")[0]).addClass('swiper-slide-active');
+    $($(".swiper-pagination-bullet")[0]).addClass('swiper-pagination-bullet-active');
+}
+
+//开启定时器，进行banner图片的切换显示
 function slideTimeOut(){
 
     timeOut = setTimeout(function(){
@@ -68,12 +78,13 @@ function slideTimeOut(){
     }, 1000);
 }
 
+//初始化banner分页条的鼠标移进移出事件
 function initMouseEvent(){
-    $(".swiper-slide").on('mouseover', function(){
+    $(".swiper-slide").on('mouseover mouseenter', function(){
         clearTimeout(timeOut);
     });
 
-    $(".swiper-slide").on('mouseout', function(){
-        slideTimeOut();
+    $(".swiper-slide").on('mouseout mouseleave', function(){
+        if( !timeOut )  slideTimeOut();
     });
 }
