@@ -1,7 +1,7 @@
 
 //首页 banner 区域相关 js
 
-var timeOut = null;
+let timeOut = null;
 
 module.exports = {
 
@@ -31,16 +31,16 @@ module.exports = {
             paginationStr = '';
 
         for(let i = 0; i < slideArr.length; i++){
-            paginationStr += '<span class="swiper-pagination-bullet"></span>';
+            paginationStr += '<span class="swiper-pagination-bullet" data-index="' + i + '"></span>';
         }
 
         if( paginationStr !== '' ){
-            
+
             //初始化并设置banner区域相关DOM的class
-            initBannerDom();
+            initBannerDom(paginationStr);
 
             //开启定时器，进行banner图片的切换显示
-            slideTimeOut();
+            if( slideArr.length > 1 ) slideTimeOut();
 
             //初始化banner分页条的鼠标移进移出事件
             initMouseEvent();
@@ -51,10 +51,16 @@ module.exports = {
 }
 
 //初始化并设置banner区域相关DOM的class
-function initBannerDom(){
+function initBannerDom(paginationStr){
+    
     $(".swiper-container").addClass('swiper-container-horizontal');
     $(".swiper-pagination").append(paginationStr);
-    $($(".swiper-slide")[0]).addClass('swiper-slide-active');
+
+    $(".swiper-slide").each(function(i, o){
+        i === 0 ? $(o).addClass('swiper-slide-active')
+                : $(o).addClass('hidden');
+    });
+
     $($(".swiper-pagination-bullet")[0]).addClass('swiper-pagination-bullet-active');
 }
 
@@ -64,9 +70,9 @@ function slideTimeOut(){
     timeOut = setTimeout(function(){
 
         var nextSlide = $(".swiper-slide-active").next('.swiper-slide');
-        $(".swiper-slide-active").removeClass('swiper-slide-active');
-        nextSlide.length > 0 ? nextSlide.addClass('swiper-slide-active')
-                             : $($(".swiper-slide")[0]).addClass('swiper-slide-active');
+        $(".swiper-slide-active").removeClass('swiper-slide-active').addClass('hidden');
+        nextSlide.length > 0 ? nextSlide.addClass('swiper-slide-active').removeClass('hidden')
+                             : $($(".swiper-slide")[0]).addClass('swiper-slide-active').removeClass('hidden');
 
         var nextBullet = $(".swiper-pagination-bullet-active").next('.swiper-pagination-bullet');
         $(".swiper-pagination-bullet-active").removeClass('swiper-pagination-bullet-active');
@@ -75,16 +81,22 @@ function slideTimeOut(){
 
         slideTimeOut();
 
-    }, 1000);
+    }, 5000);
 }
 
 //初始化banner分页条的鼠标移进移出事件
 function initMouseEvent(){
-    $(".swiper-slide").on('mouseover mouseenter', function(){
-        clearTimeout(timeOut);
-    });
+    $(".swiper-pagination-bullet").on('click', function(){
 
-    $(".swiper-slide").on('mouseout mouseleave', function(){
-        if( !timeOut )  slideTimeOut();
+        $(".swiper-pagination-bullet").removeClass('swiper-pagination-bullet-active');
+        $(this).addClass('swiper-pagination-bullet-active');
+
+        var index = $(this).attr('data-index');
+        var img = $('.swiper-slide')[index];
+        $('.swiper-slide').addClass('hidden');
+        $(img).removeClass('hidden');
+
+        clearTimeout(timeOut);
+        slideTimeOut();
     });
 }

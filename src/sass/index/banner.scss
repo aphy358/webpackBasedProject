@@ -11,10 +11,11 @@
 }
 .swiper-pagination-bullet{
     width: 24px;
-    height: 4px;
+    height: 6px;
     border-radius: 0;
     background: #002452;
-    opacity: 1;
+    opacity: .8;
+    filter: alpha(opacity=80);
 }
 .swiper-pagination-bullet-active{
     background: white;
@@ -26,5 +27,9 @@
 
     @at-root .swiper-container {
         height: 376px;
+    }
+
+    img{
+        cursor: context-menu;
     }
 }
