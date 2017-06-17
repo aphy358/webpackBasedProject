@@ -1,17 +1,16 @@
-var banner = require('./chunks/banner.ejs');
-var search = require('./chunks/search.ejs');
-var hotSales = require('./chunks/hotSales.ejs');
-var hotelRecommands = require('./chunks/hotelRecommands.ejs');
-var ticket = require('./chunks/ticket.ejs');
-var promotion = require('./chunks/promotion.ejs');
+const banner = require('./chunks/banner.ejs');
+const search = require('./chunks/search.ejs');
+const hotSales = require('./chunks/hotSales.ejs');
+const hotelRecommands = require('./chunks/hotelRecommands.ejs');
+const ticket = require('./chunks/ticket.ejs');
+const promotion = require('./chunks/promotion.ejs');
+const pageContent = require('./index.ejs');
 
+const staticConfig = require('../../static/staticConfig');
+const layout = require('../../layout/layout');
+const pageTitle = '房掌柜 · 首页';
 
-var staticConfig = require('../../static/staticConfig');
-var pageContent = require('./index.ejs');
-var layout = require('../../layout/layout');
-var pageTitle = '房掌柜 · 首页';
-
-var params = {
+const params = {
     staticConfig,
     banner: banner({staticConfig}),                     //banner（千万记得参数是一个对象）
     search: search(),                                   //搜索框
