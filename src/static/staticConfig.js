@@ -1,7 +1,7 @@
 
 //这个文件主要是各种文件的配置路径，注意文件的路径、文件的后缀千万要写正确，不然编译不通过，而且报错不明白，很痛苦
 
-var merge = require('webpack-merge');
+const merge = require('webpack-merge');
 
 let img = {
             login_bg: require('!!file-loader?name=static/img/login/[name].[ext]!./img/login/login_bg.jpg'),

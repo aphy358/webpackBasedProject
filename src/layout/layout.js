@@ -1,7 +1,7 @@
-var header = require('./header.ejs');
-var footer = require('./footer.ejs');
-var layout = require('./layout.ejs');
-var staticConfig = require('../static/staticConfig.js');
+const header = require('./header.ejs');
+const footer = require('./footer.ejs');
+const layout = require('./layout.ejs');
+const staticConfig = require('../static/staticConfig.js');
 
 module.exports = {
     /**
