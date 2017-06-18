@@ -15,7 +15,7 @@ module.exports = {
             require('swiper.jquery.min');
 
             //IE6/7/8不兼容，IE9/10下勉强能用，但表现不佳。其他浏览器没测...
-            var swiper = new Swiper('.swiper-container', {
+            let swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
                 paginationClickable: true,
                 autoplay: 5000,								//可选选项，自动滑动
@@ -27,7 +27,7 @@ module.exports = {
     //若果是IE浏览器，则另行处理，只为兼容...
     swiperOnIE: function(){
 
-        var slideArr = $(".swiper-slide"),
+        let slideArr = $(".swiper-slide"),
             paginationStr = '';
 
         for(let i = 0; i < slideArr.length; i++){
@@ -69,12 +69,12 @@ function slideTimeOut(){
 
     timeOut = setTimeout(function(){
 
-        var nextSlide = $(".swiper-slide-active").next('.swiper-slide');
+        let nextSlide = $(".swiper-slide-active").next('.swiper-slide');
         $(".swiper-slide-active").removeClass('swiper-slide-active').addClass('hidden');
         nextSlide.length > 0 ? nextSlide.addClass('swiper-slide-active').removeClass('hidden')
                              : $($(".swiper-slide")[0]).addClass('swiper-slide-active').removeClass('hidden');
 
-        var nextBullet = $(".swiper-pagination-bullet-active").next('.swiper-pagination-bullet');
+        let nextBullet = $(".swiper-pagination-bullet-active").next('.swiper-pagination-bullet');
         $(".swiper-pagination-bullet-active").removeClass('swiper-pagination-bullet-active');
         nextBullet.length > 0 ? nextBullet.addClass('swiper-pagination-bullet-active')
                               : $($(".swiper-pagination-bullet")[0]).addClass('swiper-pagination-bullet-active');
@@ -84,15 +84,15 @@ function slideTimeOut(){
     }, 5000);
 }
 
-//初始化banner分页条的鼠标移进移出事件
+//初始化banner分页条的鼠标点击事件
 function initMouseEvent(){
     $(".swiper-pagination-bullet").on('click', function(){
 
         $(".swiper-pagination-bullet").removeClass('swiper-pagination-bullet-active');
         $(this).addClass('swiper-pagination-bullet-active');
 
-        var index = $(this).attr('data-index');
-        var img = $('.swiper-slide')[index];
+        let index = $(this).attr('data-index');
+        let img = $('.swiper-slide')[index];
         $('.swiper-slide').addClass('hidden');
         $(img).removeClass('hidden');
 

@@ -19,7 +19,7 @@ banner.isIE() ? banner.swiperOnIE() : banner.loadSwiper();
 
 setTimeout(function(){
 
-    var data = {cities: ['深圳','珠海','香港','东莞','上海','北京']};
+    let data = {cities: ['深圳','珠海','香港','东莞','上海','北京']};
 
     $('#testT').html( hotelRecommandsT(data) );
 }, 10);
