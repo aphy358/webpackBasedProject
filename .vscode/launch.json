@@ -7,17 +7,6 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Electron Main",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-            "windows": {
-                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-            },
-            "program": "${workspaceRoot}/main.js",
-            "protocol": "legacy"
-        },
-        {
-            "type": "node",
-            "request": "launch",
             "name": "启动程序",
             "program": "${file}"
         }
