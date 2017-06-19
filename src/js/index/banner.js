@@ -10,9 +10,9 @@ module.exports = {
 
     //如果是非IE浏览器，则异步加载swiper.js，并初始化swiper
     loadSwiper: function(){
-        require.ensure(['swiper.jquery.min'], function(){
+        require.ensure(['swiper'], function(){
             
-            require('swiper.jquery.min');
+            require('swiper');
 
             //IE6/7/8不兼容，IE9/10下勉强能用，但表现不佳。其他浏览器没测...
             let swiper = new Swiper('.swiper-container', {
