@@ -27,9 +27,36 @@
 
     @at-root .swiper-container {
         height: 376px;
-    }
 
-    img{
-        cursor: context-menu;
+        img{
+            cursor: context-menu;
+            -webkit-transition: margin-left 400ms ease-out;
+            -moz-transition: margin-left 400ms ease-out;
+            -ms-transition: margin-left 400ms ease-out;
+            -o-transition: margin-left 400ms ease-out;
+            transition: margin-left 400ms ease-out;
+        }
+    }    
+}
+
+    
+@media screen and (max-width: 1400px){
+    .swiper-slide-active img{
+        margin-left: -100px;
+    }
+}
+@media screen and (max-width: 1450px){
+    .swiper-slide-active img{
+        margin-left: -75px;
+    }
+}
+@media screen and (max-width: 1500px){
+    .swiper-slide-active img{
+        margin-left: -50px;
+    }
+}
+@media screen and (max-width: 1550px){
+    .swiper-slide-active img{
+        margin-left: -25px;
     }
 }

@@ -49,4 +49,21 @@
             }
         }
     }
+
+    //底部工商标识区
+    @at-root .gongshang-outer{
+        padding-bottom: 20px;
+
+        @at-root .gongshang-inner{
+            color: $gray-9;
+            width: 315px;
+            margin: auto;
+
+            @at-root #ebsgovicon+a{
+                position: relative;
+                top: 7px;
+                margin-right: 5px;
+            }
+        }
+    }
 }
