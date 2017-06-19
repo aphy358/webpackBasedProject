@@ -76,12 +76,11 @@ exports.resolve = function(dir) {
 }
 
 exports.getAllEntries = function() {
-    var entriesFolder = path.join(__dirname, '..', 'src/js');
-    var dirs = fs.readdirSync(entriesFolder);
-    var tmpArr = [];
-    dirs.forEach((item) => {
-        if (typeof item === 'string') tmpArr.push(item.split('.')[0]);
+    let entriesFolder = path.join(__dirname, '..', 'src/js');
+    let dirs = fs.readdirSync(entriesFolder);
+   
+    return dirs.filter(function(o, i){
+        return o.indexOf('.') === -1;       //排除 .svn 文件夹，表示好坑...
     });
-    return tmpArr;
 }
 
