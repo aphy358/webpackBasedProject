@@ -1,13 +1,17 @@
 //该文件为首页搜索框样式
 
 //搜索框
+.search-outer{
+    width: 1180px;
+    margin: auto;
+    height: 1px;
+    margin-top: -1px;
+}
 .search-box{
     position: absolute;
     width: 590px;
     height: 296px;
     top: 152px;
-    left: 50%;
-    margin-left: -590px;
     background: white;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     z-index: 10;

@@ -19,6 +19,9 @@
 
             &:hover{
                 @include weixinban2;
+                &+.erweima-box{
+                    display: block;
+                }
             }
         }
         &.dianhua{
@@ -44,6 +47,39 @@
             @at-root .contact-icon{
                 width: 43px;
                 height: 43px;
+
+                @at-root .erweima-box{
+                    position: absolute;
+                    background: #e4e7eb;
+                    top: 65px;
+                    border-radius: 3px;
+                    z-index: 10;
+                    display: none;
+
+                    @at-root .erweima-box-top{
+                        background:url(../static/sprites/sprites.png) no-repeat;
+                        @include weixin_sanjiao;
+                        position: relative;
+                        top: -5px;
+                        margin-left: 16px;
+                    }
+
+                    @at-root .erweima-box-inner{
+                        border: 1px solid #b8b8b8;
+                        margin: 3px;
+                        margin-top: -6px;
+                        background: white;
+                        padding: 15px;
+                        padding-top: 20px;
+                        text-align: center;
+
+                        @at-root .erweima-box-erweima{
+                            background:url(../static/sprites/sprites.png) no-repeat;
+                            @include erweima110;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
             }
             @at-root .contact-text{
                 color: $wxRed;
