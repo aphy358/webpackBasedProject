@@ -1,5 +1,6 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
+var api_proxy = require('./api')			//所有被代理的接口
 
 module.exports = {
   build: {
@@ -27,9 +28,7 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: '',	//static
     assetsPublicPath: '/',
-    proxyTable: {
-    	'/user/indexHotSeasonData.do' : 'http://192.168.101.60:8083/user/indexHotSeasonData.do'
-    },
+    proxyTable: api_proxy,
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

@@ -24,6 +24,8 @@ setTimeout(function(){
     $('#testT').html( hotelRecommandsT(data) );
 }, 10);
 
-$.post('/indexHotSeasonData', function(){
+
+
+$.getJSON('/user/indexHotSeasonData.do', function(d){
 	debugger;
-});
+})
