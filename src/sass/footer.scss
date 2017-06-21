@@ -56,9 +56,13 @@
 
         @at-root .gongshang-inner{
             color: $gray-9;
-            width: 315px;
+            width: 316px;
             margin: auto;
-
+            
+            a{
+                color: $gray-9;
+            }
+            
             @at-root #ebsgovicon+a{
                 position: relative;
                 top: 7px;
