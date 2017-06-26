@@ -9,23 +9,22 @@ require('../../sass/index/index.scss');
 
 //引入模板文件
 const hotelRecommandsT = require('../../html/index/templates/hotelRecommands.T.ejs');
+const hotSalesT = require('../../html/index/templates/hotSales.T.ejs');
 
 //引入js文件
 const banner = require('./banner.js');
+
+//引入测试数据
+let hotSeasonData = require('./testData/hotSeasonData');
 
 //处理轮播初始化
 banner.isIE() ? banner.swiperOnIE() : banner.loadSwiper();
 
 
-setTimeout(function(){
-
-    let data = {cities: ['深圳','珠海','香港','东莞','上海','北京']};
-
-    $('#testT').html( hotelRecommandsT(data) );
-}, 10);
-
-
-
-$.getJSON('/user/indexHotSeasonData.do', function(d){
-	debugger;
-})
+//加载当季热销
+// $.getJSON('/user/indexHotSeasonData.do', function(data){
+    if( hotSeasonData.returnCode === 1 ){
+    debugger;
+        $("#hotSalesWrap").html( hotSalesT({hotSeasonData}) );
+    }
+// })
