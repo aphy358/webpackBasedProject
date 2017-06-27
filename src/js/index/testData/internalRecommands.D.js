@@ -1,3 +1,4 @@
+//国内酒店
 module.exports = 
 {
     "dataList":null,

@@ -38,6 +38,6 @@ function _initNationSwithClick(){
 		var arr = _this.parent().parent().find('.toggle-show');
 		arr.addClass('hidden');
 		arr.filter(function(i, o){ return $(o).attr('data-target') == target; })
-			 .removeClass('hidden');
+		   .removeClass('hidden');
 	});
 }
