@@ -15,7 +15,7 @@
     </div>
 
     <!--国内酒店-->
-    <div data-target="internal">
+    <div class="toggle-show" data-target="internal">
         <div class="ads-sub-title-wrap">
             <div class="ads-sub-title-item current">深圳</div>
             <div class="ads-sub-title-item">珠海</div>
@@ -25,63 +25,14 @@
             <div class="ads-sub-title-item">中山</div>
         </div>
 
-        <div class="ads-inner-wrap width-960 height-440">
-            <div class="ad-one-wrap">
-                <img src="<%= staticConfig.img.h6 %>" alt="">
-                <div class="ad-one-shadow"></div>
-                <div class="ad-one-text">香港愉景湾</div>
-            </div>
-            <div class="ad-one-wrap">
-                <img src="<%= staticConfig.img.h7 %>" alt="">
-                <div class="ad-one-shadow"></div>
-                <div class="ad-one-text">华新索菲特酒店</div>
-            </div>
-            <div class="ad-one-wrap">
-                <img src="<%= staticConfig.img.h8 %>" alt="">
-                <div class="ad-one-shadow"></div>
-                <div class="ad-one-text">广州白天鹅酒店</div>
-            </div>
-            <div class="ad-one-wrap">
-                <img src="<%= staticConfig.img.h9 %>" alt="">
-                <div class="ad-one-shadow"></div>
-                <div class="ad-one-text">澳门JW万豪酒店</div>
-            </div>
-            <div class="ad-one-wrap">
-                <img src="<%= staticConfig.img.h10 %>" alt="">
-                <div class="ad-one-shadow"></div>
-                <div class="ad-one-text">香港愉景湾</div>
-            </div>
-            <div class="ad-one-wrap">
-                <img src="<%= staticConfig.img.h11 %>" alt="">
-                <div class="ad-one-shadow"></div>
-                <div class="ad-one-text">广州白天鹅酒店</div>
-            </div>
-            <div class="ad-one-wrap">
-                <img src="<%= staticConfig.img.h14 %>" alt="">
-                <div class="ad-one-shadow"></div>
-                <div class="ad-one-text">澳门JW万豪酒店</div>
-            </div>
-            <div class="ad-one-wrap">
-                <img src="<%= staticConfig.img.h15 %>" alt="">
-                <div class="ad-one-shadow"></div>
-                <div class="ad-one-text">香港愉景湾</div>
-            </div>
-        
-        </div>
-
-        <div class="ads-inner-wrap width-220 height-440">
-            <div class="ad-one-wrap width-220 height-440">
-                <img src="<%= staticConfig.img.h12 %>" alt="">
-            </div>
-        </div>
-
+        <div id="internalRecommandsWrap"></div>
     </div>
 
     <!--国际酒店-->
-    <div data-target="external" class="hidden">
+    <div class="toggle-show hidden" data-target="external">
         
         <div class="ads-sub-title-wrap"></div>
 
-        <div class="ads-inner-wrap" ></div>
+        <div id="externalRecommandsWrap"></div>
     </div>
 </div>
