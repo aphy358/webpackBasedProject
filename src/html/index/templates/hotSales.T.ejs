@@ -1,11 +1,9 @@
 <!--当季热销模板-->
 <% for(var i = 0; i < 5; i++) {%>
     <% var o = hotSeasonData.data[i] %>
-    <div class="ad-one-wrap <%= (i % 5 == 4 ? 'no-mr' : '') %>">
-        <a href="javascript:void;" class="link" data-src="<%= o.adLink %>">
-            <img src="<%= o.adImg %>" class="too-width" alt="">
-            <div class="ad-one-shadow"></div>
-            <div class="ad-one-text"><%= o.adTitle %></div>
-        </a>
+    <div class="ad-one-wrap <%= (i % 5 == 4 ? 'no-mr' : '') %>" data-src="<%= o.adLink %>">
+        <img src="<%= o.adImg %>" class="too-width" alt="">
+        <div class="ad-one-shadow"></div>
+        <div class="ad-one-text"><%= o.adTitle %></div>
     </div>
 <% } %>
