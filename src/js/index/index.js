@@ -7,7 +7,7 @@ require('../../sass/footer.scss');
 require('../../static/css/swiper.min.css');
 require('../../sass/index/index.scss');
 
-//引入js文件，并执行入口函数
+//引入各模块 js 文件，并执行入口函数
 require('./modules/banner.js').run();
 require('./modules/search.js').run();
 
