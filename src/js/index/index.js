@@ -18,7 +18,8 @@ const banner = require('./banner.js');
 let hotSeasonData = require('./testData/hotSeasonData');
 
 //处理轮播初始化
-banner.isIE() ? banner.swiperOnIE() : banner.loadSwiper();
+banner.isIE() ? banner.swiperOnIE()
+              : banner.loadSwiper();
 
 
 //加载当季热销
