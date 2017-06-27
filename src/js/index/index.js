@@ -7,8 +7,9 @@ require('../../sass/footer.scss');
 require('../../static/css/swiper.min.css');
 require('../../sass/index/index.scss');
 
-//引入js文件
-const banner = require('./banner.js');
+//引入js文件，并执行入口函数
+require('./banner.js').run();
+require('./search.js').run();
 
 //引入模板文件
 const hotSalesT = require('../../html/index/templates/hotSales.T.ejs');
@@ -17,10 +18,6 @@ const internalRecommandsT = require('../../html/index/templates/internalRecomman
 //引入测试数据
 let hotSeasonD = require('./testData/hotSeason.D');
 let internalRecommandsD = require('./testData/internalRecommands.D');
-
-//处理轮播初始化
-banner.isIE() ? banner.swiperOnIE()
-              : banner.loadSwiper();
 
 
 //加载当季热销

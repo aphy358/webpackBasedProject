@@ -1,9 +1,9 @@
-const banner = require('./chunks/banner.ejs');
-const search = require('./chunks/search.ejs');
-const hotSales = require('./chunks/hotSales.ejs');
-const hotelRecommands = require('./chunks/hotelRecommands.ejs');
-const ticket = require('./chunks/ticket.ejs');
-const promotion = require('./chunks/promotion.ejs');
+const banner = require('./modules/banner.ejs');
+const search = require('./modules/search.ejs');
+const hotSales = require('./modules/hotSales.ejs');
+const hotelRecommands = require('./modules/hotelRecommands.ejs');
+const ticket = require('./modules/ticket.ejs');
+const promotion = require('./modules/promotion.ejs');
 const pageContent = require('./index.ejs');
 
 const staticConfig = require('../../static/staticConfig');

@@ -5,6 +5,12 @@ let timeOut = null;
 
 module.exports = {
 
+    //默认启动入口
+    run: function(){
+        this.isIE() ? this.swiperOnIE()
+                    : this.loadSwiper();
+    },
+
     //判断是否是IE浏览器
     isIE: function(){ return !!window.ActiveXObject || "ActiveXObject" in window; },
 
