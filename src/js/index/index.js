@@ -8,8 +8,8 @@ require('../../static/css/swiper.min.css');
 require('../../sass/index/index.scss');
 
 //引入js文件，并执行入口函数
-require('./banner.js').run();
-require('./search.js').run();
+require('./modules/banner.js').run();
+require('./modules/search.js').run();
 
 //引入模板文件
 const hotSalesT = require('../../html/index/templates/hotSales.T.ejs');
