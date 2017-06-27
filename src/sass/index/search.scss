@@ -250,6 +250,79 @@
                 }
 
             }
+
+            @at-root .sbox-wx{
+                height: 296px;
+                position: relative;
+
+                @at-root .sbox-erweima-wrap{
+                    position: relative;
+                    width: 150px;
+                    height: 150px;
+                    left: 150px;
+                    top: 50px;
+
+                    .border{
+                        position: absolute;
+                        width: 15px;
+                        height: 15px;
+                    }
+                    .b1{
+                        top: 0;
+                        left: 0;
+                        border-top: 2px solid #bbb;
+                        border-left: 2px solid #bbb;
+                    }
+                    .b2{
+                        top: 0;
+                        right: 0;
+                        border-top: 2px solid #bbb;
+                        border-right: 2px solid #bbb;
+                    }
+                    .b3{
+                        bottom: 0;
+                        left: 0;
+                        border-bottom: 2px solid #bbb;
+                        border-left: 2px solid #bbb;
+                    }
+                    .b4{
+                        bottom: 0;
+                        right: 0;
+                        border-bottom: 2px solid #bbb;
+                        border-right: 2px solid #bbb;
+                    }
+
+                    @at-root .sbox-erweima{
+                        @include sprites;
+                        @include erweima130;
+                        margin: auto;
+                        position: relative;
+                        top: 10px;
+                    }
+                }
+
+                @at-root .sbox-wx-text{
+                    color: #FF7A3D;
+                    font-size: 12px;
+                    position: absolute;
+                    left: 310px;
+                    top: 55px;
+                    letter-spacing: 1px;
+                    writing-mode: vertical-rl;
+                    width: 10px\9;
+                    line-height: 14px\9;
+                }
+
+                @at-root .sbox-wx-bg{
+                    @include sprites;
+                    @include shoujiban_bg;
+
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+
         }
     
     }

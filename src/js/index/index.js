@@ -25,7 +25,6 @@ banner.isIE() ? banner.swiperOnIE()
 //加载当季热销
 // $.getJSON('/user/indexHotSeasonData.do', function(data){
     if( hotSeasonData.returnCode === 1 ){
-    debugger;
         $("#hotSalesWrap").html( hotSalesT({hotSeasonData}) );
     }
 // })
