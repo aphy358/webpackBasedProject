@@ -8,7 +8,7 @@ module.exports = {
 }
 
 //引入模板文件
-const hotSalesT = require('../../../html/index/templates/hotSales.T.ejs');
+const hotSalesT = require('../templates/hotSales.T.ejs');
 
 //引入测试数据
 let hotSeasonD = require('../testData/hotSeason.D');

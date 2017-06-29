@@ -11,7 +11,7 @@ module.exports = {
 }
 
 //引入模板文件
-const internalRecommandsT = require('../../../html/index/templates/internalRecommands.T.ejs');
+const internalRecommandsT = require('../templates/internalRecommands.T.ejs');
 
 //引入测试数据
 let internalRecommandsD = require('../testData/internalRecommands.D');
