@@ -8,14 +8,6 @@
 @import "./search.scss";      //搜索框部分样式
 @import "./banner.scss";      //轮播区域样式
 
-.no-mr{ margin-right: 0!important; }
-.width-960{ width: 960px!important; }
-.width-480{ width: 480px!important; }
-.width-220{ width: 220px!important; }
-.height-210{ height: 210px!important; }
-.height-300{ height: 300px!important; }
-.height-440{ height: 440px!important; }
-.height-140{ height: 140px!important; }
 
 // 以下样式是主体广告的样式，包含 “当季热销”、“国内酒店”、“国际酒店”、“景点门票”、“促销特卖” 等...
 //由于各个广告区块样式几乎相同，所以不再细分scss文件，统一写到这里
@@ -246,3 +238,13 @@
 
     }
 }
+
+
+.no-mr{ margin-right: 0; }
+.width-960{ width: 960px; }
+.width-480{ width: 480px; }
+.width-220{ width: 220px; }
+.height-210{ height: 210px; }
+.height-300{ height: 300px; }
+.height-440{ height: 440px; }
+.height-140{ height: 140px; }
