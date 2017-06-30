@@ -12,8 +12,8 @@ module.exports = {
     run(pageTitle, content, no_Header_Footer) {
         const renderData = {
             pageTitle,
-            header: no_Header_Footer ? '' : header({staticConfig}),  //这里一定要传对象，而不能单纯的只传一个“staticConfig”
-            footer: no_Header_Footer ? '' : footer({staticConfig}),
+            header: !!no_Header_Footer ? '' : header({staticConfig}),  //这里一定要传对象，而不能单纯的只传一个“staticConfig”
+            footer: !!no_Header_Footer ? '' : footer({staticConfig}),
             content,
             staticConfig
         };
