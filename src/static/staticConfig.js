@@ -26,7 +26,7 @@ module.exports = {
   css: {
     reset: require('!!file-loader?name=static/css/[name].[ext]!./css/reset.css'),
     fonts: require('!!file-loader?name=static/fonts/[name].[ext]!./fonts/iconfont.css'),
-    swiper: require('!!file-loader?name=static/fonts/[name].[ext]!./css/swiper.min.css'),               //3.x版本
+    swiper: require('!!file-loader?name=static/css/[name].[ext]!./css/swiper.min.css'),               //3.x版本
   },
   js: {
     html5shiv: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/html5shiv.min.js'),

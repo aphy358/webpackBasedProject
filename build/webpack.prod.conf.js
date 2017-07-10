@@ -54,11 +54,11 @@ var plugins = [
     }),
     new es3ifyPlugin(),
     // copy custom static assets //***暂时没发现这么搬运文件的必要，先注释
-    // new CopyWebpackPlugin([{
-    //     from: path.resolve(__dirname, '../static'),
-    //     to: config.build.assetsSubDirectory,
-    //     ignore: ['.*']
-    // }]),
+    new CopyWebpackPlugin([{
+        from: path.resolve(__dirname, '../src/static'),
+        to: 'static',       //config.build.assetsSubDirectory
+        ignore: ['.*']
+    }]),
     // new webpack.ProvidePlugin({
     //     $: "jquery",
     //     jQuery: "jquery",
@@ -103,7 +103,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     output: {
         path: config.build.assetsRoot,
         filename: utils.assetsPath('js/[name]/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsPath('async.js/[name]/[name].[chunkhash].js')
+        chunkFilename: utils.assetsPath('js/async.js/[name]/[name].[chunkhash].js')
     },
     plugins: plugins
 })
