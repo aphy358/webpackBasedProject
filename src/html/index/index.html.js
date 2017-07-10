@@ -11,7 +11,6 @@ const layout = require('../../layout/layout');
 const pageTitle = '房掌柜 · 首页';
 
 const params = {
-    staticConfig,
     banner: banner({staticConfig}),                     //banner（千万记得参数是一个对象）
     search: search(),                                   //搜索框
     hotSales: hotSales({staticConfig}),                 //当季热销
