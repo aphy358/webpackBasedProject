@@ -4,28 +4,22 @@
 const merge = require('webpack-merge');
 
 let img = {
-            //login_bg: require('!!file-loader?name=static/img/login/[name].[ext]!./img/login/login_bg.jpg'),
-            login_bg: rPath('img/login/login_bg.jpg'),
-            sprites: rPath('sprites/sprites.png'),
-            favicon: rPath('favicon.ico'),
+            login_bg: require('!!file-loader?name=static/img/login/[name].[ext]!./img/login/login_bg.jpg'),
+            sprites: require('!!file-loader?name=static/sprites/[name].[ext]!./sprites/sprites.png'),
+            favicon: require('!!file-loader?name=static/[name].[ext]!./favicon.ico'),
 
             //静态页酒店图片
-            tmp_banner: rPath('img/index/tmp_banner.jpg'),
+            tmp_banner: require('!!file-loader?name=static/img/index/[name].[ext]!./img/index/tmp_banner.jpg'),
           };
 
 function getTmpImgs(){
   let imgObj = {};
 
   for(let i = 1; i < 25; i++){
-    imgObj['h' + i] = rPath('img/index/h' + i + '.jpg');
+    imgObj['h' + i] = require('!!file-loader?name=static/img/index/[name].[ext]!./img/index/h' + i + '.jpg');
   }
 
   return imgObj;
-}
-
-function rPath(path){
-  return process.env.NODE_ENV === 'production' ? '../static/' + path
-                                               : '../static/' + path;
 }
 
 module.exports = {
@@ -35,11 +29,11 @@ module.exports = {
     swiper: require('!!file-loader?name=static/css/[name].[ext]!./css/swiper.min.css'),               //3.x版本
   },
   js: {
-    html5shiv: rPath('ie-fix/html5shiv.min.js'),
-    es5_sham: rPath('ie-fix/es5-sham.min.js'),
-    es5_shim: rPath('ie-fix/es5-shim.min.js'),
-    respond: rPath('ie-fix/respond.min.js'),
-    jquery: rPath('js/jquery.min.js'),
+    html5shiv: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/html5shiv.min.js'),
+    es5_sham: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/es5-sham.min.js'),
+    es5_shim: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/es5-shim.min.js'),
+    respond: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/respond.min.js'),
+    jquery: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery.min.js'),
   },
   img: merge(img, getTmpImgs()),
    
