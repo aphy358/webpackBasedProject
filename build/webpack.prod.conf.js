@@ -53,7 +53,7 @@ var plugins = [
         //chunks: ['manifest']
     }),
     new es3ifyPlugin(),
-    // copy custom static assets //***暂时没发现这么搬运文件的必要，先注释
+    // copy custom static assets
     new CopyWebpackPlugin([{
         from: path.resolve(__dirname, '../src/static'),
         to: 'static',   //config.build.assetsSubDirectory,
