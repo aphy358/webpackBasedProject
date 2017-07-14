@@ -57,8 +57,8 @@ var plugins = [
     new CopyWebpackPlugin([{
         from: path.resolve(__dirname, '../src/static'),
         to: 'static',   //config.build.assetsSubDirectory,
-        ignore: ['.*'],
-        ignorefolder: ['']
+        ignore: ['*css*'],
+        ignorefolder: ['.svn']
     }]),
     // new webpack.ProvidePlugin({
     //     $: "jquery",
