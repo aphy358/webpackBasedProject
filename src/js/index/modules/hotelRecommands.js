@@ -34,8 +34,8 @@ function _initNationSwithClick(){
 		_this.parent().find('.ads-title-item').removeClass('current');
 		_this.addClass('current');
 		
-		var target = _this.attr('data-for');
-		var arr = _this.parent().parent().find('.toggle-show');
+        var target = _this.attr('data-for');
+		var arr = _this.closest('.ads-wrap').find('.toggle-show');
 		arr.addClass('hidden');
 		arr.filter(function(i, o){ return $(o).attr('data-target') == target; })
 		   .removeClass('hidden');

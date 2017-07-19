@@ -1,16 +1,16 @@
 <!--房掌柜首页，国内酒店模板-->
-<div class="ads-inner-wrap width-960 height-440">
+<ul class="ads-inner-wrap width-960 height-440">
     <% for(var i = 0; i < 8; i++) {%>
-    <div class="ad-one-wrap" data-src="<%= arr[i].adLink %>">
+    <li class="ad-one-wrap" data-src="<%= arr[i].adLink %>">
         <img src="<%= arr[i].adImg %>" class="too-width">
         <div class="ad-one-shadow"></div>
         <div class="ad-one-text"><%= arr[i].adTitle %></div>
-    </div>
+    </li>
     <% } %>
-</div>
+</ul>
 
-<div class="ads-inner-wrap width-220 height-440">
-    <div class="ad-one-wrap width-220 height-440" data-src="<%= arr[8].adLink %>">
+<ul class="ads-inner-wrap width-220 height-440">
+    <li class="ad-one-wrap width-220 height-440" data-src="<%= arr[8].adLink %>">
         <img src="<%= arr[8].adImg %>" class="too-width">
-    </div>
-</div>
+    </li>
+</ul>
