@@ -2,7 +2,9 @@
 //该文件为首页轮播区域样式
 
 //覆盖图片轮播分页按钮的样式
-.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+.swiper-container-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction{
     width: 480px;
     position: absolute;
     bottom: 20px;
