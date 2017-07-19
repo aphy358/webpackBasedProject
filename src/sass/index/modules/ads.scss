@@ -89,6 +89,7 @@
         }
 
         @at-root .ads-inner-wrap{
+            position: relative;
             margin-top: 14px;
             float: left;
             *zoom: 1;
@@ -232,7 +233,7 @@
 
 .no-mr{ margin-right: 0; }
 .width-960{ width: 960px; }
-.width-480{ width: 480px; }
+.width-460{ width: 460px; }
 .width-220{ width: 220px; }
 .height-210{ height: 210px; }
 .height-300{ height: 300px; }
