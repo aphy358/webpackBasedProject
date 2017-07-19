@@ -1,10 +1,8 @@
 <!--房掌柜首页，国内酒店模板-->
-<ul class="ads-inner-wrap hotel-recommands">
-    <% for(var i = 0; i < 9; i++) {%>
-    <li class="ad-one-wrap" data-src="<%= arr[i].adLink %>">
-        <img src="<%= arr[i].adImg %>" class="too-width">
-        <div class="ad-one-shadow"></div>
-        <div class="ad-one-text"><%= arr[i].adTitle %></div>
-    </li>
-    <% } %>
-</ul>
+<% for(var i = 0; i < 9; i++) {%>
+<li class="ad-one-wrap" data-src="<%= arr[i].adLink %>">
+    <img src="<%= arr[i].adImg %>" class="too-width">
+    <div class="ad-one-shadow"></div>
+    <div class="ad-one-text"><%= arr[i].adTitle %></div>
+</li>
+<% } %>
