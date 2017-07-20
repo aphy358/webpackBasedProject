@@ -3,9 +3,9 @@
     height: 440px;
 
     .ad-one-wrap{
-        &:last-child{
-            position: absolute;
-            right: 0;
+        &.last-child{
+            margin-top: -230px;
+            margin-right: 0;
             height: 440px;
 
             >div{
