@@ -14,8 +14,8 @@ function _isIE(){ return !!window.ActiveXObject || "ActiveXObject" in window; }
 
 //如果是非IE浏览器，则异步加载swiper.js，并初始化swiper
 function _loadSwiper(){
-    require.ensure(['swiper'], function(){
-        
+    require.ensure([], function(){
+
         require('swiper');
 
         //IE6/7/8不兼容，IE9/10下勉强能用，但表现不佳。其他浏览器没测...
