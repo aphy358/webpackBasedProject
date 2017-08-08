@@ -62,10 +62,10 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif)(\?.*)?$/,
                 loader: 'url-loader',
-                query: {
-                    limit: 10000,
-                    name: utils.assetsPath('static/img/[name].[hash:7].[ext]')
-                }
+                // query: { //暂时注释，对图片不做处理
+                //     limit: 10000,
+                //     name: utils.assetsPath('static/img/[name].[hash:7].[ext]')
+                // }
             },
             {
                 test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,

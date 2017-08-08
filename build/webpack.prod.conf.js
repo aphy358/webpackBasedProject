@@ -53,13 +53,13 @@ var plugins = [
         //chunks: ['manifest']
     }),
     new es3ifyPlugin(),
-    // copy custom static assets
-    new CopyWebpackPlugin([{
-        from: path.resolve(__dirname, '../src/static'),
-        to: 'static',   //config.build.assetsSubDirectory,
-        ignore: ['*css*'],
-        ignorefolder: ['.svn']
-    }]),
+    // copy custom static assets 暂时屏蔽，不做文件搬运
+    // new CopyWebpackPlugin([{
+    //     from: path.resolve(__dirname, '../src/static'),
+    //     to: 'static',   //config.build.assetsSubDirectory,
+    //     ignore: ['*css*'],
+    //     ignorefolder: ['.svn']
+    // }]),
     // new webpack.ProvidePlugin({
     //     $: "jquery",
     //     jQuery: "jquery",
