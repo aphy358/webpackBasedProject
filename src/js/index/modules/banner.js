@@ -15,13 +15,12 @@ module.exports = {
 let timeOut = null;
 
 //引入模板文件
-const bannerT           = require('../templates/banner.T.ejs');
-const staticConfig      = require('../../../static/staticConfig');
+const bannerT = require('../templates/banner.T.ejs');
 
 //加载 banner 区的所有图片
 function loadBannerImg(){
     //通过ajax请求获取 banner 区的图片
-    $("#bannerWrap").html( bannerT({staticConfig}) );
+    $("#bannerWrap").html( bannerT() );
 }
 
 

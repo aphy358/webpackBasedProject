@@ -23,7 +23,8 @@
     position: relative;
 
     .login-bg{
-        float: left;
+        display: block;
+        margin: auto;
     }
 
     @at-root .login-dialog{
@@ -32,7 +33,7 @@
         background: white;
         position: absolute;
         top: 45px;
-        left: 900px;
+        left: 65%;
         padding: 20px 30px;
 
         @at-root .login-title{
