@@ -2,6 +2,7 @@
 window.Promise = require('es6-promise');
 
 //引入样式文件
+require('../../static/css/reset.css');
 require('../../sass/header.scss');
 require('../../sass/footer.scss');
 require('../../static/css/swiper.min.css');
