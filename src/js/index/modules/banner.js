@@ -1,17 +1,4 @@
 
-//首页 banner 区域相关 js
-module.exports = {
-    run: function(){
-
-        //加载 banner 区的所有图片
-        loadBannerImg();
-
-        //给 banner 区的图片初始化动画效果
-        isIE() ? swiperOnIE()
-               : loadSwiper();
-    }
-}
-
 let timeOut = null;
 
 //引入模板文件
@@ -115,4 +102,17 @@ function initMouseEvent(){
         clearTimeout(timeOut);
         slideTimeOut();
     });
+}
+
+//首页 banner 区域相关 js
+module.exports = {
+    run: function(){
+
+        //加载 banner 区的所有图片
+        loadBannerImg();
+
+        //给 banner 区的图片初始化动画效果
+        isIE() ? swiperOnIE()
+               : loadSwiper();
+    }
 }
