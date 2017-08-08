@@ -3,7 +3,7 @@
 module.exports = {
     run: function(){
         //加载当季热销
-        _loadAds();
+        loadAds();
     }
 }
 
@@ -14,7 +14,7 @@ const hotSalesT = require('../templates/hotSales.T.ejs');
 let hotSeasonD = require('../testData/hotSeason.D');
 
 //加载当季热销
-function _loadAds(){
+function loadAds(){
     // $.getJSON('/user/indexHotSeasonData.do', function(data){
         if( hotSeasonD.returnCode === 1 ){
             $("#hotSalesWrap").html( hotSalesT({ arr : hotSeasonD.data }) );

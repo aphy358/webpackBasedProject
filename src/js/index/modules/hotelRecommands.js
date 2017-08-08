@@ -3,30 +3,30 @@
 module.exports = {
     run: function(){
         //加载国内酒店
-        _loadInternalAds();
+        loadInternalAds();
 
         //初始化 国内酒店、国际酒店 点击切换事件
-        _initNationSwithClick();
+        initNationSwithClick();
     }
 }
 
 //引入模板文件
-const internalRecommandsT = require('../templates/internalRecommands.T.ejs');
+const hotelRecommands = require('../templates/hotelRecommands.T.ejs');
 
 //引入测试数据
 let internalRecommandsD = require('../testData/internalRecommands.D');
 
 //加载国内酒店
-function _loadInternalAds(){
+function loadInternalAds(){
     // $.getJSON('/user/indexInternalhotelData.do', function(data){
         if( internalRecommandsD.returnCode === 1 ){
-            $("#internalRecommandsWrap").html( internalRecommandsT({ arr : internalRecommandsD.data.gnAds }) );
+            $("#hotelRecommands").html( hotelRecommands({ arr : internalRecommandsD.data.gnAds }) );
         }
     // })
 }
 
 //初始化 国内酒店、国际酒店 点击切换事件
-function _initNationSwithClick(){
+function initNationSwithClick(){
 	$(".ads-title-item").on('click', function(){
 		var _this = $(this);
 		if( _this.hasClass('current') )		return;

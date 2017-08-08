@@ -12,3 +12,5 @@ require('./modules/banner.js').run();
 require('./modules/search.js').run();
 require('./modules/hotSales.js').run();
 require('./modules/hotelRecommands.js').run();
+require('./modules/ticket.js').run();
+require('./modules/promotion.js').run();

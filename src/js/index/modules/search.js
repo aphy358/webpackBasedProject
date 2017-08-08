@@ -2,13 +2,25 @@
 //首页搜索栏 相关 js
 module.exports = {
     run: function(){
+
+		//填充搜索框的 html
+		fillSearchHtml()
+
         //初始化搜索框点击切换事件，酒店、门票、手机版
-        _initSearchTypeSwithClick();
+        initSearchTypeSwithClick();
     }
 }
 
+//引入模板文件
+const searchT = require('../templates/search.T.ejs');
+
+//填充搜索框的 html
+function fillSearchHtml(){
+	$("#searchWrap").html( searchT() );
+}
+
 //初始化搜索框点击切换事件，酒店、门票、手机版
-function _initSearchTypeSwithClick(){
+function initSearchTypeSwithClick(){
 	$("li.s-tab-item").on('click', function(){
 		var _this = $(this);
 		if( _this.hasClass('current') )		return;

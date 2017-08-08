@@ -2,18 +2,34 @@
 //首页 banner 区域相关 js
 module.exports = {
     run: function(){
-        _isIE() ? _swiperOnIE()
-                : _loadSwiper();
+
+        //加载 banner 区的所有图片
+        loadBannerImg();
+
+        //给 banner 区的图片初始化动画效果
+        isIE() ? swiperOnIE()
+               : loadSwiper();
     }
 }
 
 let timeOut = null;
 
+//引入模板文件
+const bannerT           = require('../templates/banner.T.ejs');
+const staticConfig      = require('../../../static/staticConfig');
+
+//加载 banner 区的所有图片
+function loadBannerImg(){
+    //通过ajax请求获取 banner 区的图片
+    $("#bannerWrap").html( bannerT({staticConfig}) );
+}
+
+
 //判断是否是IE浏览器
-function _isIE(){ return !!window.ActiveXObject || "ActiveXObject" in window; }
+function isIE(){ return !!window.ActiveXObject || "ActiveXObject" in window; }
 
 //如果是非IE浏览器，则异步加载swiper.js，并初始化swiper
-function _loadSwiper(){
+function loadSwiper(){
     require.ensure([], function(){
 
         require('swiper');
@@ -29,7 +45,7 @@ function _loadSwiper(){
 }
 
 //若果是IE浏览器，则另行处理，只为兼容...
-function _swiperOnIE(){
+function swiperOnIE(){
 
     let slideArr = $(".swiper-slide"),
         paginationStr = '';
@@ -41,18 +57,18 @@ function _swiperOnIE(){
     if( paginationStr !== '' ){
 
         //初始化并设置banner区域相关DOM的class
-        _initBannerDom(paginationStr);
+        initBannerDom(paginationStr);
 
         //开启定时器，进行banner图片的切换显示
-        if( slideArr.length > 1 ) _slideTimeOut();
+        if( slideArr.length > 1 ) slideTimeOut();
 
         //初始化banner分页条的鼠标移进移出事件
-        _initMouseEvent();
+        initMouseEvent();
     }
 }
 
 //初始化并设置banner区域相关DOM的class
-function _initBannerDom(paginationStr){
+function initBannerDom(paginationStr){
     
     $(".swiper-container").addClass('swiper-container-horizontal');
     $(".swiper-pagination").append(paginationStr);
@@ -66,7 +82,7 @@ function _initBannerDom(paginationStr){
 }
 
 //开启定时器，进行banner图片的切换显示
-function _slideTimeOut(){
+function slideTimeOut(){
 
     timeOut = setTimeout(function(){
 
@@ -80,13 +96,13 @@ function _slideTimeOut(){
         nextBullet.length > 0 ? nextBullet.addClass('swiper-pagination-bullet-active')
                               : $($(".swiper-pagination-bullet")[0]).addClass('swiper-pagination-bullet-active');
 
-        _slideTimeOut();
+        slideTimeOut();
 
     }, 5000);
 }
 
 //初始化banner分页条的鼠标点击事件
-function _initMouseEvent(){
+function initMouseEvent(){
     $(".swiper-pagination-bullet").on('click', function(){
 
         $(".swiper-pagination-bullet").removeClass('swiper-pagination-bullet-active');
@@ -98,6 +114,6 @@ function _initMouseEvent(){
         $(img).removeClass('hidden');
 
         clearTimeout(timeOut);
-        _slideTimeOut();
+        slideTimeOut();
     });
 }
