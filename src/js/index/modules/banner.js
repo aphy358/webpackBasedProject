@@ -4,12 +4,12 @@ let timeOut = null;
 //引入模板文件
 const bannerT = require('../templates/banner.T.ejs');
 
+
 //加载 banner 区的所有图片
 function loadBannerImg(){
     //通过ajax请求获取 banner 区的图片
     $("#bannerWrap").html( bannerT() );
 }
-
 
 //判断是否是IE浏览器
 function isIE(){ return !!window.ActiveXObject || "ActiveXObject" in window; }
