@@ -1,15 +1,4 @@
 
-//首页 国内酒店、国外酒店 相关 js
-module.exports = {
-    run: function(){
-        //加载国内酒店
-        loadInternalAds();
-
-        //初始化 国内酒店、国际酒店 点击切换事件
-        initNationSwithClick();
-    }
-}
-
 //引入模板文件
 const hotelRecommands = require('../templates/hotelRecommands.T.ejs');
 
@@ -40,4 +29,15 @@ function initNationSwithClick(){
 		arr.filter(function(i, o){ return $(o).attr('data-target') == target; })
 		   .removeClass('hidden');
 	});
+}
+
+//首页 国内酒店、国外酒店 相关 js
+module.exports = {
+    run: function(){
+        //加载国内酒店
+        loadInternalAds();
+
+        //初始化 国内酒店、国际酒店 点击切换事件
+        initNationSwithClick();
+    }
 }

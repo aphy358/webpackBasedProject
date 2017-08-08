@@ -1,12 +1,4 @@
 
-//首页 当季热销 相关 js
-module.exports = {
-    run: function(){
-        //加载当季热销
-        loadAds();
-    }
-}
-
 //引入模板文件
 const hotSalesT = require('../templates/hotSales.T.ejs');
 
@@ -20,4 +12,12 @@ function loadAds(){
             $("#hotSalesWrap").html( hotSalesT({ arr : hotSeasonD.data }) );
         }
     // })
+}
+
+//首页 当季热销 相关 js
+module.exports = {
+    run: function(){
+        //加载当季热销
+        loadAds();
+    }
 }
