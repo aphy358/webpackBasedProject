@@ -82,5 +82,5 @@ exports.getAllEntries = function() {
     return dirs.filter(function(o, i){
         return o.indexOf('.') === -1;       //排除 .svn 文件夹，表示好坑...
     });
-}
+}()
 
