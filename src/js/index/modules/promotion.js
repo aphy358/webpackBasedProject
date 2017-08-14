@@ -1,11 +1,10 @@
 
 //引入模板文件
-const promotionT        = require('../templates/promotion.T.ejs');
-const staticConfig      = require('../../../static/staticConfig');
+const promotionT = require('../templates/promotion.T.ejs');
 
 //初始化促销特卖
 function initPromotion(){
-    $("#promotion").html( promotionT({staticConfig}) );
+    $("#promotion").html( promotionT() );
 }
 
 
