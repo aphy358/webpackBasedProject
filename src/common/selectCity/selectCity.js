@@ -87,11 +87,9 @@ function setSelectCity(_this){
 
     var cityInput = $('.aim-city');
 
-    // cityInput.attr('data-citytype', _this.attr('data-citytype'))
-    //          .attr('data-cityid', _this.attr('data-cityid'))
-    //          .val( _this.html() );
-
-    cityInput.val( _this.html() );
+    cityInput.attr('data-citytype', _this.attr('data-citytype'))
+             .attr('data-cityid', _this.attr('data-cityid'))
+             .val( _this.html() );
 }
 
 //初始化城市选择面板上的相关事件
