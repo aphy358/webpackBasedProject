@@ -3832,25 +3832,59 @@ var citys =
   ]
 
 
-function process(arr){
-    var arr1 = [],          //存放所有国内的城市
-        arr2 = [];          //存放所有国外的城市
+module.exports = citys;
 
-    for(var i = 0; i < arr.length; i++){
+
+//先将所有城市按国内（arr1）、国外（arr2）分组到两个数组，并且按照字母顺序排列好
+var arr1 = [],
+    arr2 = [],
+    letterArr = ['ABCD', 'EFGHI', 'JKLM', 'NOPQRS', 'TUVWX', 'YZ'];
+
+//按照字母 A、B、C、D... 分组，然后分别 push 到国内、国外两个数组内
+function groupByLetter(arr) {
+    for (var i = 0; i < arr.length; i++) {
 
         var o = arr[i];
+        var index = o.w.toUpperCase();
 
-        if( +o.t === 0 ){        //国内    
-            if( !arr1[o.w] )    arr1[o.w] = [];
-            arr1[o.w].push({ n : o.n, i : o.i });
-        }
-        else if( +o.t === 1 ){   //国外
-            if( !arr2[o.w] )    arr2[o.w] = [];
-            arr2[o.w].push({ n : o.n, i : o.i });
+        if (+o.t === 0) { // 国内
+            !arr1[index] ? arr1[index] = [o] : arr1[index].push(o);
+        } else if (+o.t === 1) { // 国外
+            !arr2[index] ? arr2[index] = [o] : arr2[index].push(o);
         }
     }
-    
-    arr1.concat(arr2);
 }
 
-process(citys);
+//按照给定的字母序列分组，如 'ABCD', 'EFGHI', 'JKLM', 'NOPQRS', 'TUVWX', 'YZ'
+function groupByArr(arr, inputArr) {
+
+    var tmpArr = {};
+
+    for (var i = 0; i < inputArr.length; i++) {
+
+        var iStr = inputArr[i]; // 'ABCDE'
+        var cArr = iStr.toUpperCase().split(''); // 'ABCDE'  =>  ['A', 'B', 'C', 'D', 'E']
+
+        for (var j = 0; j < cArr.length; j++) {
+
+            for (key in arr) {
+                if (key === cArr[j]) {
+                    var obj = {
+                        w: key,
+                        item: arr[key]
+                    };
+                    !tmpArr[iStr] ? tmpArr[iStr] = [obj] : tmpArr[iStr].push(obj);
+                }
+            }
+        }
+    }
+
+    return tmpArr;
+}
+
+
+groupByLetter(citys);
+
+arr1 = groupByArr(arr1, letterArr)
+
+var tmp;

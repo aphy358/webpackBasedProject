@@ -13,3 +13,6 @@
 @import "./modules/ticket.scss";            //“景点门票” 样式
 @import "./modules/promotion.scss";         //“促销特卖” 样式
 @import "./modules/top-sales.scss";         //“本月热销” 样式
+
+//引入城市选择框样式
+@import "../../common/selectCity/selectCity.scss";

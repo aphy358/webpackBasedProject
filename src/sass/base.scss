@@ -1,6 +1,9 @@
 
 $baseBlue: #33A6FF;                     //页面基础蓝色，比如一些蓝色按钮、导航栏的蓝色等。
 $darkenBlue: darken($baseBlue, 10%);      //深蓝，一般用于蓝色按钮悬浮时的颜色加深处理。
+$baseGreen: #008b8b;                    //基础绿，比如城市选择面板的title
+$lightenGreen: lighten($baseGreen, 10%);  //淡绿，比如城市选择面板的 title 的 active 颜色
+$darkenGreen: darken($baseGreen, 10%);    //深绿，比如城市选择面板的 title 的 active 颜色
 $wxRed: #ff6c67;                        //顶部“微信版”图标底色
 $gray-3: #333;
 $gray-6: #666;
