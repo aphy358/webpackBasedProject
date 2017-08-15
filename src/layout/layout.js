@@ -9,11 +9,11 @@ module.exports = {
      * content：           页面主体内容
      * no_Header_Footer：  指示页面有无Header和Footer，默认有，如果传了为true的参数，则无
      */
-    run(pageTitle, content, no_Header_Footer) {
+    run(pageTitle, content, options) {
         const renderData = {
             pageTitle,
-            header: !!no_Header_Footer ? '' : header({staticConfig}),  //这里一定要传对象，而不能单纯的只传一个“staticConfig”
-            footer: !!no_Header_Footer ? '' : footer({staticConfig}),
+            header: options && options.no_head ? '' : header({staticConfig}),  //这里一定要传对象，而不能单纯的只传一个“staticConfig”
+            footer: options && options.no_foot ? '' : footer({staticConfig}),
             content,
             staticConfig
         };
