@@ -35,29 +35,12 @@
     <div class="fzg-nav-inner">
         <div class="fzg-nav-wrap">
             <ul class="fzg-nav-ul">
-                <li class="current">
-					<a class="" data-src=""><span class="nav-span">首页</span></a>
+                <% for(var i = 0; i < bannerItems.length; i++){ var item = bannerItems[i] %>
+                <li class="<%= i === 0 ? 'current' : '' %>">
+					<a class="banner-link" href="<%= item.href %>"><span class="nav-span"><%= item.content %></span></a>
 				</li>
-                <li class="divider "></li>
-                <li>
-					<a class="" data-src=""><span class="nav-span">国内酒店</span></a>
-				</li>
-                <li class="divider "></li>
-                <li>
-					<a class="" data-src=""><span class="nav-span">国际酒店</span></a>
-				</li>
-                <li class="divider "></li>
-                <li class="">
-					<a class="" data-src=""><span class="nav-span">门票</span></a>
-				</li>
-                <li class="divider "></li>
-                <li>
-					<a class="" data-src=""><span class="nav-span">酒店集团</span></a>
-				</li>
-                <li class="divider "></li>
-                <li>
-					<a class="" data-src=""><span class="nav-span">节日促销</span></a>
-				</li>
+                <li class="divider <%= (i >= bannerItems.length - 1) ? 'hidden' : '' %>"></li>
+                <% } %>
             </ul>
         </div>
         

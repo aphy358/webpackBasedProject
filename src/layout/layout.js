@@ -3,6 +3,17 @@ const footer = require('./footer.ejs');
 const layout = require('./layout.ejs');
 const staticConfig = require('../static/staticConfig.js');
 
+let bannerItems = 
+    [
+        { href : '#', content : '首页' },
+        { href : '#', content : '国内酒店' },
+        { href : '#', content : '国际酒店' },
+        { href : '#', content : '门票' },
+        { href : '#', content : '酒店集团' },
+        { href : '#', content : '节日促销' },
+    ];
+    
+
 module.exports = {
     /**
      * pageTitle：         页面标题
@@ -12,8 +23,8 @@ module.exports = {
     run(pageTitle, content, options) {
         const renderData = {
             pageTitle,
-            header: options && options.no_head ? '' : header({staticConfig}),  //这里一定要传对象，而不能单纯的只传一个“staticConfig”
-            footer: options && options.no_foot ? '' : footer({staticConfig}),
+            header: options && options.no_head ? '' : header({bannerItems : bannerItems}),  //这里一定要传对象，而不能单纯的只传一个“staticConfig”
+            footer: options && options.no_foot ? '' : footer(),
             content,
             staticConfig
         };

@@ -10,7 +10,7 @@
 		display: none;
 		position: absolute;
 		z-index: 10;
-		background-color: #fff;
+		background-color: $white;
 
 		@at-root .select-city-top{
 			width: 100%;
@@ -32,7 +32,7 @@
 			height: 30px;
 			line-height: 30px;
 			color: $baseGreen;
-			border-bottom: 2px solid bisque;
+			border-bottom: 2px solid $citySelectTitleBorder;
 
 			.s-city-title{
 				float: left;
@@ -62,7 +62,7 @@
 
 						&:hover{
 							background-color: $baseGreen;
-							color: white;
+							color: $white;
 						}
 					}
 				}
@@ -100,7 +100,7 @@
 
 						&:hover{
 							background-color: $baseGreen;
-							color: white;
+							color: $white;
 						}
 					}
 				}

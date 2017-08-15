@@ -50,7 +50,7 @@
 
                 @at-root .erweima-box{
                     position: absolute;
-                    background: #e4e7eb;
+                    background: $erweimaBoxBg;
                     top: 65px;
                     border-radius: 3px;
                     z-index: 10;
@@ -65,10 +65,10 @@
                     }
 
                     @at-root .erweima-box-inner{
-                        border: 1px solid #b8b8b8;
+                        border: 1px solid $erweimaBoxInner;
                         margin: 3px;
                         margin-top: -6px;
-                        background: white;
+                        background: $white;
                         padding: 15px;
                         padding-top: 20px;
                         text-align: center;
@@ -116,7 +116,6 @@
 
                 li{
                     float: left;
-                    color: white;                    
                     background: $baseBlue;
                     padding: 0 5px;
                     margin: 0 2px;
@@ -131,6 +130,7 @@
                     }
 
                     a{
+                        color: $white;
                         text-decoration: none;
                         cursor: pointer;
                     }
@@ -139,7 +139,7 @@
                         width: 1px;
                         height: 16px;
                         margin-top: 12px;
-                        background: white;
+                        background: $white;
                     }
                 }
                 
@@ -164,10 +164,10 @@
                     width: 1px;
                     height: 16px;
                     margin: 12px 5px 0;
-                    background: white;
+                    background: $white;
                 }
                 a{
-                    color: white;
+                    color: $white;
                 }
             }
         }

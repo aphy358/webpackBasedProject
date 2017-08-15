@@ -30,7 +30,7 @@
     @at-root .login-dialog{
         width: 340px - 60px;
         height: 316px - 40px;
-        background: white;
+        background: $white;
         position: absolute;
         top: 45px;
         left: 65%;
@@ -59,7 +59,7 @@
             height: 50px;
             line-height: 50px;
             position: relative;
-            border-bottom: 1px solid #eceef4;
+            border-bottom: 1px solid $loginRowBorder;
             box-sizing: border-box;
             overflow: hidden;
 
@@ -134,7 +134,7 @@
             line-height: 40px;
             background: $baseBlue;
             border-radius: 5px;
-            color: white;
+            color: $white;
             text-align: center;
             font-size: 16px;
             letter-spacing: 10px;
