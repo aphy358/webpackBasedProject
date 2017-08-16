@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="b0de78ac-317d-4ec0-82bc-b5bd69b5c206" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/selectCity/selectCity.js" afterPath="$PROJECT_DIR$/common/selectCity/selectCity.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/index/modules/search.js" afterPath="$PROJECT_DIR$/js/index/modules/search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/index/templates/search.T.ejs" afterPath="$PROJECT_DIR$/js/index/templates/search.T.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/index/index.scss" afterPath="$PROJECT_DIR$/sass/index/index.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,35 +18,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="selectCity.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/selectCity/selectCity.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="selectCity.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common/selectCity/selectCity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
-              <folding>
-                <element signature="n#!!block;n#process1#0;n#!!block;n#searchCity#0" expanded="false" />
-                <element signature="n#!!block;n#process2#0;n#!!block;n#searchCity#0" expanded="false" />
-                <element signature="e#1338#1377#0" expanded="false" />
-                <element signature="e#2079#2166#0" expanded="false" />
-                <element signature="e#2673#2712#0" expanded="false" />
-                <element signature="e#2772#2829#0" expanded="false" />
-                <element signature="e#2874#2904#0" expanded="false" />
-                <element signature="n#!!block;n#add#0" expanded="false" />
-                <element signature="n#!!block;n#defaultCitys#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="480">
+              <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,14 +127,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/chooseCity/demo.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dist" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="JavaScriptPreferStrict" value="false" />
@@ -219,11 +197,12 @@
       <workItem from="1502445806621" duration="2430000" />
       <workItem from="1502672511562" duration="889000" />
       <workItem from="1502673420232" duration="2052000" />
+      <workItem from="1502702031815" duration="45000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22454000" />
+    <option name="totallyTimeSpent" value="22499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -260,12 +239,25 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/common/selectCity/selectCity.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/selectCity/selectCity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/selectCity/selectCity.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -273,9 +265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="3835" column="5" lean-forward="false" selection-start-line="3835" selection-start-column="5" selection-end-line="3835" selection-end-column="5" />
-          <folding>
-            <element signature="e#28#61108#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -283,17 +272,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1890">
           <caret line="105" column="39" lean-forward="false" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!block;n#process1#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="n#!!block;n#process2#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="e#1338#1377#0" expanded="false" />
-            <element signature="e#2079#2166#0" expanded="false" />
-            <element signature="e#2673#2712#0" expanded="false" />
-            <element signature="e#2772#2829#0" expanded="false" />
-            <element signature="e#2874#2904#0" expanded="false" />
-            <element signature="n#!!block;n#add#0" expanded="false" />
-            <element signature="n#!!block;n#defaultCitys#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -301,10 +280,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -312,9 +288,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="3835" column="5" lean-forward="false" selection-start-line="3835" selection-start-column="5" selection-end-line="3835" selection-end-column="5" />
-          <folding>
-            <element signature="e#28#61108#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -322,17 +295,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#process1#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="n#!!block;n#process2#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="e#1338#1377#0" expanded="false" />
-            <element signature="e#2079#2166#0" expanded="false" />
-            <element signature="e#2673#2712#0" expanded="false" />
-            <element signature="e#2772#2829#0" expanded="false" />
-            <element signature="e#2874#2904#0" expanded="false" />
-            <element signature="n#!!block;n#add#0" expanded="false" />
-            <element signature="n#!!block;n#defaultCitys#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -340,10 +303,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -351,17 +311,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="103" column="24" lean-forward="true" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!block;n#process1#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="n#!!block;n#process2#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="e#1338#1377#0" expanded="false" />
-            <element signature="e#2079#2166#0" expanded="false" />
-            <element signature="e#2673#2712#0" expanded="false" />
-            <element signature="e#2772#2829#0" expanded="false" />
-            <element signature="e#2874#2904#0" expanded="false" />
-            <element signature="n#!!block;n#add#0" expanded="false" />
-            <element signature="n#!!block;n#defaultCitys#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -369,10 +319,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="29" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -380,9 +327,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115050">
           <caret line="3835" column="3" lean-forward="true" selection-start-line="3835" selection-start-column="3" selection-end-line="3835" selection-end-column="3" />
-          <folding>
-            <element signature="e#28#61108#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -397,17 +341,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2610">
           <caret line="87" column="8" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!block;n#process1#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="n#!!block;n#process2#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="e#1338#1377#0" expanded="false" />
-            <element signature="e#2079#2166#0" expanded="false" />
-            <element signature="e#2673#2712#0" expanded="false" />
-            <element signature="e#2772#2829#0" expanded="false" />
-            <element signature="e#2874#2904#0" expanded="false" />
-            <element signature="n#!!block;n#add#0" expanded="false" />
-            <element signature="n#!!block;n#defaultCitys#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -526,12 +460,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/selectCity/selectCity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="180">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -539,27 +470,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="3835" column="5" lean-forward="false" selection-start-line="3835" selection-start-column="5" selection-end-line="3835" selection-end-column="5" />
-          <folding>
-            <element signature="e#28#61108#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/selectCity/selectCity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!block;n#process1#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="n#!!block;n#process2#0;n#!!block;n#searchCity#0" expanded="false" />
-            <element signature="e#1338#1377#0" expanded="false" />
-            <element signature="e#2079#2166#0" expanded="false" />
-            <element signature="e#2673#2712#0" expanded="false" />
-            <element signature="e#2772#2829#0" expanded="false" />
-            <element signature="e#2874#2904#0" expanded="false" />
-            <element signature="n#!!block;n#add#0" expanded="false" />
-            <element signature="n#!!block;n#defaultCitys#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="480">
+          <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>

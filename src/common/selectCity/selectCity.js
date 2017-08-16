@@ -119,6 +119,7 @@ function initCitySelectEvents(){
     //点击展示框以外的区域时隐藏展示框
     $(document).click(function(e) {
         hideCitySelect();
+        return false;
     });
 
     $('.s-h-i-input').click(function(e) {

@@ -5,6 +5,8 @@ const searchT = require('../templates/search.T.ejs');
 //引入城市选择框模块
 const selectCity = require('../../../common/selectCity/selectCity.js');
 
+//引入日期控件模块
+const selectDate=require('../../../common/selectDate/selectDate.js');
 
 //填充搜索框的 html
 function fillSearchHtml() {
@@ -31,14 +33,16 @@ function initSearchTypeSwithClick() {
 
     //国内酒店和国外酒店点击切换事件
     $('.s-h-item').on('click', function() {
-        $(this).addClass('current').
-        siblings().removeClass('current');
+        //先清空输入框中的内容
+        $('.aim-city').val("");
+        //切换样式
+        $(this).addClass('current')
+            .siblings().removeClass('current');
 
         //判断用户点击的是国内酒店还是国外酒店
         var isAbroad = $(this).text();
-        console.log(isAbroad);
+        // console.log(isAbroad);
         if (isAbroad == '国内酒店') {
-
             //加载国内酒店模块
             selectCity.run(false);
         } else {
@@ -61,6 +65,9 @@ module.exports = {
 
         //默认加载国内酒店模块
         selectCity.run(false);
+
+        //加载日期控件
+        selectDate.run();
 
     }
 };
