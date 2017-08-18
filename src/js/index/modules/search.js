@@ -6,7 +6,7 @@ const searchT = require('../templates/search.T.ejs');
 const selectCity = require('../../../common/selectCity/selectCity.js');
 
 //引入日期控件模块
-const selectDate=require('../../../common/selectDate/selectDate.js');
+//const selectDate=require('../../../common/selectDate/selectDate.js');
 
 //填充搜索框的 html
 function fillSearchHtml() {
@@ -67,7 +67,7 @@ module.exports = {
         selectCity.run(false);
 
         //加载日期控件
-        selectDate.run();
+        //selectDate.run();
 
     }
 };
