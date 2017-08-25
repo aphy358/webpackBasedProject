@@ -34,7 +34,9 @@ module.exports = {
     es5_shim: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/es5-shim.min.js'),
     respond: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/respond.min.js'),
     jquery: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery.min.js'),
+    tooltip: require('!!file-loader?name=static/js/[name].[ext]!./js/tooltip_m.js'),
+    validate: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery.validate.js')
   },
   img: merge(img, getTmpImgs()),
-   
+  
 };

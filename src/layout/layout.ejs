@@ -10,7 +10,7 @@
     <link rel="bookmark" href="<%= staticConfig.img.favicon %>" type="image/x-icon"　/>
 
     <title><%= pageTitle %></title>
-    
+
     <!--[if lt IE 10]>
         <script src="<%= staticConfig.js.html5shiv %>"></script>
     <![endif]-->
@@ -21,7 +21,6 @@
     <!--[if lt IE 9]>
         <script src="<%= staticConfig.js.es5_shim %>"></script>
         <script src="<%= staticConfig.js.es5_sham %>"></script>
-        <script src="<%= staticConfig.js.respond %>"></script>
     <![endif]-->
 
     <!--引入页面头部，导航栏-->
@@ -36,6 +35,8 @@
     <%= footer %>
 
     <script src="<%= staticConfig.js.jquery %>"></script>
+    <script src="<%= staticConfig.js.tooltip %>"></script>
+    <script src="<%= staticConfig.js.validate %>"></script>
 
     <!--[if lt IE 10]>
         <script src="https://cdn.bootcss.com/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
@@ -45,18 +46,21 @@
             })
         </script>
     <![endif]-->
-    
+
     <!--百度统计代码-->
     <script>
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?22096b53c8d0373a8566854fdd8852f0";
-            var s = document.getElementsByTagName("script")[0]; 
+            var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    
+
+
+
+
 </body>
 
 </html>
