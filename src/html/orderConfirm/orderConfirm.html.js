@@ -1,4 +1,3 @@
-
 const layout        = require('../../layout/layout');
 const pageContent   = require('./orderConfirm.ejs');
 const pageTitle     = '房掌柜 · 订单填写';
