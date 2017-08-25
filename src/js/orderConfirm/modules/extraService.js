@@ -56,16 +56,22 @@ function addItem() {
       
       if (totalAddNum > addBedTotal) {
         //超过能添加的最大床数时，提示用户
+        // $('.info-prompt').show();
+        // $('.info-prompt-box').show();
+        
+        
         $('.info-prompt').show();
-        $('.info-prompt-box').show();
+        $('.info-prompt-box').dialog();
+        $('.info-prompt-box').dialog('open');
+        
         
         //用户点击确定后，隐藏提示信息
-        $('.max-bed-num-confirm button').click(function () {
+        $('.max-bed-num-confirm button,.close-confirm').click(function () {
           //先更新总加床数
           totalAddNum = addBedTotal;
-          
+
           $('.info-prompt').hide();
-          $('.info-prompt-box').hide();
+          $('.info-prompt-box').dialog('close');
         });
         return;
       }

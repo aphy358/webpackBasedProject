@@ -43,11 +43,7 @@
                   <i class="increase">+</i>
                 </li>
                 <li class="order-room-max">最多可预订
-                  <% if(stock < 7){ %>
-                  <%= stock %>
-                  <% } else{ %>
-                  <%= 7 %>
-                  <% } %>
+                  <%= stock < 7 ? stock : 7%>
                   间（该房型每间最多入住
                   <%= hotelPrice.maxPersonNum %>
                   人）

@@ -2,6 +2,7 @@
 
 require('../../static/css/reset.css');
 require('../../sass/orderConfirm/orderConfirm.scss');
+require('../../sass/orderConfirm/confirmDialog.scss');
 require('../../sass/header.scss');
 require('../../sass/footer.scss');
 require('../../static/css/tooltip_m.css');

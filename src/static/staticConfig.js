@@ -35,7 +35,8 @@ module.exports = {
     respond: require('!!file-loader?name=static/ie-fix/[name].[ext]!./ie-fix/respond.min.js'),
     jquery: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery.min.js'),
     tooltip: require('!!file-loader?name=static/js/[name].[ext]!./js/tooltip_m.js'),
-    validate: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery.validate.js')
+    validate: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery.validate.js'),
+    dialog: require('!!file-loader?name=static/js/[name].[ext]!./js/jquery-ui.js')
   },
   img: merge(img, getTmpImgs()),
   
