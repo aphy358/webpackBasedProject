@@ -1,0 +1,23 @@
+<span>入住信息</span>
+<div class="stay-msg">
+  <% for(var j = 0; j < content.roomNum; j++){ %>
+  <div class="guest">
+    <p class="guest-order">住客 1 :</p>
+    <input class="check-in-msg must-fill" name="surname" type="text" placeholder="姓（英文/拼音) 必填">
+    <input class="check-in-msg must-fill" name="aftername" type="text" placeholder="名（英文/拼音) 必填">
+    <% if(content.staticInfo.country != 70007){ %>
+    <input class="check-in-msg must-fill" name="nationality" type="text" placeholder="护照国籍 必填">
+    <% } %>
+  </div>
+  <% for(var i = 0;i < content.hotelPrice.maxPersonNum - 1;i++){ %>
+  <div class="guest">
+    <p class="guest-order">住客 <%= i+2 %> :</p>
+    <input class="check-in-msg" type="text" placeholder="姓（英文/拼音)">
+    <input class="check-in-msg" type="text" placeholder="名（英文/拼音)">
+    <% if(content.staticInfo.country != 70007){ %>
+    <input class="check-in-msg" type="text" placeholder="护照国籍">
+    <% } %>
+  </div>
+  <% } %>
+  <% } %>
+</div>

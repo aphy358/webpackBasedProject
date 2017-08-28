@@ -1,5 +1,4 @@
 //加床、加早、加宽带模块的交互
-
 //请求静态数据
 const write = require('../testData/write.do.js');
 
@@ -7,6 +6,10 @@ const write = require('../testData/write.do.js');
 const addBreakfast = require('./addBreakfast.js');
 const addBed = require('./addBed.js');
 const addNetwork = require('./addNetwork.js');
+
+
+//引入入住信息结构
+const guestMsg = require('../templates/guestMessage.ejs');
 
 //定义每次操作的id以及总加床数
 var count = 0,
@@ -69,7 +72,6 @@ function addItem() {
 		            $('.info-prompt-box').dialog('close');
 
 	            });
-
 	            return;
             }
         }
@@ -102,7 +104,7 @@ function addItemBot(itemMsg) {
 	itemMsg.count = count;
 	//将数据替换到模板中
 	finalStr = finalStr(itemMsg);
-	  
+	
 	var addId,
 	$finalStr = $(finalStr);
 
@@ -163,7 +165,7 @@ function addItemRight(itemMsg) {
 	    .append($hotelStr);
 	  
 	    //更新用户所需支付的总费用
-	    updateTotal();	  
+	    updateTotal();
 }
 
 //删除对应加床或加早信息
@@ -242,15 +244,19 @@ function changeRoomNum() {
 
 //用户改变房间数时，需要清除及重新加载对应的加床加早加宽带信息
 function reloadAddItem() {
-    //先清除上一个加床、加早、加宽带信息
+    //先清除上一个加床、加早、加宽带和住客信息
     $('.bed-msg-box').empty();
     $('.breakfast-msg-box').empty();
     $('.network-msg-box').empty();
+    $('.guest-msg-box').empty();
   
     //重新加载这几个模块
     addBed.run();
     addBreakfast.run();
     addNetwork.run();
+    //再将入住信息替换好并添加进页面中
+    var guestMsgStr = guestMsg(write);
+    $('.guest-msg-box').append(guestMsgStr);
   
     //清除右边的所有加床、加早、加宽带信息
     $('.hotel-msg-mid ul li .hotel-item-box').empty()

@@ -21,6 +21,11 @@ function InitValidator() {
 	    var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
 	    return this.optional(element) || (length == 11 && mobile.test(value));
     }, "请正确填写您的手机号码");
+    
+    //预付款验证
+    $.validator.addMethod("imprest", function (value, element) {
+    
+    });
   
     if (write.content.staticInfo.country == 70007){
 	    //国内

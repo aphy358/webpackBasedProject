@@ -1,5 +1,5 @@
 //引入日期控件模块
-// const selectDate = require('../../common/selectDate/selectDate.js');
+const selectDate = require('../../../common/selectDate/selectDate.js');
 
 //请求静态数据
 const write = require('../testData/write.do.js');
@@ -55,7 +55,7 @@ function changeConfirmWay() {
 
 //用户选择使用预收款时，数目不能小于0，不能大于需要支付的总金额，不能大于能预支付的总金额
 function limitPerPayment() {
-	$('#use-per-payment').blur(function () {
+	$('#use-per-payment').keyup(function () {
 	    //判断用户所能预支付的最大款项
 	    var totalPayment = Number($('#totalPay').text());
 	    var maxPayment = write.content.balance > totalPayment ? totalPayment : write.content.balance;
@@ -80,6 +80,9 @@ module.exports = {
 
 		//初始化验证
 		InitValidator();
+		
+		//加载日期控件
+    addSelectDate();
 
 		//引入加床、加早、加宽带的交互模块
 		extraService.run();

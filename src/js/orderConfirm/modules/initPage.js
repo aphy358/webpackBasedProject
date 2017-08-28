@@ -1,10 +1,13 @@
 //引入主模板
 const orderMain = require('../templates/orderMain.ejs');
 
-//引入加床、加早、加宽带模块
+//引入加床、加早、加宽带结构
 const addBreakfast = require('./addBreakfast.js');
 const addBed = require('./addBed.js');
 const addNetwork = require('./addNetwork.js');
+
+//引入入住信息结构
+const guestMsg = require('../templates/guestMessage.ejs');
 
 //请求静态数据
 const write = require('../testData/write.do.js');
@@ -26,9 +29,14 @@ function getData() {
 	  		writeStr = orderMain(content);
 		    //将替换好的结构添加到页面中
 		    add();
+		    
+		    //再将入住信息替换好并添加进页面中
+        var guestMsgStr = guestMsg(write);
+        $('.guest-msg-box').append(guestMsgStr);
 		}
 	}
 }
+
 
 //将替换好的html结构添加到页面中以显示
 function add() {

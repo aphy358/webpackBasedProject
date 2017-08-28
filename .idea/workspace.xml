@@ -2,27 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="0aa69202-e8ee-4058-a1b7-3f98c759bfd8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/orderConfirm/orderConfirm.ejs" afterPath="$PROJECT_DIR$/src/html/orderConfirm/orderConfirm.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/orderConfirm/orderConfirm.html.js" afterPath="$PROJECT_DIR$/src/html/orderConfirm/orderConfirm.html.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/modules/addBed.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/modules/addBed.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/modules/addBreakfast.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/modules/addBreakfast.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/modules/addNetwork.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/modules/addNetwork.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/api.js" afterPath="$PROJECT_DIR$/config/api.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/modules/extraService.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/modules/extraService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/modules/initActive.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/modules/initActive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/modules/initPage.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/modules/initPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/modules/initValidator.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/modules/initValidator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/modules/isComplete.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/modules/isComplete.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/templates/addBed.ejs" afterPath="$PROJECT_DIR$/src/js/orderConfirm/templates/addBed.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/templates/addBreakfast.ejs" afterPath="$PROJECT_DIR$/src/js/orderConfirm/templates/addBreakfast.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/templates/addNetwork.ejs" afterPath="$PROJECT_DIR$/src/js/orderConfirm/templates/addNetwork.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceBotItem.ejs" afterPath="$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceBotItem.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceRightItem.ejs" afterPath="$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceRightItem.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/templates/orderMain.ejs" afterPath="$PROJECT_DIR$/src/js/orderConfirm/templates/orderMain.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/testData/addBedData.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/testData/addBedData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/testData/addBreakfastData.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/testData/addBreakfastData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/testData/addNetworkData.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/testData/addNetworkData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/orderConfirm/testData/write.do.js" afterPath="$PROJECT_DIR$/src/js/orderConfirm/testData/write.do.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/orderConfirm/confirmDialog.scss" afterPath="$PROJECT_DIR$/src/sass/orderConfirm/confirmDialog.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,7 +21,38 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
+    <leaf>
+      <file leaf-file-name="orderMain.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/orderMain.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="111" column="21" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
+              <folding>
+                <element signature="n#li#0;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#li#5;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#li#6;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#li#7;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#li#8;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initActive.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/initActive.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="1" column="24" lean-forward="true" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+              <folding>
+                <element signature="n#!!block;n#openAddMsg#0" expanded="false" />
+                <element signature="n#!!block;n#addSelectDate#0" expanded="false" />
+                <element signature="n#!!block;n#changeConfirmWay#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,22 +78,26 @@
         <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/aaaaaaaa.js" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/isComplete.js" />
         <option value="$PROJECT_DIR$/src/html/orderConfirm/orderConfirm.html.js" />
-        <option value="$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceBotItem.ejs" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceRightItem.ejs" />
-        <option value="$PROJECT_DIR$/src/js/orderConfirm/templates/orderMain.ejs" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/confirmBox.js" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/templates/confirmBox.ejs" />
         <option value="$PROJECT_DIR$/src/html/orderConfirm/orderConfirm.ejs" />
         <option value="$PROJECT_DIR$/src/layout/layout.ejs" />
-        <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/extraService.js" />
         <option value="$PROJECT_DIR$/src/sass/orderConfirm/confirmDialog.scss" />
         <option value="$PROJECT_DIR$/src/static/staticConfig.js" />
         <option value="$PROJECT_DIR$/src/sass/orderConfirm/orderConfirm.scss" />
-        <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/initValidator.js" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/initHtml.js" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/orderMain.js" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/orderConfirm.js" />
+        <option value="$PROJECT_DIR$/src/js/orderConfirm/templates/orderMain.ejs" />
+        <option value="$PROJECT_DIR$/src/js/orderConfirm/templates/guestMessage.ejs" />
+        <option value="$PROJECT_DIR$/src/js/orderConfirm/testData/write.do.js" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/initPage.js" />
+        <option value="$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceBotItem.ejs" />
+        <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/extraService.js" />
+        <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/initValidator.js" />
+        <option value="$PROJECT_DIR$/config/api.js" />
+        <option value="$PROJECT_DIR$/config/myApi.js" />
         <option value="$PROJECT_DIR$/src/js/orderConfirm/modules/initActive.js" />
       </list>
     </option>
@@ -95,6 +116,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="40" />
@@ -133,31 +157,7 @@
             <path>
               <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="orderConfirm" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
@@ -188,46 +188,6 @@
               <item name="orderConfirm" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="orderConfirm" type="462c0819:PsiDirectoryNode" />
-              <item name="testData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sass" type="462c0819:PsiDirectoryNode" />
-              <item name="orderConfirm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpackBasedProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpackBasedProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -235,7 +195,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -293,22 +253,24 @@
       <updated>1503558936741</updated>
       <workItem from="1503558939266" duration="10754000" />
       <workItem from="1503623770958" duration="859000" />
-      <workItem from="1503627161183" duration="16791000" />
+      <workItem from="1503627161183" duration="17300000" />
+      <workItem from="1503886494919" duration="8074000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28404000" />
+    <option name="totallyTimeSpent" value="36987000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32803467" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -339,7 +301,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#openAddMsg#0" expanded="false" />
+            <element signature="n#!!block;n#addItem#0" expanded="false" />
+            <element signature="n#!!block;n#addItemBot#0" expanded="false" />
+            <element signature="n#!!block;n#addItemRight#0" expanded="false" />
+            <element signature="n#!!block;n#delAddItem#0" expanded="false" />
+            <element signature="n#!!block;n#updateTotal#0" expanded="false" />
+            <element signature="n#!!block;n#changeRoomNum#0" expanded="false" />
+            <element signature="n#!!block;n#reloadAddItem#0" expanded="false" />
+            <element signature="e#6932#7073#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -347,20 +320,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#openAddMsg#0" expanded="false" />
+            <element signature="n#!!block;n#addItem#0" expanded="false" />
+            <element signature="n#!!block;n#addItemBot#0" expanded="false" />
+            <element signature="n#!!block;n#addItemRight#0" expanded="false" />
+            <element signature="n#!!block;n#delAddItem#0" expanded="false" />
+            <element signature="n#!!block;n#updateTotal#0" expanded="false" />
+            <element signature="n#!!block;n#changeRoomNum#0" expanded="false" />
+            <element signature="n#!!block;n#reloadAddItem#0" expanded="false" />
+            <element signature="e#6932#7073#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-150">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/testData/write.do.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10331">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -387,62 +364,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceBotItem.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceRightItem.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/addBreakfast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-398">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/addNetwork.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-458">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/isComplete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/confirmBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/confirmBox.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/confirmBox.js" />
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/confirmBox.ejs" />
     <entry file="file://$PROJECT_DIR$/src/html/orderConfirm/orderConfirm.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -450,7 +377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -458,10 +384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="4" column="59" lean-forward="true" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
-          <folding>
-            <marker date="1503641870538" expanded="true" signature="1380:1497" ph="..." />
-            <marker date="1503641870538" expanded="true" signature="1422:1479" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -469,10 +391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="0" column="361" lean-forward="false" selection-start-line="0" selection-start-column="361" selection-end-line="0" selection-end-column="361" />
-          <folding>
-            <marker date="1503651205727" expanded="true" signature="2449:2566" ph="..." />
-            <marker date="1503651205727" expanded="true" signature="2491:2548" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -480,34 +398,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
           <caret line="298" column="53" lean-forward="false" selection-start-line="298" selection-start-column="53" selection-end-line="298" selection-end-column="53" />
-          <folding>
-            <element signature="e#790#1409#0" expanded="false" />
-            <element signature="e#1471#3650#0" expanded="false" />
-            <element signature="e#4490#6485#0" expanded="false" />
-            <element signature="e#6654#7486#0" expanded="false" />
-            <element signature="e#21633#22299#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/initPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding>
-            <marker date="1503653717973" expanded="false" signature="332:336" ph="{...}" />
-            <marker date="1503653717973" expanded="false" signature="936:939" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/initActive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -515,7 +406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="42" column="7" lean-forward="false" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -523,39 +413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
           <caret line="38" column="86" lean-forward="false" selection-start-line="38" selection-start-column="86" selection-end-line="38" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/extraService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/orderConfirm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/initValidator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="125" column="31" lean-forward="false" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/addBed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -563,15 +420,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="1" column="22" lean-forward="true" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/orderMain.ejs">
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/testData/write.do.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="47" column="48" lean-forward="true" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="330">
+          <caret line="144" column="17" lean-forward="true" selection-start-line="144" selection-start-column="17" selection-end-line="144" selection-end-column="17" />
+          <folding>
+            <element signature="e#159#375#0" expanded="false" />
+            <element signature="e#377#593#0" expanded="false" />
+            <element signature="e#595#811#0" expanded="false" />
+            <element signature="e#813#1029#0" expanded="false" />
+            <element signature="e#1031#1247#0" expanded="false" />
+            <element signature="e#1249#1465#0" expanded="false" />
+            <element signature="e#1467#1683#0" expanded="false" />
+            <element signature="e#1685#1903#0" expanded="false" />
+            <element signature="e#1905#2123#0" expanded="false" />
+            <element signature="e#2125#2345#0" expanded="false" />
+            <element signature="e#2347#2567#0" expanded="false" />
+            <element signature="e#2569#2788#0" expanded="false" />
+            <element signature="e#2790#3009#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/initPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+          <folding>
+            <marker date="1503890277798" expanded="true" signature="403:407" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -580,6 +460,157 @@
         <state relative-caret-position="30">
           <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/addBreakfast.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-900">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/orderConfirm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/addBreakfast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/addNetwork.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/initValidator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/extraService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1100">
+          <caret line="2" column="49" lean-forward="false" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#openAddMsg#0" expanded="false" />
+            <element signature="n#!!block;n#addItem#0" expanded="false" />
+            <element signature="n#!!block;n#addItemBot#0" expanded="false" />
+            <element signature="n#!!block;n#addItemRight#0" expanded="false" />
+            <element signature="n#!!block;n#delAddItem#0" expanded="false" />
+            <element signature="n#!!block;n#updateTotal#0" expanded="false" />
+            <element signature="n#!!block;n#changeRoomNum#0" expanded="false" />
+            <element signature="n#!!block;n#reloadAddItem#0" expanded="false" />
+            <element signature="e#6932#7073#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/myApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/addBed.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/guestMessage.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceRightItem.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="34" lean-forward="true" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/extraServiceBotItem.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/addNetwork.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/isComplete.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#isComplete#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/templates/orderMain.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="111" column="21" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
+          <folding>
+            <element signature="n#li#0;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#li#5;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#li#6;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#li#7;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#li#8;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/orderConfirm/modules/initActive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="24" lean-forward="true" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!block;n#openAddMsg#0" expanded="false" />
+            <element signature="n#!!block;n#addSelectDate#0" expanded="false" />
+            <element signature="n#!!block;n#changeConfirmWay#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
