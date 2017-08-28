@@ -116,6 +116,8 @@ function addItemBot(itemMsg) {
 	    //更新右边的条数
 	    addId = $(this).attr('add-id');
 	    
+	    //确定要删的内容属于加床、加早还是加宽带
+      itemMsg.addCategory = $(this).attr('add-category');
 	    delAddItem(addId, itemMsg);
 	});
 
@@ -170,17 +172,18 @@ function addItemRight(itemMsg) {
 
 //删除对应加床或加早信息
 function delAddItem(addId, itemMsg) {
+  // debugger;
     //更新总加床数
     totalAddNum -= Number(itemMsg.addNum);
   
     $('*[add-id="' + addId + '"]').remove();
-
-    if ($('.hotel-msg-mid ul li').find('div[add-category="' + itemMsg.addCategory + '"]').children('.hotel-item').length == 0) {
+  
+  if ($('.hotel-msg-mid ul li').find('div[add-category="' + itemMsg.addCategory + '"]').children('.hotel-item').length == 0) {
 
 	  	$('.hotel-msg-mid ul').find('li[add-category="' + itemMsg.addCategory + '"]')
 	  	.hide();
-
-	  	if ($('.hotel-item').length == 0) {
+  
+      if ($('.hotel-item').length == 0) {
 	  		$('.hotel-msg-mid ul').hide();
 	  	}
     }
