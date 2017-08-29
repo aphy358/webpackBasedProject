@@ -30,13 +30,22 @@
                 .title{
                     font-size: 16px;
                     font-weight: bold;
-                    color: $gray-6;
+                    color: $white;
                     margin-bottom: 25px;
                 }
                 .link-item{
                     font-size: 12px;
-                    color: $gray-9;
                     margin-bottom: 10px;
+
+                    a{
+                        color: $footerText;
+                    }
+                }
+
+                .erweima-wrap{
+                    background: $white;
+                    padding: 2px;
+                    width: 83px;
                 }
 
                 @at-root .sprites{
@@ -52,15 +61,16 @@
 
     //底部工商标识区
     @at-root .gongshang-outer{
-        padding-bottom: 20px;
+        padding-bottom: 10px;
+        background: $footerBottom;
 
         @at-root .gongshang-inner{
-            color: $gray-9;
+            color: $footerText;
             width: 316px;
             margin: auto;
             
             a{
-                color: $gray-9;
+                color: $footerText;
             }
             
             @at-root #ebsgovicon+a{
