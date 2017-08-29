@@ -1,31 +1,30 @@
 //请求静态数据
 const write = require('../testData/write.do.js');
 
+require('../../../static/js/tooltip_m.js');
+require('../../../static/js/jquery.validate.js');
+
 //初始化验证
 function InitValidator() {
-    //国内允许输入中文或英文
-    $.validator.addMethod("demostic", function(value, element) {
-	    var demostic = /^([\u4e00-\u9fa5a-zA-Z]+)$/;
-	    return this.optional(element) || (demostic.test(value));
-    }, "只能输入中文或英文");
+  //国内允许输入中文或英文
+  $.validator.addMethod("demostic", function(value, element) {
+    var demostic = /^([\u4e00-\u9fa5a-zA-Z]+)$/;
+    return this.optional(element) || (demostic.test(value));
+  }, "只能输入中文或英文");
   
-    //国外只允许输入英文
-    $.validator.addMethod("abroad", function(value, element) {
-	    var abroad = /^([a-zA-Z]+)$/;
-	    return this.optional(element) || (abroad.test(value));
-    }, "只能输入中文或英文");
+  //国外只允许输入英文
+  $.validator.addMethod("abroad", function(value, element) {
+    var abroad = /^([a-zA-Z]+)$/;
+    return this.optional(element) || (abroad.test(value));
+  }, "只能输入中文或英文");
   
-    // 手机号码验证
-    $.validator.addMethod("isMobile", function(value, element) {
-	    var length = value.length;
-	    var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
-	    return this.optional(element) || (length == 11 && mobile.test(value));
-    }, "请正确填写您的手机号码");
+  // 手机号码验证
+  $.validator.addMethod("isMobile", function(value, element) {
+    var length = value.length;
+    var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+    return this.optional(element) || (length == 11 && mobile.test(value));
+  }, "请正确填写您的手机号码");
     
-    //预付款验证
-    $.validator.addMethod("imprest", function (value, element) {
-    
-    });
   
     if (write.content.staticInfo.country == 70007){
 	    //国内

@@ -1,5 +1,3 @@
-// const $ = require('../../static/js/jquery.min.js');
-
 //加载样式
 require('./redmond.datepick.css');
 

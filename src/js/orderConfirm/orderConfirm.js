@@ -1,3 +1,6 @@
+//全局变量Promise，兼容ie
+window.Promise = require('es6-promise');
+
 require('../../static/css/reset.css');
 require('../../sass/orderConfirm/orderConfirm.scss');
 require('../../sass/orderConfirm/confirmDialog.scss');

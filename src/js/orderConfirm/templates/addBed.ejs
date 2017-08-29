@@ -40,9 +40,11 @@
 			</li>
 			<li>
 				<select class="bed-num" name="bed-num" id="bed-num">
+          <!--<% for(var i=0;i< data[0].length;i++){ %>-->
 					<% for(var i=0;i< roomNum*data[0][0].max;i++){ %>
 					<option value="<%= i+1 %>"><%= i+1 %></option>
 					<% } %>
+          <!--<% } %>-->
 				</select>
 			</li>
 			<li class="add-bed add-item" add-category="add-bed">+</li>

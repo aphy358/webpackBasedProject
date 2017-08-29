@@ -29,17 +29,18 @@ function ltIE9() {
  * @param {异步加载模块后的回调函数} callback 
  * @param {异步加载的模块名称} chunkName 
  */
-function loadAsync(src, callback, chunkName){
+function appendScript_gteIE9(src, callback, chunkName){
 	require.ensure([], function(){
+		//如果是单个字符串，则修正为字符串数组
 		if( typeof src === 'string' ){
-			require( src );
-		}else if( Object.prototype.toString.call(src) === '[object Array]' ){
-			for (var i = 0; i < requiresrc.length; i++) {
-				require( src[i] );
-			}
+			src = [src];
 		}
 		
-		callback();        
+		for (var i = 0; i < src.length; i++) {
+			require( src[i] );
+		}
+		
+		if( callback && $.type(callback) === 'function' )	callback();
     }, (chunkName || 'asyncChunk'));
 }
 
@@ -50,11 +51,33 @@ function loadAsync(src, callback, chunkName){
  * @param {插入的 script 标签的src} src 
  * @param {script 加载完成后的回调函数} callback 
  */
-function appendScript(src, callback){
-	var script = document.createElement('script');
-	script.src = src;
-	script.onload = callback;
-	document.body.appendChild(script);
+function appendScript_ltIE9(src, callback){
+	//如果是单个字符串，则修正为字符串数组
+	if( typeof src === 'string' ){
+		src = [src];
+	}
+
+	for (var i = 0; i < src.length; i++) {
+		var script = document.createElement('script');
+		script.src = src[i];
+
+		//给最后加载的插件绑定 onload 事件
+		(i + 1) === src.length ? script.onload = callback : '';
+		document.body.appendChild(script);
+	}
+}
+
+
+
+/**
+ * 先判断浏览器环境，IE9 以上和 IE9 以下将使用不同的插件加载方式
+ * @param {异步模块的 src} src 
+ * @param {异步加载模块后的回调函数} callback 
+ * @param {异步加载的模块名称} chunkName 
+ */
+function loadAsync(src, callback, chunkName){
+	ltIE9() ? appendScript_ltIE9(src, callback)
+			: appendScript_gteIE9(src, callback, chunkName);
 }
 
 
@@ -63,5 +86,4 @@ module.exports = {
 	isIE 		 : isIE,
 	ltIE9 		 : ltIE9,
 	loadAsync 	 : loadAsync,
-	appendScript : appendScript
 }

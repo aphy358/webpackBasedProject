@@ -137,7 +137,7 @@ let data = {
 			"sort": 13
 		}],
 		"roomId": "22",
-		"endDate": "2017-08-22",
+		"endDate": "2017-08-23",
 		"picSrcThumb": "http://image.jladmin.cn/pic_1498705116255.jpg",
 		"toatlBasePrice": 1.0,
 		"balance": 9998919.71,
@@ -180,7 +180,7 @@ let data = {
 			"isInterface": 0,
 			"isDel": 0
 		},
-		"dateNum": 1,
+		"dateNum": 2,
 		"adultNum": 2,
 		"isChangeNum": true,
 		"hotelPriceStrs": "[{\"date\":\"2017-08-21\",\"formulaType\":\"0\",\"occupancyStock\":1,\"price\":1,\"salePrice\":21.0,\"nowPrice\":0.0,\"skuId\":1894585,\"stock\":5,\"sellStock\":0,\"status\":0,\"clauses\":[{\"createTime\":null,\"createBy\":null,\"updateTime\":null,\"updateBy\":null,\"orderBy\":null,\"limitString\":null,\"andWhereString\":null,\"and_where_string\":null,\"or_where_string\":null,\"clauseId\":1076185,\"itemId\":1,\"staticInfoId\":1,\"skuId\":392018,\"clauseType\":1,\"clauseNumber\":2,\"clauseDate\":11,\"clauseTime\":10,\"cancelFineType\":0,\"cancelFine\":null,\"remark\":null,\"attr\":\"\",\"companyAccountId\":null,\"subAccountId\":null,\"bookBeginDate\":null,\"bookBeginDateStr\":null,\"bookEndDate\":null,\"bookEndDateStr\":null,\"checkInDate\":null,\"checkInDateStr\":null,\"checkOutDate\":null,\"checkOutDateStr\":null,\"formulaType\":null,\"default\":false}],\"nightlyStr\":null,\"discount\":null,\"reserveShow\":null}]",
