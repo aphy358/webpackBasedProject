@@ -15,6 +15,7 @@ const Util = require('../../common/util');
 //页面初始化
 require('./modules/initPage.js').run();
 
+const initActive = require('./modules/initActive.js').run;
 
 
 if( Util.ltIE9() ){
@@ -27,10 +28,4 @@ if( Util.ltIE9() ){
 
         initActive();
     }, 'validator');
-}
-
-
-function initActive(){
-    //页面主交互逻辑
-    require('./modules/initActive.js').run();
 }
