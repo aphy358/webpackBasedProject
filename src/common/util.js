@@ -52,8 +52,21 @@ function loadAsync(src, callback){
 
 
 
+/**
+ * 获取指定的url参数值
+ * @param {指定的url参数名} name 
+ */
+function queryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]); return null;
+}
+
+
+
 module.exports = {
-	isIE 	  : isIE,
-	ltIE9 	  : ltIE9,
-	loadAsync : loadAsync,
+	isIE 	    : isIE,
+	ltIE9 	    : ltIE9,
+	loadAsync   : loadAsync,
+	queryString : queryString,
 }
