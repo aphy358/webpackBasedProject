@@ -17,13 +17,12 @@ require('./modules/initPage.js').run();
 
 const initActive = require('./modules/initActive.js').run;
 
-
+//IE9以下和IE9以上的浏览器采用不同方式加载插件
 if( Util.ltIE9() ){
-    Util.appendScript_ltIE9(['../static/js/datePick/datepickPacked.js', '../static/js/validator/validatorPacked.js'], initActive);
+    Util.loadAsync(['../static/js/datePick/datepickPacked.js', '../static/js/validator/validatorPacked.js'], initActive);
 }else{
     require.ensure([], function(){
         require('../../static/js/datePick/datepickPacked');
-
         require('../../static/js/validator/validatorPacked');
 
         initActive();

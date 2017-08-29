@@ -23,7 +23,7 @@ addOneDay(addBedStart,write.content.dateNum,function (everyDay) {
 //将日期逐一递增的函数
 /*
 * startify 标准格式的日期
-* dayCount 要增加的天数
+* dayCount 要增加的天数(间接决定循环的次数）
 * doEveryLoop 每次循环要执行的函数
 * */
 function addOneDay(startify,dayCount,doEveryLoop) {
@@ -84,9 +84,9 @@ function addItem() {
 	    itemMsg.$this = $(this);
 	    
 	    itemMsg.addBedTotal = itemMsg.$this.attr('addBedTotal');
-	    
-
-		itemMsg.singleTotal = itemMsg.addNum * itemMsg.dayCount * itemMsg.addPrice;
+  
+  
+      itemMsg.singleTotal = itemMsg.addNum * itemMsg.dayCount * itemMsg.addPrice;
 
 		addItemBot(itemMsg);
 	})
@@ -107,67 +107,93 @@ function addItem() {
 * itemMsg.endify 用户所加商品的结束日期的标准格式
 */
 function addItemBot(itemMsg) {
-  //先将加床数统计到totalBedNum中
-  addOneDay(itemMsg.startify,itemMsg.dayCount,function (everyDay) {
-    totalBedNum[everyDay] += Number(itemMsg.addNum);
-  });
+
+//用一个数记录超过做大加床数的天数，如果这个天数大于0 ，则不添加任何元素到下面和右边
+  var overMaxBed = 0;
   
-  //判断加床数是否超过当日最大加床数
-  for(var k in totalBedNum){
-    if(totalBedNum[k] > itemMsg.addBedTotal){
+//用一个数组记录每一个超过最大加床数的日期
+  var overMaxBedArr = [];
+  
+  //判断用户此次操作是否为加床
+  if(itemMsg.addCategory == 'add-bed'){
+    //如果是
+    //先将加床数统计到totalBedNum中
+    addOneDay(itemMsg.startify,itemMsg.dayCount,function (everyDay) {
+      totalBedNum[everyDay] += Number(itemMsg.addNum);
+  
+      //判断加床数是否超过当日最大加床数
+      if(totalBedNum[everyDay] > itemMsg.addBedTotal){
+        overMaxBed ++;
+        overMaxBedArr[overMaxBedArr.length] = everyDay;
+      }
+    });
+  
+    //只要有其中一个日期超过，则全部减回，并弹出提示框
+    if(overMaxBed > 0){
+      addOneDay(itemMsg.startify,itemMsg.dayCount,function (everyDay) {
+        totalBedNum[everyDay] -= Number(itemMsg.addNum);
+      });
+  
       //超过能添加的最大床数时，提示用户
-      $('.prompt-content').text(k + '已达最大加床数');
+      $('.prompt-content').text(overMaxBedArr[0] + '已达最大加床数');
       $('.info-prompt').show();
       $('.info-prompt-box').dialog();
       $('.info-prompt-box').dialog('open');
-  
+    
       //用户点击确定后，隐藏提示信息
       $('.max-bed-num-confirm button,.close-confirm').click(function () {
-        //先更新总加床数
-        totalBedNum[k] = itemMsg.addBedTotal;
-    
         $('.info-prompt').hide();
         $('.info-prompt-box').dialog('close');
-    
       });
-      return;
     }
-  }
   
+    //所有日期的加床数均未超过最大加床数时，则正常添加
+    if(overMaxBed <= 0){
+      optionAddBot(itemMsg);
+    }
+  }else{
+    //如果不是，则直接添加
+    optionAddBot(itemMsg);
+  }
+}
+
+//单独抽离出一个函数用于向下方添加结构的操作
+function optionAddBot(itemMsg) {
   count++;
-	//引入用于添加到选项下面的结构
-	var finalStr = require('../templates/extraServiceBotItem.ejs');
-
-	itemMsg.count = count;
-	//将数据替换到模板中
-	finalStr = finalStr(itemMsg);
-	
-	var addId,
-	$finalStr = $(finalStr);
-
-	//给用户删除单条加床、加早信息的元素绑定事件
-	//用户点击删除按钮时，删除当前条
-	$finalStr.on('click', '.del-msg-item', function () {
-		$(this).parent().parent().detach();
-
-	    //更新右边的条数
-	    addId = $(this).attr('add-id');
-	    
-	    //确定要删的内容属于加床、加早还是加宽带
-      itemMsg.addCategory = $(this).attr('add-category');
-      //确定删除的起始日期及天数
-      itemMsg.delSatrtDate = $(this).attr('add-start');
-      itemMsg.delDayCount = $(this).attr('add-count');
-      //确定删除的份数
-      itemMsg.delNum = $(this).attr('add-num');
-	    delAddItem(addId, itemMsg);
-	});
-
-	itemMsg.$this.parent().parent().append($finalStr);
-
-	itemMsg.addId = count;
-
-	addItemRight(itemMsg);
+  //引入用于添加到选项下面的结构
+  var finalStr = require('../templates/extraServiceBotItem.ejs');
+  
+  itemMsg.count = count;
+  //将数据替换到模板中
+  finalStr = finalStr(itemMsg);
+  
+  var addId,
+    $finalStr = $(finalStr);
+  
+  //给用户删除单条加床、加早信息的元素绑定事件
+  //用户点击删除按钮时，删除当前条
+  $finalStr.on('click', '.del-msg-item', function () {
+    $(this).parent().parent().detach();
+    
+    //更新右边的条数
+    addId = $(this).attr('add-id');
+    
+    //确定要删的内容属于加床、加早还是加宽带
+    itemMsg.addCategory = $(this).attr('add-category');
+    //确定删除的起始日期及天数
+    itemMsg.delSatrtDate = $(this).attr('add-start');
+    itemMsg.delDayCount = $(this).attr('add-count');
+    //确定删除的份数
+    itemMsg.delNum = $(this).attr('add-num');
+    
+    delAddItem(addId, itemMsg);
+  });
+  
+  itemMsg.$this.parent().parent().append($finalStr);
+  
+  itemMsg.addId = count;
+  
+  addItemRight(itemMsg);
 }
 
 //用户展开加早或加床等列表后，点击“+”在右方"您的选择"中出现增加的条目信息
@@ -201,11 +227,15 @@ function addItemRight(itemMsg) {
 
 //删除对应加床或加早信息
 function delAddItem(addId, itemMsg) {
+  //判断用户删除的是否为加床信息
+  if(itemMsg.addCategory == 'add-bed'){
+    //如果是
     //更新总加床数
-  var delStartDate = new Date(itemMsg.delSatrtDate);
-  addOneDay(delStartDate,itemMsg.delDayCount,function (everyDay) {
-    totalBedNum[everyDay] -=itemMsg.delNum;
-  });
+    var delStartDate = new Date(itemMsg.delSatrtDate);
+    addOneDay(delStartDate,itemMsg.delDayCount,function (everyDay) {
+      totalBedNum[everyDay] -= itemMsg.delNum;
+    });
+  }
   
   $('*[add-id="' + addId + '"]').remove();
   
@@ -301,7 +331,7 @@ function reloadAddItem() {
       totalBedNum[everyDay] = 0;
     });
   
-    //更新需要付款的总额
+  //更新需要付款的总额
     updateTotal();
   
     //重新给其绑定事件
@@ -317,6 +347,5 @@ module.exports = {
 	    
 	    //用户点击+房间或-房间时，更改对应可增加的床数
 	    changeRoomNum();
-    
 	}
 };
