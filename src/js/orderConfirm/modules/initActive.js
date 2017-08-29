@@ -80,11 +80,11 @@ module.exports = {
 		//用户点击加早或加床等的“+”号时展开操作列表
 		openAddMsg();
     
-    //初始化验证
-    InitValidator();
-    
+		//初始化验证
+		InitValidator();
+		
 		//加载日期控件
-    addSelectDate();
+		addSelectDate();
 
 		//引入加床、加早、加宽带的交互模块
 		extraService.run();
@@ -92,12 +92,10 @@ module.exports = {
 		//用户切换确认方式时，自动将用户预留的相关信息显示在对应区域内
 		changeConfirmWay();
     
-    //用户使用预收款时，数目不能小于0，不能大于需要支付的总金额或能预支付的总金额
-    limitPerPayment();
-    
-    //用户点击支付时，检查信息是否填写完整
-    isComplete();
-    
-    
+		//用户使用预收款时，数目不能小于0，不能大于需要支付的总金额或能预支付的总金额
+		limitPerPayment();
+		
+		//用户点击支付时，检查信息是否填写完整
+		isComplete();
   }
 };

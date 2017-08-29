@@ -1,8 +1,6 @@
 //请求静态数据
 const write = require('../testData/write.do.js');
 
-require('../../../static/js/tooltip_m.js');
-require('../../../static/js/jquery.validate.js');
 
 //初始化验证
 function InitValidator() {

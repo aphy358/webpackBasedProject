@@ -9,7 +9,7 @@ function isComplete() {
 	        //获取第一个验证不通过的元素的位置
 	        var failedTest=$('.error')[0].offsetTop-80;
 	      
-	        $('body').animate({
+	        $('body, html').animate({
 		      	scrollTop:failedTest+"px"
 	        },200);
 	      

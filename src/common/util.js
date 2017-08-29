@@ -29,20 +29,20 @@ function ltIE9() {
  * @param {异步加载模块后的回调函数} callback 
  * @param {异步加载的模块名称} chunkName 
  */
-function appendScript_gteIE9(src, callback, chunkName){
-	require.ensure([], function(){
-		//如果是单个字符串，则修正为字符串数组
-		if( typeof src === 'string' ){
-			src = [src];
-		}
+// function appendScript_gteIE9(src, callback, chunkName){
+// 	require.ensure([], function(){
+// 		//如果是单个字符串，则修正为字符串数组
+// 		if( typeof src === 'string' ){
+// 			src = [src];
+// 		}
 		
-		for (var i = 0; i < src.length; i++) {
-			require( src[i] );
-		}
+// 		for (var i = 0; i < src.length; i++) {
+// 			require( src[i] );
+// 		}
 		
-		if( callback && $.type(callback) === 'function' )	callback();
-    }, (chunkName || 'asyncChunk'));
-}
+// 		if( callback && $.type(callback) === 'function' )	callback();
+//     }, (chunkName || 'asyncChunk'));
+// }
 
 
 
@@ -62,7 +62,13 @@ function appendScript_ltIE9(src, callback){
 		script.src = src[i];
 
 		//给最后加载的插件绑定 onload 事件
-		(i + 1) === src.length ? script.onload = callback : '';
+		if( callback && $.type(callback) === 'function' && (i + 1) === src.length ){
+			script.onreadystatechange = function() {		// IE8不能正确处理 onload 事件
+				if (script.readyState === 'loaded' || script.readyState === 'complete') {
+					callback(); 
+				} 
+			}
+		}
 		document.body.appendChild(script);
 	}
 }
@@ -75,15 +81,15 @@ function appendScript_ltIE9(src, callback){
  * @param {异步加载模块后的回调函数} callback 
  * @param {异步加载的模块名称} chunkName 
  */
-function loadAsync(src, callback, chunkName){
-	ltIE9() ? appendScript_ltIE9(src, callback)
-			: appendScript_gteIE9(src, callback, chunkName);
-}
+// function loadAsync(src, callback, chunkName){
+// 	ltIE9() ? appendScript_ltIE9(src, callback)
+// 			: appendScript_gteIE9(src, callback, chunkName);
+// }
 
 
 
 module.exports = {
 	isIE 		 : isIE,
 	ltIE9 		 : ltIE9,
-	loadAsync 	 : loadAsync,
+	appendScript_ltIE9 : appendScript_ltIE9,
 }

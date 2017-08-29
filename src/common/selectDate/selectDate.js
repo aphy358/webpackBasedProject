@@ -1,9 +1,4 @@
-//加载样式
-require('./redmond.datepick.css');
 
-require('./jquery.plugin.js');
-require('./jquery.datepick.js');
-require('./jquery.datepick-zh-CN.js');
 
 function selectDate(monthsToShow, startClass, endClass, minDate, MaxDate) {
   startClass.datepick({
@@ -50,8 +45,7 @@ function selectDate(monthsToShow, startClass, endClass, minDate, MaxDate) {
 }
 
 
+
 module.exports = {
-  run: function (monthsToShow, startClass, endClass,minDate,maxDate) {
-    selectDate(monthsToShow, startClass, endClass,minDate,maxDate);
-  }
+  run: selectDate
 };
