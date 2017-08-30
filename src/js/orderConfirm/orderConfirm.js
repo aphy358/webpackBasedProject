@@ -1,14 +1,17 @@
 //全局变量Promise，兼容ie
 window.Promise = require('es6-promise');
 
-require('../../static/css/reset.css');
-require('../../sass/orderConfirm/orderConfirm.scss');
-require('../../sass/orderConfirm/confirmDialog.scss');
-require('../../sass/header.scss');
-require('../../sass/footer.scss');
 require('../../static/css/tooltip_m.css');
 require('../../static/css/datepick.css');
-
+require('../../static/css/reset.css');
+require('../../sass/header.scss');
+require('../../sass/footer.scss');
+//主页面样式
+require('../../sass/orderConfirm/orderConfirm.scss');
+//提示用户加床数达最大值时的弹出框的样式
+require('../../sass/orderConfirm/confirmDialog.scss');
+//确认订单信息弹框的样式
+require('../../sass/orderConfirm/confirmOrderMsg.scss');
 
 const Util = require('../../common/util');
 

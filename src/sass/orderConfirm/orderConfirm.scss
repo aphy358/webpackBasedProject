@@ -192,7 +192,7 @@ html {
 												line-height: 50px;
 												margin: 0 20px;
 												color: #7d8080;
-												i, b {
+												i, b ,input{
 													font-weight: normal;
 													display: block;
 													float: left;
@@ -206,7 +206,7 @@ html {
 													cursor: pointer;
 													&:nth-child(2) {
 														width: 36px;
-														height: 28px;
+														height: 30px;
 														border-left: none;
 														border-right: none;
 														color: #000;

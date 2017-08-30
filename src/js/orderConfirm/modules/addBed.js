@@ -21,7 +21,7 @@ function add() {
 
 function limitBedNum() {
     //先判断用户加床总数是否超过房间数x每间房最多能加的床数
-    var addBedTotal=addData.roomNum*addData.data[0][0].max;
+    var addBedTotal = addData.roomNum * addData.data[0][0].max;
   
     //把用户能添加的最大床数绑定给添加按钮
     $('.add-bed').attr("addBedTotal",addBedTotal);

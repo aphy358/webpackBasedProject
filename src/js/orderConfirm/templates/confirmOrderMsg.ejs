@@ -1,0 +1,87 @@
+<!--确认订单信息-->
+<div class="confirm-order-msg-box"></div>
+
+<div class="confirm-order-msg">
+  <h5>确认订单信息</h5>
+  <div class="final-order-msg">
+    <ul>
+      <li>
+        <span>预定酒店</span>
+        <p><%= decodeURIComponent(hotelName,true) %></p>
+      </li>
+      <li>
+        <span>房型</span>
+        <p><%= decodeURIComponent(roomName,true) %>[<%= decodeURIComponent(breakFastName,true) %>]</p>
+      </li>
+      <li>
+        <span>入住日期</span>
+        <p><%= startDate %> 日到 <%= endDate %> 日</p>
+      </li>
+      <li>
+        <span>预定房间数</span>
+        <p><%= roomNum %>间</p>
+      </li>
+      <% if(bedNum != 0){ %>
+      <li>
+        <span>加床信息</span>
+        <p><%= bedNum %>张 (<%= addBedMsg %>)</p>
+      </li>
+      <% } %>
+      <% if(breakfastNum != 0){ %>
+      <li>
+        <span>加早信息</span>
+        <p><%= breakfastNum %>份 (<%= addBreakfastMsg %>)</p>
+      </li>
+      <% } %>
+      <% if(networkNum != 0){ %>
+      <li>
+        <span>加宽带信息</span>
+        <p><%= networkNum %>份(<%= addNetworkMsg %>)</p>
+      </li>
+      <% } %>
+      <li>
+        <span>入住人</span>
+        <p><%=surname%><%=aftername %></p>
+      </li>
+      <li>
+        <span>确认方式</span>
+        <% if(voucherEmail){ %>
+        <p><%=decodeURIComponent(checkType,true)%> : <%=voucherEmail%></p>
+        <% }else if(voucherFax){ %>
+        <p><%=decodeURIComponent(checkType,true)%> : <%=voucherFax%></p>
+        <% }else if(voucherMobile){ %>
+        <p><%=decodeURIComponent(checkType,true)%> : <%=voucherMobile%></p>
+        <% }else{ %>
+        <p><%=decodeURIComponent(checkType,true)%></p>
+        <% } %>
+      </li>
+      <li>
+        <span>支付方式</span>
+        <% if(paymentType ==0){ %>
+        <p>单结 (使用预收款<%=willUsedBalance || 0%>元, 需支付<%=payTotalMoney - willUsedBalance%>元)</p>
+        <% }else{ %>
+        <% paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结', '三日结', '十日结']; %>
+        <p><%=paymentTermName[paymentType]%> (使用预收款<%=willUsedBalance || 0%>元, 需支付<%=payTotalMoney - willUsedBalance%>元)</p>
+        <% } %>
+      </li>
+      <% if(specialReq){ %>
+      <li>
+        <span>特殊需求</span>
+        <p><%= decodeURIComponent(specialReq,true).split('specialReq=').join('') %></p>
+      </li>
+      <% } %>
+      <li>
+        <span>取消条款</span>
+        <p><%= decodeURIComponent(cancellationDesc,true) %></p>
+      </li>
+      <li>
+        <span>订单价格</span>
+        <p>RMB <b class="total-price"><%= payTotalMoney %></b> 元</p>
+      </li>
+    </ul>
+  </div>
+  <div class="confirm-msg-bot">
+    <button class="confirm-order">确认</button>
+    <button class="cancel-order">取消</button>
+  </div>
+</div>

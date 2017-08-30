@@ -271,38 +271,40 @@ function updateTotal() {
 
 //用户点击+房间或-房间时，更改对应可增加的床数
 function changeRoomNum() {
-	$('.reduce').click(function () {
-	    //发送请求
-	    
-	    //更改房间数
-	    var roomNum = Number($('#room-num').text());
-	    roomNum--;
-	    if (roomNum < 1) {
-	    	return;
-	    }
-	    $('#room-num').text(roomNum);
-	    
-	    //更改房费和总金额
-	    $('#roomCost').text(roomNum * write.content.payTotalMoney);
-	    
-	    reloadAddItem();
+	if(write.content.isChangeNum == true){
+    $('.reduce').click(function () {
+      //发送请求
+      
+      //更改房间数
+      var roomNum = Number($('#room-num').val());
+      roomNum--;
+      if (roomNum < 1) {
+        return;
+      }
+      $('#room-num').val(roomNum);
+      
+      //更改房费和总金额
+      $('#roomCost').text(roomNum * write.content.payTotalMoney);
+      
+      reloadAddItem();
     });
-
-	$('.increase').click(function () {
-	    //更改房间数
-	    var roomNum = Number($('#room-num').text());
-	    roomNum++;
-	    if (roomNum > write.content.stock) {
-	    	return;
-	    }
-	    $('#room-num').text(roomNum);
-	    
-	    //更改房费和总金额
-	    $('#roomCost').text(roomNum * write.content.payTotalMoney);
-	    
-	    reloadAddItem();
     
-	});
+    $('.increase').click(function () {
+      //更改房间数
+      var roomNum = Number($('#room-num').val());
+      roomNum++;
+      if (roomNum > write.content.stock) {
+        return;
+      }
+      $('#room-num').val(roomNum);
+      
+      //更改房费和总金额
+      $('#roomCost').text(roomNum * write.content.payTotalMoney);
+      
+      reloadAddItem();
+      
+    });
+  }
 }
 
 //用户改变房间数时，需要清除及重新加载对应的加床加早加宽带信息

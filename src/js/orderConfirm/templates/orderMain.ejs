@@ -39,7 +39,7 @@
 								<li>房间数量:</li>
 								<li>
 									<i class="reduce">-</i>
-									<b id="room-num"><%= roomNum %></b>
+									<input name="roomNum" id="room-num" value="<%= roomNum %>" readonly>
 									<i class="increase">+</i>
 								</li>
 								<li class="order-room-max">最多可预订
@@ -66,7 +66,7 @@
 							<div class="personal-content">
 								<!--<p>请直接勾选喜好与要求，是否可满足以酒店确认为准</p>-->
 								<% for(var i = 0;i < specialReq.length;i++){ %>
-								<label><input type="checkbox" value="立即到店"><%= specialReq[i].optionname %></label>
+								<label><input name="specialReq" type="checkbox" value="<%= specialReq[i].optionname %>"><%= specialReq[i].optionname %></label>
 								<% } %>
 								<p class="personal-special">请直接勾选您的要求，我们会及时通知酒店并尽量协助安排，但要视酒店情况，不能确保满足</p>
 							</div>
@@ -78,31 +78,31 @@
 						<div class="confirm-way">
 							<div class="confirm-select">
 								<label>
-									<input type="radio" class="other-confirm-way" name="confirm-way" value="在线确认" checked>在线确认
+									<input type="radio" class="other-confirm-way" name="checkType" value="在线确认" checked>在线确认
 								</label>
 								<label>
-									<input type="radio" class="other-confirm-way" name="confirm-way" confirm-way="email" value="电子邮件确认">电子邮件确认
+									<input type="radio" class="other-confirm-way" name="checkType" confirm-way="email" value="电子邮件确认">电子邮件确认
 								</label>
 								<label>
-									<input type="radio" class="other-confirm-way" name="confirm-way" confirm-way="fax" value="传真确认">传真确认
+									<input type="radio" class="other-confirm-way" name="checkType" confirm-way="fax" value="传真确认">传真确认
 								</label>
 								<label>
-									<input type="radio" class="other-confirm-way" name="confirm-way" confirm-way="phone" value="短信确认">短信确认
+									<input type="radio" class="other-confirm-way" name="checkType" confirm-way="phone" value="短信确认">短信确认
 								</label>
 								<ul class="confirm-way-msg">
 									<li>
 										<span>Email</span>
-										<input type="text" name="emailMsg" id="email" placeholder="邮箱">
+										<input type="text" name="voucherEmail" id="email" placeholder="邮箱">
 										<i>*</i>
 									</li>
 									<li>
 										<span>传真</span>
-										<input type="text" name="faxMsg" id="fax" placeholder="传真号码">
+										<input type="text" name="voucherFax" id="fax" placeholder="传真号码">
 										<i>*</i>
 									</li>
 									<li>
 										<span>手机</span>
-										<input type="text" name="phoneMsg" id="phone" placeholder="手机号码">
+										<input type="text" name="voucherMobile" id="phone" placeholder="手机号码">
 										<i>*</i>
 									</li>
 								</ul>
@@ -116,11 +116,11 @@
 							<ul>
 								<li>
 									<span>客户订单号</span>
-									<input type="text">
+									<input name="customerOrderCode" type="text">
 								</li>
 								<li>
 									<span>结算方式</span>
-									<select name="balance-way" id="balance-way">
+									<select name="paymentType" id="balance-way">
 										<% if(distributor.paymentTerm == 0){ %>
 										<option value="0">单结</option>
 										<% }else{ %>
@@ -130,7 +130,7 @@
 								</li>
 								<li>
 									<span>使用预收款</span>
-									<input id="use-per-payment" name="perPayment" type="text">
+									<input id="use-per-payment" name="willUsedBalance" type="text">
 									<b class="per-payment-prompt"></b>
 								</li>
 								<li>
@@ -157,6 +157,21 @@
 						</div>
 					</li>
 				</ul>
+        <input type="hidden" name="staticInfoId" value="<%= staticInfo.staticInfoId %>">
+        <input type="hidden" name="supplierId" value="<%= supplierId %>">
+        <input type="hidden" name="hotelName" value="<%= staticInfo.infoName %>">
+        <input type="hidden" name="adultNum" value="<%= hotelPrice.maxPersonNum %>">
+        <input type="hidden" name="childrenNum" value="<%= childrenNum %>">
+        <input type="hidden" name="startDate" value="<%= startDate %>">
+        <input type="hidden" name="endDate" value="<%= endDate %>">
+        <input type="hidden" name="dateNum" value="<%= dateNum %>">
+        <input type="hidden" name="toatlBasePrice" value="<%= toatlBasePrice %>">
+        <input type="hidden" name="payTotalMoney" value="<%= payTotalMoney %>">
+        <input type="hidden" name="totalNowPrice" value="<%= nowTotalMoney %>">
+        <input type="hidden" name="rateType" value="<%= rateType %>">
+        <input type="hidden" name="roomName" value="<%= hotelPrice.roomName %>">
+        <input type="hidden" name="breakFastName" value="<%= hotelPrice.breakFastName %>">
+        <input type="hidden" name="cancellationDesc" value="<%= hotelPrice.cancellationDesc %>">
 			</form>
 		</div>
 		<div class="content-right">

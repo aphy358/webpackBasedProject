@@ -36,14 +36,14 @@ function InitValidator() {
 		            required: true,
 		            demostic: true
 		        },
-		        emailMsg:{
+            voucherEmail:{
 		            email:true
 		        },
-		        faxMsg:{
+            voucherFax:{
 		            number: true,
 		            rangelength: [6,14]
 		        },
-		        phoneMsg:{
+            voucherMobile:{
 		            minlength : 11,
 		            isMobile:true
 		        }
@@ -55,14 +55,14 @@ function InitValidator() {
 		        aftername: {
 		            required: '此处不能为空',
 		        },
-		        emailMsg:{
+            voucherEmail:{
 		            email:'请输入正确的邮箱地址'
 		        },
-		        faxMsg:{
+            voucherFax:{
 		            number: '请输入正确的传真号码',
 		            rangelength: '传真号码长度必须在6-14之间'
 		        },
-		        phoneMsg:{
+            voucherMobile:{
 		            minlength : '手机号码长度为11',
 		            isMobile:'请正确填写您的手机号码'
 		        }
@@ -83,14 +83,14 @@ function InitValidator() {
 		        nationality: {
 		            required: true,
 		        },
-		        emailMsg:{
+            voucherEmail:{
 		            email:true
 		        },
-		        faxMsg:{
+            voucherFax:{
 		            number: true,
 		            rangelength: [6,14]
 		        },
-		        phoneMsg:{
+            voucherMobile:{
 		            required : true,
 		            minlength : 11,
 		            isMobile:true
@@ -106,14 +106,14 @@ function InitValidator() {
 		        nationality: {
 		            required: '此处不能为空',
 		        },
-		        emailMsg:{
+            voucherEmail:{
 		            email:'请输入正确的邮箱地址'
 		        },
-		        faxMsg:{
+            voucherFax:{
 		            number: '请输入正确的传真号码',
 		            rangelength: '传真号码长度必须在6-14之间'
 		        },
-		        phoneMsg:{
+            voucherMobile:{
 		            required : '请输入手机号',
 		            minlength : '手机号码长度为11',
 		            isMobile:'请正确填写您的手机号码'

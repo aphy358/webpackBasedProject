@@ -49,8 +49,24 @@ function changeConfirmWay() {
 
 	    //先清空确认方式下所有输入框的内容
 	    $('.confirm-way-msg li input').val('').siblings('i').hide();
+	    //再显示当前确认方式下的内容
 	    $('.confirm-way-msg').find(confirmId).val(write.content.distributor[confirmWay])
 	    .siblings('i').show();
+	    
+	    //更改验证规则
+    $("input[name^=voucher]").each(function(i,n){
+      $(n).rules("remove", "required");
+      
+      if( $(n).hasClass("usingPlaceHolder") ){		//***  针对IE浏览器有placeholder的特殊情况进行特殊处理
+        n.value = '';
+      }
+      
+      $(n).focus();
+      $(n).blur();
+    });
+    
+    //给当前确认方式添加必填验证
+    $(confirmId).rules("add",{required:true});
 	});
 }
 
@@ -79,7 +95,7 @@ module.exports = {
 	run: function () {
 		//用户点击加早或加床等的“+”号时展开操作列表
 		openAddMsg();
-    
+  
 		//初始化验证
 		InitValidator();
 		
@@ -91,7 +107,7 @@ module.exports = {
 
 		//用户切换确认方式时，自动将用户预留的相关信息显示在对应区域内
 		changeConfirmWay();
-    
+  
 		//用户使用预收款时，数目不能小于0，不能大于需要支付的总金额或能预支付的总金额
 		limitPerPayment();
 		
