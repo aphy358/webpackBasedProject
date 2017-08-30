@@ -11,6 +11,14 @@ var test = [
 	'/user/indexTicketData.do',					//景点门票
 	'/user/indexPromotionalSaleData.do',		//促销特卖
 	'/user/indexSellWellMonthData.do',			//本月热销
+  
+  
+  //确认酒店是否下线
+  '/internalOrder/check.do',
+  
+  //获取页面主要信息
+  '/order/write.do',
+  
  
  
 

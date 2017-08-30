@@ -120,19 +120,28 @@
 								</li>
 								<li>
 									<span>结算方式</span>
-									<select name="paymentType" id="balance-way">
+                  <% if(paymentType == 1){ %>
+                  <p><%= paymentTermName[distributor.paymentTerm -1] %></p>
+                  <% }else{ %>
+									<select name="paymentTermSon" id="balance-way">
 										<% if(distributor.paymentTerm == 0){ %>
 										<option value="0">单结</option>
 										<% }else{ %>
-										<option value="<%= distributor.paymentTerm %>">distributor.paymentTermName[paymentTerm]</option>
-										<% } %>
-									</select>
+                    <option value="0">单结</option>
+										<option value="<%= distributor.paymentTerm %>">
+                      <%= paymentTermName[distributor.paymentTerm + 1] %>
+                    </option>
+                    <% } %>
+                  </select>
+                  <% } %>
 								</li>
+                <% if(distributor.paymentTerm == 0){ %>
 								<li>
 									<span>使用预收款</span>
 									<input id="use-per-payment" name="willUsedBalance" type="text">
 									<b class="per-payment-prompt"></b>
 								</li>
+                <% } %>
 								<li>
 									<span>剩余预收款</span>
 									<p>RMB <b><%= balance %></b> 元</p>
@@ -172,6 +181,8 @@
         <input type="hidden" name="roomName" value="<%= hotelPrice.roomName %>">
         <input type="hidden" name="breakFastName" value="<%= hotelPrice.breakFastName %>">
         <input type="hidden" name="cancellationDesc" value="<%= hotelPrice.cancellationDesc %>">
+        <input type="hidden" name="paymentType" value="<%= paymentType %>">
+        <input type="hidden" name="paymentTerm" value="<%= distributor.paymentTerm %>">
 			</form>
 		</div>
 		<div class="content-right">

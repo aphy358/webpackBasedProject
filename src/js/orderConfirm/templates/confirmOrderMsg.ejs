@@ -58,10 +58,13 @@
       <li>
         <span>支付方式</span>
         <% if(paymentType ==0){ %>
-        <p>单结 (使用预收款<%=willUsedBalance || 0%>元, 需支付<%=payTotalMoney - willUsedBalance%>元)</p>
+            <% if(paymentTerm == 0 && paymentTermSon == 0){ %>
+                <p>单结 (使用预收款<%=willUsedBalance || 0%>元, 需支付<%=payTotalMoney - willUsedBalance%>元)</p>
+            <% }else{ %>
+                <p><%= paymentTermName[Number(paymentTermSon) + 1] %></p>
+            <% } %>
         <% }else{ %>
-        <% paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结', '三日结', '十日结']; %>
-        <p><%=paymentTermName[paymentType]%> (使用预收款<%=willUsedBalance || 0%>元, 需支付<%=payTotalMoney - willUsedBalance%>元)</p>
+            <p>客人前台現付</p>
         <% } %>
       </li>
       <% if(specialReq){ %>

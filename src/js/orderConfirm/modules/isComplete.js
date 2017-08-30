@@ -50,6 +50,10 @@ function isComplete() {
         //个性化要求信息
         formObj['specialReq'] = $("input[name='specialReq']:checked").serialize();
         
+        formObj['paymentTermName'] = ["客人前台现付", '单结', '周结', '半月结', '月结','不固定', '三日结', '十日结','额度结'];
+    
+        console.log(formObj);
+    
         //将获取的数据嵌入弹出的确认订单信息框中
         var $confirmOrderMsgStr = $(confirmOrderMsg(formObj));
         
