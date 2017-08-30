@@ -38,9 +38,9 @@ function loadAsync(src, callback){
 		var script = document.createElement('script');
 		script.src = src[i];
 
-		//给最后加载的插件绑定 onload 事件
+		//给最后加载的插件绑定 onload 事件，IE8不能正确处理 onload 事件，所以这里用 onreadystatechange 事件
 		if( callback && $.type(callback) === 'function' && (i + 1) === src.length ){
-			script.onreadystatechange = function() {		// IE8不能正确处理 onload 事件
+			script.onreadystatechange = function() {
 				if (script.readyState === 'loaded' || script.readyState === 'complete') {
 					callback(); 
 				} 
