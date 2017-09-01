@@ -23,13 +23,6 @@
 			<li>
 				<input class="network-end end-date" type="text" value="<%= endDate %>">
 			</li>
-      <li>
-        <select class="network-num add-num" name="bed-num" id="bed-num">
-          <% for(var i=0;i< roomNum;i++){ %>
-          <option value="<%= i+1 %>"><%= i+1 %></option>
-          <% } %>
-        </select>
-      </li>
 			<li class="add-network add-item" add-category="add-network" data-str="<%= encodeURI( JSON.stringify(data) ) %>" add-type="宽带">+</li>
 		</ul>
 	</div>

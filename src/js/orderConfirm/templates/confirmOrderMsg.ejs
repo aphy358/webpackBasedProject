@@ -41,7 +41,11 @@
       <% } %>
       <li>
         <span>入住人</span>
-        <p><%=surname%><%=aftername %></p>
+        <p>
+          <% for(var i = 0;i < checkIn.length;i += 2){ %>
+          <%=decodeURIComponent(checkIn[i],true)%><%=decodeURIComponent(checkIn[i+1],true)%>；
+          <% } %>
+        </p>
       </li>
       <li>
         <span>确认方式</span>

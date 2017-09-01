@@ -9,11 +9,13 @@ const addNetwork = require('./addNetwork.js');
 //引入入住信息结构
 const guestMsg = require('../templates/guestMessage.ejs');
 
-//请求静态数据
-const write = require('../testData/write.do.js');
+//引入页面主交互逻辑
+const initActive = require('./initActive.js').run;
+//引入公共函数
+const Util = require('../../../common/util');
 
-//引入工具类
-const queryString = require('../../../common/util.js').queryString;
+const getCheck = require('./sendRequest.js').getCheck;
+const getWrite = require('./sendRequest.js').getWrite;
 
 var writeStr;
 
@@ -21,46 +23,34 @@ var writeStr;
 function getData() {
     //确认用户是否在线
     // const checkData = require('../testData/check.do.js');
-    //处理参数
-    var params = {
-      hotelId: queryString('hotelId'),
-      suppId: queryString('supplierId')
-    };
-    $.post('/internalOrder/check.do' ,params, function (checkData) {
-      console.log(checkData);
+    getCheck(function (checkData) {
       if (checkData.isOnline) {
-        write.content.paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结','不固定', '三日结', '十日结','额度结'];
+        //请求页面中用于显示信息的数据
+        // const write = require('../testData/write.do.js');
+        getWrite(function (write) {
+          if (write.success == true) {
+            write.content.paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结','不固定', '三日结', '十日结','额度结'];
     
-        const content = write.content;
+            const content = write.content;
     
-        if (write.success == true) {
-          writeStr = orderMain(content);
-          //将替换好的结构添加到页面中
-          add();
-      
-          //再将入住信息替换好并添加进页面中
-          var guestMsgStr = guestMsg(write);
-          $('.guest-msg-box').append(guestMsgStr);
-        }
+            writeStr = orderMain(content);
+            //将替换好的结构添加到页面中
+            add(write);
+            
+            //再将入住信息替换好并添加进页面中
+            var guestMsgStr = guestMsg(write);
+            $('.guest-msg-box').append(guestMsgStr);
+          }
+        })
+        
       } else {
         //酒店已下线时，提醒客户
-        $('.prompt-content').text('该酒店已下线');
-        $('.info-prompt').show();
-        $('.info-prompt-box').dialog();
-        $('.info-prompt-box').dialog('open');
-  
-        //用户点击确定后，隐藏提示信息
-        $('.max-bed-num-confirm button,.close-confirm').click(function () {
-          $('.info-prompt').hide();
-          $('.info-prompt-box').dialog('close');
+        layer.alert('该酒店已下线');
           
           //关掉本页面
           CloseWebPage();
-        });
       }
     });
-    
-    
 }
 
 function CloseWebPage() {
@@ -84,13 +74,28 @@ function CloseWebPage() {
 }
 
 //将替换好的html结构添加到页面中以显示
-function add() {
+function add(write) {
 	$('.main').html(writeStr);
 
 	//添加加床、加早、加宽带模块
-	addBreakfast.run();
-	addBed.run();
-	addNetwork.run();
+	addBreakfast.run(write);
+	addBed.run(write);
+	addNetwork.run(write);
+	//引入页面主交互逻辑
+  // initActive(write);
+  
+  //IE9以下和IE9以上的浏览器采用不同方式加载插件（日期控件、验证控件）
+  if( Util.ltIE9() ){
+    Util.loadAsync(['../../static/js/datePick/datepickPacked.js', '../../static/js/validator/validatorPacked.js'], initActive);
+  }else{
+    require.ensure([], function(){
+      require('../../../static/js/datePick/datepickPacked');
+      require('../../../static/js/validator/validatorPacked');
+      
+      
+      initActive(write);
+    }, 'validator');
+  }
 }
 
 module.exports = {

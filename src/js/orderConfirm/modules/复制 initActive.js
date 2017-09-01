@@ -15,14 +15,13 @@ const extraService = require('./extraService.js');
 //引入用户点击支付时，检查信息是否填写完整的模块
 const isComplete = require('./isComplete.js');
 
+
+
 //用户点击加早或加床等的“+”号时展开操作列表
 function openAddMsg() {
 	$(document).delegate('.open-detail-msg', 'click', function () {
 		$(this).parent().parent().hide()
 		.siblings('.open-add-msg').show();
-    
-    //加载日期控件
-    addSelectDate();
 	})
 }
 
@@ -31,16 +30,16 @@ function addSelectDate() {
 	var minDate = $('.main').find('.start-date').text();
 	var maxDate = $('.main').find('.end-date').text();
 
-	var breakfastStart = $('.main').find('.breakfast-start');
-	var breakfastEnd = $('.main').find('.breakfast-end');
+	var breakfastStart = $('.breakfast-start');
+	var breakfastEnd = $('.breakfast-end');
 	selectDate.run(1, breakfastStart, breakfastEnd, minDate, maxDate);
 
-	var bedStart = $('.main').find('.bed-start');
-	var bedEnd = $('.main').find('.bed-end');
+	var bedStart = $('.bed-start');
+	var bedEnd = $('.bed-end');
 	selectDate.run(1, bedStart, bedEnd, minDate, maxDate);
 
-	var networkStart = $('.main').find('.network-start');
-	var networkEnd = $('.main').find('.network-end');
+	var networkStart = $('.network-start');
+	var networkEnd = $('.network-end');
 	selectDate.run(1, networkStart, networkEnd, minDate, maxDate);
 }
 
@@ -100,10 +99,13 @@ module.exports = {
   
 		//初始化验证
 		InitValidator();
-  
+		
+		//加载日期控件
+		addSelectDate();
+
 		//引入加床、加早、加宽带的交互模块
 		extraService.run(write);
-  
+
 		//用户切换确认方式时，自动将用户预留的相关信息显示在对应区域内
 		changeConfirmWay(write);
   

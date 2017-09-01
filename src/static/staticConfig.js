@@ -10,6 +10,8 @@ let img = {
 
             //静态页酒店图片
             tmp_banner: require('!!file-loader?name=static/img/index/[name].[ext]!./img/index/tmp_banner.jpg'),
+            //酒店图片获取不到时默认加载的图片
+            nopic: require('!!file-loader?name=static/img/[name].[ext]!./img/nopic.png'),
           };
 
 function getTmpImgs(){
@@ -39,5 +41,12 @@ module.exports = {
     validator: require('!!file-loader?name=static/js/validator/[name].[ext]!./js/validator/validatorPacked.js'),
   },
   img: merge(img, getTmpImgs()),
-  
+  layer: {    //layer 相关的文件
+    source0: require('!!file-loader?name=static/js/skin/default/[name].[ext]!./js/skin/default/icon.png'),
+    source1: require('!!file-loader?name=static/js/skin/default/[name].[ext]!./js/skin/default/icon-ext.png'),
+    source2: require('!!file-loader?name=static/js/skin/default/[name].[ext]!./js/skin/default/layer.css'),
+    source3: require('!!file-loader?name=static/js/skin/default/[name].[ext]!./js/skin/default/loading-0.gif'),
+    source4: require('!!file-loader?name=static/js/skin/default/[name].[ext]!./js/skin/default/loading-1.gif'),
+    source5: require('!!file-loader?name=static/js/skin/default/[name].[ext]!./js/skin/default/loading-2.gif'),
+  }
 };

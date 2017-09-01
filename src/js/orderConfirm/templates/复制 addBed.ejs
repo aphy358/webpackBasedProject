@@ -32,8 +32,8 @@
 				<input class="bed-end end-date" type="text" value="<%= endDate %>">
 			</li>
 			<li>
-				<select name="addType" id="add-type">
-					<% for(var i = 0;i < data[0].length;i++){ %>
+				<select name="addType" class="add-type">
+					<% for(var i = 0; i < data[0].length; i++){ %>
 					<option value="<%= data[0][i].name %>" add-bed="<%= data[0][i].price %>"><%= data[0][i].name %></option>
 					<% } %>
 				</select>

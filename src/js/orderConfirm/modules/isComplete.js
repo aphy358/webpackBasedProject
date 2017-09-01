@@ -50,7 +50,21 @@ function isComplete() {
         //个性化要求信息
         formObj['specialReq'] = $("input[name='specialReq']:checked").serialize();
         
+        //用户支付总价
+        formObj['payTotalMoney'] = +$('#totalPay').text();
+        
         formObj['paymentTermName'] = ["客人前台现付", '单结', '周结', '半月结', '月结','不固定', '三日结', '十日结','额度结'];
+        
+        //入住人信息
+        var checkIn = [];
+        var guestArr = $('.check-in-msg');
+        console.log(guestArr);
+        for (var i = 0; i < guestArr.length; i++) {
+          checkIn[checkIn.length] = guestArr[i].value;
+        }
+        console.log($(checkIn));
+        
+        formObj['checkIn'] = $(checkIn);
     
         console.log(formObj);
     

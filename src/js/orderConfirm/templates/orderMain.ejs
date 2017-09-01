@@ -52,13 +52,13 @@
 						</div>
 					</li>
 					<!--加早-->
-					<li class="breakfast-msg-box"></li>
+					<li class="breakfast-msg-box need-reload-box"></li>
 					<!--加床-->
-					<li class="bed-msg-box"></li>
+					<li class="bed-msg-box need-reload-box"></li>
 					<!--加宽带-->
-					<li class="network-msg-box"></li>
+					<li class="network-msg-box need-reload-box"></li>
 					<!--入住信息-->
-					<li class="guest-msg-box"></li>
+					<li class="guest-msg-box need-reload-box"></li>
 					<!--个性化要求-->
 					<li>
 						<span>个性化要求</span>
@@ -189,8 +189,7 @@
 			<div class="hotel-msg-top">
 				<h5 class="hotel-name">你的选择</h5>
 				<div class="hotel-logo">
-					<img src="<%= picSrcThumb %>"
-					alt="">
+					<img src="<%= picSrcThumb %>" onerror=this.src="../static/img/nopic.png" alt="">
 				</div>
 				<div class="hotel-msg-right">
 					<div class="hotel-name-Chinese"><%= staticInfo.infoName %></div>

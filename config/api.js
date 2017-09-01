@@ -11,18 +11,19 @@ var test = [
 	'/user/indexTicketData.do',					//景点门票
 	'/user/indexPromotionalSaleData.do',		//促销特卖
 	'/user/indexSellWellMonthData.do',			//本月热销
-  
-  
-  //确认酒店是否下线
-  '/internalOrder/check.do',
-  
-  //获取页面主要信息
-  '/order/write.do',
-  
- 
- 
 
-].forEach(function(o, i){
+
+	//确认酒店是否下线
+	'/internalOrder/check.do',
+
+	//获取页面主要信息
+	'/order/write.do',
+
+	//获取加床、加早、加宽带信息、
+	'/order/surchargeRoom.do'
+
+
+].forEach(function (o, i) {
 	ex[o] = proxy_addr;
 });
 

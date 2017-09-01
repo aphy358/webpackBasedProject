@@ -31,9 +31,9 @@
 				<input class="breakfast-end end-date" type="text" value="<%= endDate %>">
 			</li>
 			<li>
-				<select name="addType" id="add-type">
+				<select name="addType" class="add-type">
                     <% for(var i = 0; i < data[0].length; i++){ var o = data[0][i]; %>
-					<option value="<%= o.name %>"><%= o.name %></option>
+					<option value="<%= o.type %>"><%= o.name %></option>
                     <% } %>
 				</select>
 			</li>
