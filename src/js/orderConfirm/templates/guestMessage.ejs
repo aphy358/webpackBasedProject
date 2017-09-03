@@ -3,31 +3,21 @@
 
   <% for(var j = 0; j < content.roomNum; j++){ %>
 
-  <div class="guest">
-    <p class="guest-order">住客 1 :</p>
-    <input class="check-in-msg must-fill" name="surname" type="text" placeholder="姓（英文/拼音) 必填">
-    <input class="check-in-msg must-fill" name="aftername" type="text" placeholder="名（英文/拼音) 必填">
-    <% if(content.staticInfo.country != 70007){ %>
-    <div class="nation-box">
-      <input class="nationality-msg must-fill" name="nationality" type="text" placeholder="护照国籍 必填">
-      <ul class="search-result"></ul>
+    <div class="guest-group">
+        <% for(var i = 0; i < content.hotelPrice.maxPersonNum; i++){ var b = i === 0; %>
+        <div class="guest">
+            <p class="guest-order">住客 <%= i + 1 %> :</p>
+            <input class="check-in-msg<%= b ? ' required' : '' %>" name="surname" type="text" placeholder="姓（英文/拼音)<%= b ? ' 必填' : '' %>">
+            <input class="check-in-msg<%= b ? ' required' : '' %>" name="aftername" type="text" placeholder="名（英文/拼音)<%= b ? ' 必填' : '' %>">
+            <% if(content.staticInfo.country != 70007){ %>
+            <div class="nation-box">
+            <input class="nationality-msg<%= b ? ' required' : '' %>" name="nationality" type="text" placeholder="护照国籍<%= b ? ' 必填' : '' %>">
+            <ul class="search-result"></ul>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
     </div>
-    <% } %>
-  </div>
-
-  <% for(var i = 0; i < content.hotelPrice.maxPersonNum - 1; i++){ %>
-  <div class="guest">
-    <p class="guest-order">住客 <%= i + 2 %> :</p>
-    <input class="check-in-msg" name="second" type="text" placeholder="姓（英文/拼音)">
-    <input class="check-in-msg" name="second" type="text" placeholder="名（英文/拼音)">
-    <% if(content.staticInfo.country != 70007){ %>
-    <div class="nation-box">
-      <input class="nationality-msg" type="text" placeholder="护照国籍">
-      <ul class="search-result"></ul>
-    </div>
-    <% } %>
-  </div>
-  <% } %>
 
   <% } %>
 </div>

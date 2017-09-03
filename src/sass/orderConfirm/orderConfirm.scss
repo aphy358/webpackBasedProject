@@ -343,46 +343,55 @@ html {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
-										.guest {
-											width: 100%;
-											height: 50px;
-											padding-left: 20px;
-											.guest-order {
-												margin-right: 20px;
+
+										@at-root .guest-group{
+											border-bottom: 1px solid #d7e8f5;
+
+											&:last-child{
+												border-bottom: none;
 											}
-											p {
-												float: left;
-												line-height: 50px;
+
+											.guest {
+												width: 100%;
+												height: 50px;
+												padding-left: 20px;
+												.guest-order {
+													margin-right: 20px;
+												}
+												p {
+													float: left;
+													line-height: 50px;
+												}
+												.nation-box{
+													float: left;
+													position: relative;
+													ul{
+													display: none;
+													position: absolute;
+													width: 198px;
+													top: 40px;
+													right: 10px;
+													border-left: 1px solid #d3d3d3;
+													border-right: 1px solid #d3d3d3;
+													background-color: #fff;
+													z-index: 100;
+													li{
+														height: 25px;
+														line-height: 25px;
+														border-bottom: 1px solid #d3d3d3;
+														padding: 0 25px;
+														overflow: hidden;
+													}
+													}
+												}
+												input {
+													float: left;
+													width: 200px;
+													height: 30px;
+													margin: 10px;
+													padding-left: 10px;
+												}
 											}
-                      .nation-box{
-                        float: left;
-                        position: relative;
-                        ul{
-                          display: none;
-                          position: absolute;
-                          width: 198px;
-                          top: 40px;
-                          right: 10px;
-                          border-left: 1px solid #d3d3d3;
-                          border-right: 1px solid #d3d3d3;
-                          background-color: #fff;
-                          z-index: 100;
-                          li{
-                            height: 25px;
-                            line-height: 25px;
-                            border-bottom: 1px solid #d3d3d3;
-                            padding: 0 25px;
-                            overflow: hidden;
-                          }
-                        }
-                      }
-                      input {
-                        float: left;
-                        width: 200px;
-                        height: 30px;
-                        margin: 10px;
-                        padding-left: 10px;
-                      }
 										}
 									}
 									.personal-requirement {
