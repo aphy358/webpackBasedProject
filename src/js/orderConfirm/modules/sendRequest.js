@@ -56,6 +56,13 @@ function getPrice(callback,typeId) {
   })
 }
 
+//请求护照国籍信息
+function getNationalMsg(key,callback) {
+  $.get('/order/countrySuggest.do',{ 'key' : key },function (data) {
+    callback(data);
+  })
+}
+
 
 module.exports = {
   getCheck : function (callback) {
@@ -66,5 +73,8 @@ module.exports = {
   },
   getPrice : function (callback,typeId) {
     getPrice(callback,typeId);
+  },
+  getNationalMsg : function (key,callback) {
+    getNationalMsg(key,callback);
   }
 };

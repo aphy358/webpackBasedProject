@@ -111,10 +111,35 @@ function getDateEnuArr(d1, d2) {
 
 
 
+/**
+ * 该函数可以使用户在输入后，隔一段时间之后再执行目标函数
+ * @param {*} func 表示传入的目标函数
+ * @param {*} timeGap 表示时间间隔，单位毫秒
+ * @param {*} option 表示传入回调函数的参数
+ */
+function processAfterTyping(func, timeGap, option){
+	//启用一个全局变量存储最后一次输入操作的时间
+	window.timeStampPAT = new Date().getTime();
+	
+	setTimeout(function(){
+		//如果当前时间 - 最后一次输入操作的时间 >= 设置的时间间隔，那么执行最终的内部函数体func
+		if( new Date().getTime() - window.timeStampPAT >= timeGap ){
+
+			//用完之后再删除这个全局变量，释放内存
+			delete window.timeStampPAT;
+
+			if( func && typeof func === 'function' )	func( option );
+		}
+	}, ( timeGap || 300 ) );
+}
+
+
+
 module.exports = {
-	isIE 	      : isIE,
-	ltIE9 	      : ltIE9,
-	loadAsync     : loadAsync,
-	queryString   : queryString,
-	getDateEnuArr : getDateEnuArr,
+	isIE 	      	   : isIE,
+	ltIE9 	      	   : ltIE9,
+	loadAsync     	   : loadAsync,
+	queryString   	   : queryString,
+	getDateEnuArr 	   : getDateEnuArr,
+	processAfterTyping : processAfterTyping
 }

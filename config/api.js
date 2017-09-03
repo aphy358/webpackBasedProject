@@ -20,7 +20,10 @@ var test = [
 	'/order/write.do',
 
 	//获取加床、加早、加宽带信息、
-	'/order/surchargeRoom.do'
+	'/order/surchargeRoom.do',
+  
+  //获取护照国籍信息
+  '/order/countrySuggest.do'
 
 
 ].forEach(function (o, i) {

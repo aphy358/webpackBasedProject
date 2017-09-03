@@ -271,6 +271,24 @@ function delAddItem(addId, itemMsg) {
   updateTotal();
 }
 
+//用户在护照国籍框输入内容时，展示搜索结果
+function openSearchNationalResult() {
+  $('.main').delegate('.nationality-msg','keyup',function () {
+    //取得用户输入的值并作为key发送请求
+    var inputMsg = $(this).val();
+    const getNationalMsg = require('./sendRequest.js').getNationalMsg;
+    //发送请求
+    getNationalMsg(inputMsg,function (data) {
+      console.log(data);
+      var countries = "";
+      for (var i = 0; i < data.list.length && i < 10; i++) {
+        countries += '<li data-cid="'+ data.list[i].countryid +'">'+ data.list[i].name.split("-")[1] +'</li>';
+      }
+      $('.search-result').html(countries).show();
+    });
+  })
+}
+
 //更新用户需要支付的总价格
 function updateTotal() {
   //更新用户需要支付的总价格
@@ -384,5 +402,8 @@ module.exports = {
     
     //用户点击+房间或-房间时，更改对应可增加的床数
     changeRoomNum(write);
+  
+    //用户在护照国籍框输入内容时，展示搜索结果
+    openSearchNationalResult();
   }
 };

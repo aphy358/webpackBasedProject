@@ -8,7 +8,10 @@
         <input class="check-in-msg must-fill" name="surname" type="text" placeholder="姓（英文/拼音) 必填">
         <input class="check-in-msg must-fill" name="aftername" type="text" placeholder="名（英文/拼音) 必填">
         <% if(content.staticInfo.country != 70007){ %>
-        <input class="check-in-msg must-fill" name="nationality" type="text" placeholder="护照国籍 必填">
+        <div class="nation-box">
+          <input class="nationality-msg must-fill" name="nationality" type="text" placeholder="护照国籍 必填">
+          <ul class="search-result"></ul>
+        </div>
         <% } %>
     </div>
 
@@ -18,7 +21,7 @@
         <input class="check-in-msg" type="text" placeholder="姓（英文/拼音)">
         <input class="check-in-msg" type="text" placeholder="名（英文/拼音)">
         <% if(content.staticInfo.country != 70007){ %>
-            <input class="check-in-msg" type="text" placeholder="护照国籍">
+            <input class="nationality-msg" type="text" placeholder="护照国籍">
         <% } %>
     </div>
     <% } %>
