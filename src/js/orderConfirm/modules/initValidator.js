@@ -44,6 +44,7 @@ function InitValidator(write) {
 		            rangelength: [6,14]
 		        },
             voucherMobile:{
+		          number : true,
 		            minlength : 11,
 		            isMobile:true
 		        }
@@ -63,6 +64,7 @@ function InitValidator(write) {
 		            rangelength: '传真号码长度必须在6-14之间'
 		        },
             voucherMobile:{
+		          number : '请填入正确的手机号',
 		            minlength : '手机号码长度为11',
 		            isMobile:'请正确填写您的手机号码'
 		        }
@@ -91,7 +93,7 @@ function InitValidator(write) {
 		            rangelength: [6,14]
 		        },
             voucherMobile:{
-		            required : true,
+              number: true,
 		            minlength : 11,
 		            isMobile:true
 		        }
@@ -114,7 +116,7 @@ function InitValidator(write) {
 		            rangelength: '传真号码长度必须在6-14之间'
 		        },
             voucherMobile:{
-		            required : '请输入手机号',
+              number : '请输入正确的手机号',
 		            minlength : '手机号码长度为11',
 		            isMobile:'请正确填写您的手机号码'
 		        }

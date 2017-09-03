@@ -18,8 +18,8 @@
   <% for(var i = 0; i < content.hotelPrice.maxPersonNum - 1; i++){ %>
   <div class="guest">
     <p class="guest-order">住客 <%= i + 2 %> :</p>
-    <input class="check-in-msg" type="text" placeholder="姓（英文/拼音)">
-    <input class="check-in-msg" type="text" placeholder="名（英文/拼音)">
+    <input class="check-in-msg" name="second" type="text" placeholder="姓（英文/拼音)">
+    <input class="check-in-msg" name="second" type="text" placeholder="名（英文/拼音)">
     <% if(content.staticInfo.country != 70007){ %>
     <div class="nation-box">
       <input class="nationality-msg" type="text" placeholder="护照国籍">
