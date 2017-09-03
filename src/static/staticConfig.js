@@ -12,6 +12,7 @@ let img = {
             tmp_banner: require('!!file-loader?name=static/img/index/[name].[ext]!./img/index/tmp_banner.jpg'),
             //酒店图片获取不到时默认加载的图片
             nopic: require('!!file-loader?name=static/img/[name].[ext]!./img/nopic.png'),
+            nopic1: require('!!file-loader?name=common/images/[name].[ext]!./img/nopic.png'),
           };
 
 function getTmpImgs(){
