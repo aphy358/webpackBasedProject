@@ -12,19 +12,6 @@ function InitValidator(write) {
 
 	}, "只能输入中文或英文");
 
-	//新增验证方法，条件必须，满足一定条件则必须
-	$.validator.addMethod("required_m", function(value, element){
-
-		value = value.replace(/^\s+|\s+$/g, '');
-		var	holder = $(element).attr("placeholder");
-
-		if( $(element).hasClass('required') ){
-			return value != "" && value != holder;
-		}
-		
-		return true;
-		
-	}, "请输入该信息");
 
 	//新增验证方法，依赖必须，即如果一条记录输入任何一项，则其他项也必须输入，这就叫“依赖必须”
 	$.validator.addMethod("subRequired", function(value, element){
@@ -56,11 +43,17 @@ function InitValidator(write) {
 	var o = {
 		rules: {
 			surname: {
-				required_m: true,
+				required: true,
 				subRequired: true,
 			},
 			aftername: {
-				required_m: true,
+				required: true,
+				subRequired: true,
+			},
+			surname2: {
+				subRequired: true,
+			},
+			aftername2: {
 				subRequired: true,
 			},
 			voucherEmail: {
@@ -101,6 +94,12 @@ function InitValidator(write) {
 				aftername: {
 					demostic: true
 				},
+				surname2: {
+					demostic: true,
+				},
+				aftername2: {
+					demostic: true,
+				},
 			},
 		};
 
@@ -117,7 +116,15 @@ function InitValidator(write) {
 					letter: true
 				},
 				nationality: {
-					required_m: true,
+					required: true,
+				},
+				surname2: {
+					letter: true
+				},
+				aftername2: {
+					letter: true
+				},
+				nationality2: {
 					subRequired: true,
 				},
 			},
