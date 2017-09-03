@@ -76,12 +76,12 @@ function changeConfirmWay(write) {
 //用户填写了姓或名或护照任何一个时，同一栏的其他信息也必填
 function validateTheSame() {
   $('.guest').on('keyup','input',function (e) {
-    if($(e.target).closest('.guest').find('input').val()){
-      $(e.target).closest('.guest').find('input').rules("add", {required:true});
-      $(e.target).closest('.guest').find('input').valid();
+    if($(this).closest('.guest').find('input').val()){
+      $(this).closest('.guest').find('input').rules("add", {required:true});
+      $(this).closest('.guest').find('input').valid();
     }else{
-      $(e.target).closest('.guest').find('input').rules("remove", "required");
-      $(e.target).closest('.guest').find('input').valid();
+      $(this).closest('.guest').find('input').rules("remove", "required");
+      $(this).closest('.guest').find('input').valid();
     }
   })
 }

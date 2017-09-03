@@ -293,7 +293,7 @@ function openSearchNationalResult() {
           .val($(this).text());
   
         //发送验证请求
-        sendProperMarket(countryId);
+        sendProperMarket($(this),countryId);
         
         //将遮罩层的父元素列表隐藏
         $(this).closest('.national-result-wrap').hide();
@@ -307,7 +307,7 @@ function openSearchNationalResult() {
     //对用户输入的内容作验证
     //获取用户输入的内容
     var countryId = $(this).closest('.nationality-msg').attr('data-cid');
-    
+    //发送验证请求
     sendProperMarket($(this) ,countryId);
   
     //将遮罩层的父元素列表隐藏
