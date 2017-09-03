@@ -1,9 +1,9 @@
 //请求静态数据
-const write = require('../testData/write.do.js');
+// const write = require('../testData/write.do.js');
 
 
 //初始化验证
-function InitValidator() {
+function InitValidator(write) {
   //国内允许输入中文或英文
   $.validator.addMethod("demostic", function(value, element) {
     var demostic = /^([\u4e00-\u9fa5a-zA-Z]+)$/;
@@ -14,7 +14,7 @@ function InitValidator() {
   $.validator.addMethod("abroad", function(value, element) {
     var abroad = /^([a-zA-Z]+)$/;
     return this.optional(element) || (abroad.test(value));
-  }, "只能输入中文或英文");
+  }, "只能输入英文");
   
   // 手机号码验证
   $.validator.addMethod("isMobile", function(value, element) {
@@ -25,7 +25,7 @@ function InitValidator() {
     
   
     if (write.content.staticInfo.country == 70007){
-	    //国内
+      //国内
 	    var o = {
 	        rules: {
 		        surname: {
@@ -69,7 +69,7 @@ function InitValidator() {
 	        }
 	    };
     }else{
-	    //国外
+      //国外
 	    var o = {
 	        rules: {
 		        surname: {

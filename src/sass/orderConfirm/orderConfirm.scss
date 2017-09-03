@@ -363,14 +363,16 @@ html {
                           width: 198px;
                           top: 40px;
                           right: 10px;
-                          border: 1px solid #d3d3d3;
+                          border-left: 1px solid #d3d3d3;
+                          border-right: 1px solid #d3d3d3;
                           background-color: #fff;
                           z-index: 100;
                           li{
                             height: 25px;
                             line-height: 25px;
                             border-bottom: 1px solid #d3d3d3;
-                            padding-left: 25px;
+                            padding: 0 25px;
+                            overflow: hidden;
                           }
                         }
                       }

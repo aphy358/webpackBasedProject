@@ -119,20 +119,16 @@ function addItem() {
 * itemMsg.endify 用户所加商品的结束日期的标准格式
 */
 function addItemBot(itemMsg) {
-
 //用一个数记录超过做大加床数的天数，如果这个天数大于0 ，则不添加任何元素到下面和右边
   var overMaxBed = 0;
-
 //用一个数组记录每一个超过最大加床数的日期
   var overMaxBedArr = [];
   
   //判断用户此次操作是否为加床
   if (itemMsg.addCategory == 'add-bed') {
-    //如果是
-    //先将加床数统计到totalBedNum中
+    //如果是,先将加床数统计到totalBedNum中
     addOneDay(itemMsg.startify, itemMsg.dayCount, function (everyDay) {
       totalBedNum[everyDay] += Number(itemMsg.addNum);
-    
       //判断加床数是否超过当日最大加床数
       if (totalBedNum[everyDay] > itemMsg.addBedTotal) {
         overMaxBed++;
@@ -145,8 +141,6 @@ function addItemBot(itemMsg) {
       addOneDay(itemMsg.startify, itemMsg.dayCount, function (everyDay) {
         totalBedNum[everyDay] -= Number(itemMsg.addNum);
       });
-    
-      //超过能添加的最大床数时，提示用户
       layer.alert(overMaxBedArr[0] + '已达最大加床数');
     }
   
@@ -273,19 +267,42 @@ function delAddItem(addId, itemMsg) {
 
 //用户在护照国籍框输入内容时，展示搜索结果
 function openSearchNationalResult() {
-  $('.main').delegate('.nationality-msg','keyup',function () {
+  $('.main').on('keyup','.nationality-msg',function (e) {
     //取得用户输入的值并作为key发送请求
     var inputMsg = $(this).val();
+    
+    //当用户输入的内容为空时，隐藏结果显示框
+    if(!inputMsg){
+      $(e.target).siblings('.search-result').empty().hide();
+      return;
+    }
     const getNationalMsg = require('./sendRequest.js').getNationalMsg;
     //发送请求
     getNationalMsg(inputMsg,function (data) {
-      console.log(data);
       var countries = "";
       for (var i = 0; i < data.list.length && i < 10; i++) {
-        countries += '<li data-cid="'+ data.list[i].countryid +'">'+ data.list[i].name.split("-")[1] +'</li>';
+        countries += '<li class="national-single-result" ' +
+          'data-cid="'+ data.list[i].countryid +'">'+
+          data.list[i].name.split("-")[1] +'</li>';
       }
-      $('.search-result').html(countries).show();
+      //当用户选择相应国家时，将其内容放入输入框中
+      $('.main').on('click','.national-single-result',function (e) {
+        //将国家的id也赋值给input标签
+        var countryId = $(e.target).attr('data-cid');
+        $(e.target).closest('.nation-box').find('input').attr('data-cid',countryId)
+          .val(e.target.textContent);
+        //将下拉列表隐藏
+        $(e.target).parent().empty().hide();
+      });
+      $(e.target).siblings('.search-result').html(countries).show();
     });
+  });
+  //点击下拉列表以外的区域隐藏下拉列表
+  $(document).bind('click',function () {
+    $('.search-result').empty().hide();
+  });
+  $('.search-result li').on('click',function (e) {
+    e.stopPropagation();
   })
 }
 
@@ -298,7 +315,6 @@ function updateTotal() {
   for (var i = 0; i < $('.line-total').length; i++) {
     extraPay += Number($('.line-total').eq(i).html());
   }
-  
   var totalPay = roomCost + extraPay;
   
   //更新用户所需支付的总费用
@@ -354,7 +370,7 @@ function resendRequest(isIncrease,write) {
   
           reloadAddItem(write);
         }
-      },roomNum)
+      },roomNum);
     }
   });
 }

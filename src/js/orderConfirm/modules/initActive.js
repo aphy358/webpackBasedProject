@@ -99,7 +99,7 @@ module.exports = {
 		openAddMsg();
   
 		//初始化验证
-		InitValidator();
+		InitValidator(write);
   
 		//引入加床、加早、加宽带的交互模块
 		extraService.run(write);
