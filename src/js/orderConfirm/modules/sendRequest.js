@@ -63,6 +63,15 @@ function getNationalMsg(key,callback) {
   })
 }
 
+//验证酒店价格是否适合于某国际客户
+function isProperMarket(countryId,callback) {
+  $.get('/order/properMarket.do',
+    {'suppId' : queryString('supplierId'),'countryId': countryId},
+    function (data) {
+    callback(data);
+  })
+}
+
 
 module.exports = {
   getCheck : function (callback) {
@@ -76,5 +85,8 @@ module.exports = {
   },
   getNationalMsg : function (key,callback) {
     getNationalMsg(key,callback);
+  },
+  isProperMarket : function (countryId, callback) {
+    isProperMarket(countryId,callback);
   }
 };

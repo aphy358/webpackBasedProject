@@ -12,7 +12,10 @@
             <% if(content.staticInfo.country != 70007){ %>
             <div class="nation-box">
             <input class="nationality-msg<%= b ? ' required' : '' %>" name="nationality" type="text" placeholder="护照国籍<%= b ? ' 必填' : '' %>">
-            <ul class="search-result"></ul>
+            <div class="national-result-wrap">
+              <div class="national-result-mask"></div>
+              <ul class="search-result"></ul>
+            </div>
             </div>
             <% } %>
         </div>

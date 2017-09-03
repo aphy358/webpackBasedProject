@@ -22,8 +22,11 @@ var test = [
 	//获取加床、加早、加宽带信息、
 	'/order/surchargeRoom.do',
   
-  //获取护照国籍信息
-  '/order/countrySuggest.do'
+	//获取护照国籍信息
+	'/order/countrySuggest.do',
+	  
+	//验证酒店价格是否适合于某国际客户
+	'/order/properMarket.do'
 
 
 ].forEach(function (o, i) {

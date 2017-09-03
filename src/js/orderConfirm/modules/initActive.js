@@ -73,6 +73,19 @@ function changeConfirmWay(write) {
 	});
 }
 
+//用户填写了姓或名或护照任何一个时，同一栏的其他信息也必填
+function validateTheSame() {
+  $('.guest').on('keyup','input',function (e) {
+    if($(e.target).closest('.guest').find('input').val()){
+      $(e.target).closest('.guest').find('input').rules("add", {required:true});
+      $(e.target).closest('.guest').find('input').valid();
+    }else{
+      $(e.target).closest('.guest').find('input').rules("remove", "required");
+      $(e.target).closest('.guest').find('input').valid();
+    }
+  })
+}
+
 //用户选择使用预收款时，数目不能小于0，不能大于需要支付的总金额，不能大于能预支付的总金额
 function limitPerPayment(write) {
 	$('#use-per-payment').keyup(function () {
@@ -100,6 +113,8 @@ module.exports = {
   
 		//初始化验证
 		InitValidator(write);
+    
+    validateTheSame();
   
 		//引入加床、加早、加宽带的交互模块
 		extraService.run(write);

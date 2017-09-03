@@ -273,7 +273,7 @@ function openSearchNationalResult() {
     
     //当用户输入的内容为空时，隐藏结果显示框
     if(!inputMsg){
-      $(e.target).siblings('.search-result').empty().hide();
+      $(this).closest('.national-result-wrap').hide();
       return;
     }
     const getNationalMsg = require('./sendRequest.js').getNationalMsg;
@@ -289,20 +289,42 @@ function openSearchNationalResult() {
       $('.main').on('click','.national-single-result',function (e) {
         //将国家的id也赋值给input标签
         var countryId = $(e.target).attr('data-cid');
-        $(e.target).closest('.nation-box').find('input').attr('data-cid',countryId)
-          .val(e.target.textContent);
-        //将下拉列表隐藏
-        $(e.target).parent().empty().hide();
+        $(this).closest('.nation-box').find('.nationality-msg').attr('data-cid',countryId)
+          .val($(this).text());
+  
+        //发送验证请求
+        sendProperMarket(countryId);
+        
+        //将遮罩层的父元素列表隐藏
+        $(this).closest('.national-result-wrap').hide();
       });
-      $(e.target).siblings('.search-result').html(countries).show();
+      $(e.target).parent().find('.search-result').html(countries)
+        .closest('.national-result-wrap').show();
     });
   });
-  //点击下拉列表以外的区域隐藏下拉列表
-  $(document).bind('click',function () {
-    $('.search-result').empty().hide();
+  //用户点击遮罩层时，获取输入框中的countryId
+  $('.main').on('click','.national-result-mask',function (e) {
+    //对用户输入的内容作验证
+    //获取用户输入的内容
+    var countryId = $(this).closest('.nationality-msg').attr('data-cid');
+    
+    sendProperMarket($(this) ,countryId);
+  
+    //将遮罩层的父元素列表隐藏
+    $(this).closest('.national-result-wrap').hide();
   });
-  $('.search-result li').on('click',function (e) {
-    e.stopPropagation();
+}
+
+function sendProperMarket(_this ,countryId) {
+  const isProperMarket = require('./sendRequest.js').isProperMarket;
+  isProperMarket(countryId,function (data) {
+    if(data.inProperMarket){
+      layer.msg('当前价格，不适于该国籍客人，请联系捷旅客服后下单，电话33397777');
+      //隐藏wrap层
+      _this.closest('.national-result-wrap').hide();
+      //清空用户输入的内容
+      _this.closest('.nation-box').find('.nationality-msg').val('');
+    }
   })
 }
 
