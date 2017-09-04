@@ -27,12 +27,27 @@ function isComplete() {
           formObj[formSingle[0]] = formSingle[1];
         }
         //将加床、加早、加宽带信息加入到formObj中
+        formObj['breakfastNum'] = 0;
+        formObj['bedNum'] = 0;
+        formObj['networkNum'] = 0;
         var addBreakFastMsg = $('.hotel-breakfast-box .hotel-item .hotel-item-left');
-        formObj['breakfastNum'] = addBreakFastMsg.length;
+        var addBreakFastNum = $('.hotel-breakfast-box .hotel-item .hotel-item-left .add-num');
+          for (var breakfast = 0; breakfast < addBreakFastNum.length; breakfast++) {
+            formObj['breakfastNum'] += +($(addBreakFastNum[breakfast]).text());
+          }
+        
         var addBedMsg = $('.hotel-bed-box .hotel-item .hotel-item-left');
-        formObj['bedNum'] = addBedMsg.length;
+        var addBedNum = $('.hotel-bed-box .hotel-item .hotel-item-left .add-num');
+          for (var bed = 0; bed < addBedNum.length; bed++) {
+            formObj['bedNum'] += +($(addBedNum[bed]).text());
+          }
+        
         var addNetworkMsg = $('.hotel-network-box .hotel-item .hotel-item-left');
-        formObj['networkNum'] = addNetworkMsg.length;
+        var addNetworkNum = $('.hotel-network-box .hotel-item .hotel-item-left .add-num');
+          for (var network = 0; network < addNetworkNum.length; network++) {
+            formObj['networkNum'] += +($(addNetworkNum[network]).text());
+          }
+        
         
         formObj['addBreakfastMsg'] = addBreakFastMsg.eq(0).text();
         formObj['addBedMsg'] = addBedMsg.eq(0).text();
@@ -56,15 +71,32 @@ function isComplete() {
         formObj['paymentTermName'] = ["客人前台现付", '单结', '周结', '半月结', '月结','不固定', '三日结', '十日结','额度结'];
         
         //入住人信息
-        var checkIn = [];
-        var guestArr = $('.check-in-msg');
-        console.log(guestArr);
-        for (var i = 0; i < guestArr.length; i++) {
-          checkIn[checkIn.length] = guestArr[i].value;
+        var guestArr = [];
+        var guestCollect = $('.guest');
+        for (var i = 0; i < guestCollect.length; i++) {
+          var surnameCollect = $(guestCollect[i]).find('.first-name');
+          var afternameCollect = $(guestCollect[i]).find('.last-name');
+          if($(guestCollect[i]).find('.nationality-msg')){
+            //国外
+            var nationalCollect= $(guestCollect[i]).find('.nationality-msg');
+            if( surnameCollect.val().replace(/^\s+|\s+$/g, '')){
+              guestArr[guestArr.length] = {};
+              //此时数组的长度已经发生变化，所以下面赋值时需-1
+              guestArr[guestArr.length-1].surname = $(surnameCollect).val();
+              guestArr[guestArr.length-1].aftername = $(afternameCollect).val();
+              guestArr[guestArr.length-1].national = $(nationalCollect).val();
+            }
+          }else{
+            //国内
+            if( surnameCollect.val().replace(/^\s+|\s+$/g, '')){
+              guestArr[guestArr.length] = {};
+              guestArr[guestArr.length-1].surname = $(surnameCollect).val();
+              guestArr[guestArr.length-1].aftername = $(afternameCollect).val();
+            }
+          }
         }
-        console.log($(checkIn));
-        
-        formObj['checkIn'] = $(checkIn);
+    
+        formObj['guestArr'] = $(guestArr);
     
         console.log(formObj);
     
@@ -73,11 +105,9 @@ function isComplete() {
         
         //用户点击确认之后，隐藏确认订单信息框
         $confirmOrderMsgStr.on('click','.confirm-order',function () {
-          
           $('.confirm-order-msg-box').remove();
           $('.confirm-order-msg').remove();
         });
-    
         //用户点击取消之后，隐藏确认订单信息框
         $confirmOrderMsgStr.on('click','.cancel-order',function () {
           $('.confirm-order-msg-box').remove();

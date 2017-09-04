@@ -42,19 +42,22 @@
       <li>
         <span>入住人</span>
         <p>
-          <% for(var i = 0;i < checkIn.length;i += 2){ %>
-          <%=decodeURIComponent(checkIn[i],true)%><%=decodeURIComponent(checkIn[i+1],true)%>；
+          <% for(var i = 0;i < guestArr.length;i ++){ %>
+          <%=decodeURIComponent(guestArr[i].surname,true)%><%=decodeURIComponent(guestArr[i].aftername,true)%>
+          <% if(guestArr[i].national){ %>
+          [ <%=decodeURIComponent(guestArr[i].national,true)%> ]
+          <% } %>；
           <% } %>
         </p>
       </li>
       <li>
         <span>确认方式</span>
         <% if(voucherEmail){ %>
-        <p><%=decodeURIComponent(checkType,true)%> : <%=voucherEmail%></p>
+        <p><%=decodeURIComponent(checkType,true)%> : <%=decodeURIComponent(voucherEmail,true)%></p>
         <% }else if(voucherFax){ %>
-        <p><%=decodeURIComponent(checkType,true)%> : <%=voucherFax%></p>
+        <p><%=decodeURIComponent(checkType,true)%> : <%=decodeURIComponent(voucherFax,true)%></p>
         <% }else if(voucherMobile){ %>
-        <p><%=decodeURIComponent(checkType,true)%> : <%=voucherMobile%></p>
+        <p><%=decodeURIComponent(checkType,true)%> : <%=decodeURIComponent(voucherMobile,true)%></p>
         <% }else{ %>
         <p><%=decodeURIComponent(checkType,true)%></p>
         <% } %>

@@ -50,11 +50,10 @@ function changeConfirmWay(write) {
 		var confirmWay = $(this).attr('confirm-way');
 		var confirmId = '#' + $(this).attr('confirm-way');
 
-	    //先清空确认方式下所有输入框的内容
+	    //先清空确认方式下所有输入框的内容并设为只读
 	    $('.confirm-way-msg li input').val('').siblings('i').hide();
 	    //再显示当前确认方式下的内容
-	    $('.confirm-way-msg').find(confirmId).val(write.content.distributor[confirmWay])
-	    .siblings('i').show();
+	    $('.confirm-way-msg').find(confirmId).val(write.content.distributor[confirmWay]).siblings('i').show();
 	    
 	    //更改验证规则
     $("input[name^=voucher]").each(function(i,n){
@@ -75,7 +74,7 @@ function changeConfirmWay(write) {
 
 //用户填写了姓或名或护照任何一个时，同一栏的其他信息也必填
 function validateTheSame() {
-  $('.guest').on('keyup','input',function (e) {
+  $('.guest').on('keyup','input',function () {
     if($(this).closest('.guest').find('input').val()){
       $(this).closest('.guest').find('input').rules("add", {required:true});
       $(this).closest('.guest').find('input').valid();

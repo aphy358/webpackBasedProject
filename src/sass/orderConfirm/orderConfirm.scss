@@ -345,12 +345,6 @@ html {
 										background-color: #f7fcfd;
 
 										@at-root .guest-group{
-											border-bottom: 1px solid #d7e8f5;
-
-											&:last-child{
-												border-bottom: none;
-											}
-
 											.guest {
 												width: 100%;
 												height: 50px;
@@ -675,10 +669,6 @@ html {
 									padding: 0 30px;
 									span {
 										font-weight: bold;
-									}
-									i {
-										padding-left: 120px;
-										font-style: italic;
 									}
 									.total-pay {
 										color: #008000;

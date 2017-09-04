@@ -368,9 +368,11 @@ function resendRequest(isIncrease,write) {
     if (checkData.isOnline) {
       //请求页面中用于显示信息的数据
       var roomNum = Number($('#room-num').val());
+      var maxRoomNum = write.content.stock > 7 ? 7 :write.content.stock;
       if(isIncrease){
         roomNum++;
-        if (roomNum > write.content.stock || roomNum > write.content.hotelPrice.maxPersonNum) {
+        if (roomNum > maxRoomNum) {
+          alert('该房型仅剩' + maxRoomNum + '间可订');
           return;
         }
       }else{
