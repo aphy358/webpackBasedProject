@@ -1,3 +1,7 @@
+
+//引入 util
+const Util = require('../../../common/util');
+
 //引入日期控件模块
 const selectDate = require('../../../common/selectDate/selectDate.js');
 
@@ -18,8 +22,9 @@ const isComplete = require('./isComplete.js');
 //用户点击加早或加床等的“+”号时展开操作列表
 function openAddMsg() {
 	$(document).delegate('.open-detail-msg', 'click', function () {
-		$(this).parent().parent().hide()
-		.siblings('.open-add-msg').show();
+		var parent = $(this).closest('.need-reload-box');
+		parent.find('.other-msg').hide();
+		parent.find('.open-add-msg').show();
     
     //加载日期控件
     addSelectDate();
@@ -29,7 +34,7 @@ function openAddMsg() {
 //加载日期控件
 function addSelectDate() {
 	var minDate = $('.main').find('.start-date').text();
-	var maxDate = $('.main').find('.end-date').text();
+	var maxDate = $('.main').find('.end-date').text()	
 
 	var breakfastStart = $('.main').find('.breakfast-start');
 	var breakfastEnd = $('.main').find('.breakfast-end');
