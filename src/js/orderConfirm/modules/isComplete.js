@@ -97,9 +97,6 @@ function isComplete() {
         }
     
         formObj['guestArr'] = $(guestArr);
-    
-        console.log(formObj);
-    
         //将获取的数据嵌入弹出的确认订单信息框中
         var $confirmOrderMsgStr = $(confirmOrderMsg(formObj));
         

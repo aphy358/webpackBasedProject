@@ -21,7 +21,7 @@ function add(write) {
     
       $('.main').find('.network-msg-box')
         .show()
-        .append(htmlStr);
+        .html(htmlStr);
     }
   },3);
 }

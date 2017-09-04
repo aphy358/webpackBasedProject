@@ -21,7 +21,7 @@ function add(write) {
     
       $('.main').find('.breakfast-msg-box')
         .show()
-        .append(htmlStr);
+        .html(htmlStr);
     }
   },1);
 	

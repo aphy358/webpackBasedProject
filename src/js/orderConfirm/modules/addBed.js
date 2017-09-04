@@ -20,7 +20,7 @@ function add(write) {
       
       $('.main').find('.bed-msg-box')
         .show()
-        .append(htmlStr);
+        .html(htmlStr);
       
       
       //限制用户加床的总数

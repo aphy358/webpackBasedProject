@@ -99,7 +99,7 @@ function addItem() {
     itemMsg.$this = $(this);
     
     itemMsg.addBedTotal = itemMsg.$this.attr('addBedTotal');
-    
+  
     addItemBot(itemMsg);
   })
 }
@@ -213,14 +213,18 @@ function addItemRight(itemMsg) {
   //用于添加到页面右边合集部分的结构
   var hotelStr = "";
   
-  addOneDay(itemMsg.startify, itemMsg.dayCount, function (everyDate) {
-    //加载增加单条加床、加早时右边添加的结构
-    var rightStr = require('../templates/extraServiceRightItem.ejs');
-    
-    itemMsg.everyDate = everyDate;
-    
-    //将数据替换进模板
-    hotelStr += rightStr(itemMsg);
+  addOneDay(itemMsg.startify, itemMsg.dayCount, function (everyDay) {
+    if(itemMsg.addPrice[everyDay]){
+      //加载增加单条加床、加早时右边添加的结构
+      var rightStr = require('../templates/extraServiceRightItem.ejs');
+  
+      itemMsg.everyDate = everyDay;
+  
+      //将数据替换进模板
+      hotelStr += rightStr(itemMsg);
+    }else{
+      // alert(everyDay + '没有该类型早餐');
+    }
   });
   
   var $hotelStr = $(hotelStr);

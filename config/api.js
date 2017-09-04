@@ -1,5 +1,6 @@
 //所有被代理的api
-let proxy_addr = 'http://192.168.101.60:8083';
+//let proxy_addr = 'http://192.168.101.60:8083';
+let proxy_addr = 'http://192.168.101.83:4000';
 let ex = {};
 
 var test = [

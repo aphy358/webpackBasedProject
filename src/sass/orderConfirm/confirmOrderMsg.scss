@@ -23,7 +23,7 @@
     color: #ffffff;
     padding-left: 20px;
   }
-  .final-order-msg{
+  @at-root .final-order-msg{
     padding: 20px;
     ul{
       li{
@@ -48,6 +48,10 @@
             font-size: 16px;
             color: #fcb637;
           }
+        }
+        @at-root .extra-add{
+          max-height: 100px;
+          overflow-y: auto;
         }
       }
     }
