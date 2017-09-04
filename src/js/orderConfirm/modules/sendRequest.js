@@ -72,6 +72,20 @@ function isProperMarket(countryId,callback) {
   })
 }
 
+function checkThePrice(params,callback) {
+  var settings = {
+  type: "POST",
+  url:'/order/orderValidate.do',
+  success: function(data) {
+    callback(data);
+  },
+  headers: {
+    "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+  }
+};
+  $.ajax(settings);
+}
+
 
 module.exports = {
   getCheck : function (callback) {
@@ -88,5 +102,8 @@ module.exports = {
   },
   isProperMarket : function (countryId, callback) {
     isProperMarket(countryId,callback);
+  },
+  checkThePrice : function (params, callback) {
+    checkThePrice(params,callback);
   }
 };

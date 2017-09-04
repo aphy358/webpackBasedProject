@@ -97,6 +97,7 @@ function isComplete() {
         }
     
         formObj['guestArr'] = $(guestArr);
+        console.log(formObj);
         //将获取的数据嵌入弹出的确认订单信息框中
         var $confirmOrderMsgStr = $(confirmOrderMsg(formObj));
         
@@ -104,6 +105,88 @@ function isComplete() {
         $confirmOrderMsgStr.on('click','.confirm-order',function () {
           $('.confirm-order-msg-box').remove();
           $('.confirm-order-msg').remove();
+          
+          //进行验价
+          //获取参数
+          var params = {
+            staticInfoId:438,
+            adultNum:1,
+            dateNum:3,
+            childrenNum:2,
+            childrenAgeStr:null,
+            isQueryPrice:,
+            supplierId:105,
+            roomId:125067,
+            rateType:2,
+            paymentType:0,
+            paymentTerm:1,
+            willUsedBalance:0,
+            hotelPrice.supplierId:105,
+            hotelPrice.hotelId:438,
+            hotelPrice.roomId:125067,
+            hotelPrice.roomName:overseas,
+            hotelPrice.totalPriceRMB:1800.00,
+            hotelPrice.totalNowPriceRMB:0.00,
+            hotelPrice.totalPrice:252.00,
+            hotelPrice.averagePrice:28.00,
+            hotelPrice.taxesAndFees:,
+          hotelPrice.extraPersonFees:,
+          hotelPrice.taxesAndFeesRMB:,
+          hotelPrice.extraPersonFeesRMB:,
+          hotelPrice.cancellationType:,
+          hotelPrice.clause:3_0_0_0_0,
+            hotelPrice.cancellationDesc:此房即订即保，一但预订。不可修改或取消,
+            hotelPrice.currentAlloment:,
+          hotelPrice.breakFastName:一份早餐,
+            hotelPrice.breakfastPriceBase:,
+          hotelPrice.breakfastPriceRMB:,
+          hotelPrice.internet:,
+          hotelPrice.arriveStartTime:,
+          hotelPrice.arriveEndTime:,
+          hotelPrice.rateType:2,
+            hotelPrice.rateTypeName:单早,
+            hotelPrice.breakFastId:8,
+            hotelPrice.paymentType:0,
+            hotelPrice.confirm:true,
+            hotelPrice.supplierAttr:,
+          hotelPriceStrs:[{"date":"2017-09-05","formulaType":"1","occupancyStock":3,"price":28,"salePrice":200,"nowPrice":0,"skuId":153426,"stock":100,"sellStock":0,"status":1,"clauses":[{"createTime":null,"createBy":null,"updateTime":null,"updateBy":null,"orderBy":null,"limitString":null,"andWhereString":null,"and_where_string":null,"or_where_string":null,"clauseId":3603507,"itemId":440,"staticInfoId":438,"skuId":7198,"clauseType":1,"clauseNumber":3,"clauseDate":0,"clauseTime":0,"cancelFineType":0,"cancelFine":null,"remark":null,"attr":"","companyAccountId":null,"subAccountId":null,"bookBeginDate":null,"bookBeginDateStr":null,"bookEndDate":null,"bookEndDateStr":null,"checkInDate":null,"checkInDateStr":null,"checkOutDate":null,"checkOutDateStr":null,"formulaType":null,"default":false}],"nightlyStr":null,"discount":null,"reserveShow":null},{"date":"2017-09-06","formulaType":"1","occupancyStock":3,"price":28,"salePrice":200,"nowPrice":0,"skuId":153427,"stock":100,"sellStock":0,"status":1,"clauses":[{"createTime":null,"createBy":null,"updateTime":null,"updateBy":null,"orderBy":null,"limitString":null,"andWhereString":null,"and_where_string":null,"or_where_string":null,"clauseId":3603507,"itemId":440,"staticInfoId":438,"skuId":7198,"clauseType":1,"clauseNumber":3,"clauseDate":0,"clauseTime":0,"cancelFineType":0,"cancelFine":null,"remark":null,"attr":"","companyAccountId":null,"subAccountId":null,"bookBeginDate":null,"bookBeginDateStr":null,"bookEndDate":null,"bookEndDateStr":null,"checkInDate":null,"checkInDateStr":null,"checkOutDate":null,"checkOutDateStr":null,"formulaType":null,"default":false}],"nightlyStr":null,"discount":null,"reserveShow":null},{"date":"2017-09-07","formulaType":"1","occupancyStock":3,"price":28,"salePrice":200,"nowPrice":0,"skuId":153428,"stock":100,"sellStock":0,"status":1,"clauses":[{"createTime":null,"createBy":null,"updateTime":null,"updateBy":null,"orderBy":null,"limitString":null,"andWhereString":null,"and_where_string":null,"or_where_string":null,"clauseId":3603507,"itemId":440,"staticInfoId":438,"skuId":7198,"clauseType":1,"clauseNumber":3,"clauseDate":0,"clauseTime":0,"cancelFineType":0,"cancelFine":null,"remark":null,"attr":"","companyAccountId":null,"subAccountId":null,"bookBeginDate":null,"bookBeginDateStr":null,"bookEndDate":null,"bookEndDateStr":null,"checkInDate":null,"checkInDateStr":null,"checkOutDate":null,"checkOutDateStr":null,"formulaType":null,"default":false}],"nightlyStr":null,"discount":null,"reserveShow":null}],
+            bedTypeStrs:,
+          startDate:2017-09-05,
+            endDate:2017-09-08,
+            roomNum:3,
+            userNames:d#d#阿森松岛,d#d#阿拉伯联合酋长国,d#d#爱尔兰,
+            surname:d,
+            userName:d,
+            countryId:阿森松岛,
+            surname:,
+          userName:,
+          countryId:,
+          surname:d,
+            userName:d,
+            countryId:阿拉伯联合酋长国,
+            surname:,
+          userName:,
+          countryId:,
+          surname:d,
+            userName:d,
+            countryId:爱尔兰,
+            surname:,
+          userName:,
+          countryId:,
+          specialRequire:,
+          checkType:9,
+            voucherEmail:,
+          voucherFax:,
+          voucherMobile:,
+          payTotalMoney:1800.0,
+            toatlBasePrice:252.0,
+            totalNowPrice:0.0
+        }
+          //发送请求
+          const checkThePrice = require('./sendRequest.js').checkThePrice;
+          checkThePrice(params,function (data) {
+            console.log(data);
+          })
         });
         //用户点击取消之后，隐藏确认订单信息框
         $confirmOrderMsgStr.on('click','.cancel-order',function () {

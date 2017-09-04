@@ -27,7 +27,10 @@ var test = [
 	'/order/countrySuggest.do',
 	  
 	//验证酒店价格是否适合于某国际客户
-	'/order/properMarket.do'
+	'/order/properMarket.do',
+
+	//用户确认订单信息后进行验价
+	'/order/orderValidate.do',
 
 
 ].forEach(function (o, i) {
