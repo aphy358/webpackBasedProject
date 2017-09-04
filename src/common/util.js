@@ -90,27 +90,6 @@ function queryString(name) {
 
 
 
-//计算出两个日期之间所有的日期字符串
-//比如传入 '2017-08-30' 和 '2017-09-01'，则输出['2017-08-30'、'2017-08-31']
-function getDateEnuArr(d1, d2) {
-
-	var arr = [d1];
-
-	d1 = new Date(d1.replace(/-/g, '/'));
-	d2 = new Date(d2.replace(/-/g, '/'));
-
-	var dayCount = (d2 - d1) / (24 * 60 * 60 * 1000);
-
-	while (--dayCount) {
-		d1 = new Date(d1.getTime() + 24 * 60 * 60 * 1000);
-		arr.push(d1.Format('yyyy-MM-dd'));
-	}
-
-	return arr;
-}
-
-
-
 /**
  * 该函数可以使用户在输入后，隔一段时间之后再执行目标函数
  * @param {*} func 表示传入的目标函数
@@ -140,6 +119,5 @@ module.exports = {
 	ltIE9 	      	   : ltIE9,
 	loadAsync     	   : loadAsync,
 	queryString   	   : queryString,
-	getDateEnuArr 	   : getDateEnuArr,
 	processAfterTyping : processAfterTyping
 }
