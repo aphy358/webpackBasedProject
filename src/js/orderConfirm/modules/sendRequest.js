@@ -84,6 +84,13 @@ function checkThePrice(params,callback) {
   $.ajax(settings);
 }
 
+//验价成功后，保存订单
+function saveOrder(params,callback) {
+  $.post('/order/saveOrder.do',params,function (data) {
+    callback(data);
+  })
+}
+
 
 module.exports = {
   getCheck : function (callback) {
@@ -103,5 +110,8 @@ module.exports = {
   },
   checkThePrice : function (params, callback) {
     checkThePrice(params,callback);
+  },
+  saveOrder : function (params, callback) {
+    saveOrder(params,callback);
   }
 };

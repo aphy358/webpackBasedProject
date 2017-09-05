@@ -7,11 +7,11 @@
     <ul>
       <li>
         <span>预定酒店</span>
-        <p><%= decodeURIComponent(hotelName,true) %></p>
+        <p><%= decodeURIComponent(hotelName) %></p>
       </li>
       <li>
         <span>房型</span>
-        <p><%= decodeURIComponent(roomName,true) %>[<%= decodeURIComponent(breakFastName,true) %>]</p>
+        <p><%= decodeURIComponent(roomName) %>[<%= decodeURIComponent(breakFastName) %>]</p>
       </li>
       <li>
         <span>入住日期</span>
@@ -43,23 +43,23 @@
         <span>入住人</span>
         <p>
           <% for(var i = 0;i < guestArr.length;i ++){ %>
-          <%=decodeURIComponent(guestArr[i].surname,true)%><%=decodeURIComponent(guestArr[i].aftername,true)%>
+          <%=decodeURIComponent(guestArr[i].surname)%><%=decodeURIComponent(guestArr[i].aftername)%>
           <% if(guestArr[i].national){ %>
-          [<%=decodeURIComponent(guestArr[i].national,true)%>]；
+          [<%=decodeURIComponent(guestArr[i].national)%>]；
           <% } %>
           <% } %>
         </p>
       </li>
       <li>
         <span>确认方式</span>
-        <% if(voucherEmail){ %>
-        <p><%=decodeURIComponent(checkType,true)%> : <%=decodeURIComponent(voucherEmail,true)%></p>
-        <% }else if(voucherFax){ %>
-        <p><%=decodeURIComponent(checkType,true)%> : <%=decodeURIComponent(voucherFax,true)%></p>
-        <% }else if(voucherMobile){ %>
-        <p><%=decodeURIComponent(checkType,true)%> : <%=decodeURIComponent(voucherMobile,true)%></p>
+        <% if( decodeURIComponent(checkType) === '电子邮件确认' ){ %>
+        <p><%=decodeURIComponent(checkType)%> : <%=decodeURIComponent(voucherEmail)%></p>
+        <% }else if( decodeURIComponent(checkType) === '传真确认' ){ %>
+        <p><%=decodeURIComponent(checkType)%> : <%=decodeURIComponent(voucherFax)%></p>
+        <% }else if( decodeURIComponent(checkType) === '短信确认' ){ %>
+        <p><%=decodeURIComponent(checkType)%> : <%=decodeURIComponent(voucherMobile)%></p>
         <% }else{ %>
-        <p><%=decodeURIComponent(checkType,true)%></p>
+        <p><%=decodeURIComponent(checkType)%></p>
         <% } %>
       </li>
       <li>
@@ -77,14 +77,14 @@
       <% if(specialReq){ %>
       <li>
         <span>特殊需求</span>
-        <p>
-          <%= decodeURIComponent(specialReq,true).split('specialReq=').join('') %>
+        <p class="special-request">
+          <%= decodeURIComponent(specialReq).split('specialReq=').join('') %>
         </p>
       </li>
       <% } %>
       <li>
         <span>取消条款</span>
-        <p><%= decodeURIComponent(cancellationDesc,true) %></p>
+        <p><%= decodeURIComponent(cancellationDesc) %></p>
       </li>
       <li>
         <span>订单价格</span>

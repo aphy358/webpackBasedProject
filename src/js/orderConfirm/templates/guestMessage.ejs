@@ -7,11 +7,11 @@
         <% for(var i = 0; i < content.hotelPrice.maxPersonNum; i++){ var b = i === 0; %>
         <div class="guest">
             <p class="guest-order">住客 <%= i + 1 %> :</p>
-            <input class="first-name" name="surname<%= b ? '' : '2' %>" type="text" placeholder="姓（英文/拼音)<%= b ? ' 必填' : '' %>">
-            <input class="last-name" name="aftername<%= b ? '' : '2' %>" type="text" placeholder="名（英文/拼音)<%= b ? ' 必填' : '' %>">
+            <input class="first-name" name="surname" data-required=<%= b ? "required" : "false" %> type="text" placeholder="姓（英文/拼音)<%= b ? ' 必填' : '' %>">
+            <input class="last-name" name="userName" data-required=<%= b ? "required" : "false" %> type="text" placeholder="名（英文/拼音)<%= b ? ' 必填' : '' %>">
             <% if(content.staticInfo.country != 70007){ %>
             <div class="nation-box">
-            <input class="nationality-msg" name="nationality<%= b ? '' : '2' %>" type="text" placeholder="护照国籍<%= b ? ' 必填' : '' %>">
+            <input class="nationality-msg" name="countryId" data-required=<%= b ? "required" : "false" %> type="text" placeholder="护照国籍<%= b ? ' 必填' : '' %>">
             <div class="national-result-wrap">
               <div class="national-result-mask"></div>
               <ul class="search-result"></ul>

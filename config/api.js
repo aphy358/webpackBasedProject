@@ -32,6 +32,8 @@ var test = [
 	//用户确认订单信息后进行验价
 	'/order/orderValidate.do',
 
+	//验价成功后，保存订单
+	'/order/saveOrder.do',
 
 ].forEach(function (o, i) {
 	ex[o] = proxy_addr;

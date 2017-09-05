@@ -41,7 +41,6 @@ function initSearchTypeSwithClick() {
 
         //判断用户点击的是国内酒店还是国外酒店
         var isAbroad = $(this).text();
-        // console.log(isAbroad);
         if (isAbroad == '国内酒店') {
             //加载国内酒店模块
             selectCity.run(false);

@@ -2,7 +2,7 @@
 	<div class="jl-logo"></div>
 	<div class="user-options">
 		<ul>
-			<li><%= customerUser.customerUserName %>，您好</li>
+			<li id="consumer" data-distrb="<%= customerUser.distrbId %>"><%= customerUser.customerUserName %>，您好</li>
 			<li class="sign-out">退出</li>
 			<li>帮助中心</li>
 			<li>|</li>
@@ -229,7 +229,7 @@
 					<img src="<%= picSrcThumb %>" onerror=this.src="../common/images/nopic.png" alt="">
 				</div>
 				<div class="hotel-msg-right">
-					<div class="hotel-name-Chinese"><%= staticInfo.infoName %></div>
+					<div id="hotelName" class="hotel-name-Chinese"><%= staticInfo.infoName %></div>
 				</div>
 				<p>经济房[两份早餐]</p>
 				<ul>

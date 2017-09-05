@@ -81,10 +81,8 @@ function changeConfirmWay(write) {
 function validateTheSame() {
   $('.guest').on('keyup','input',function () {
     if($(this).closest('.guest').find('input').val()){
-      $(this).closest('.guest').find('input').rules("add", {required:true});
       $(this).closest('.guest').find('input').valid();
     }else{
-      $(this).closest('.guest').find('input').rules("remove", "required");
       $(this).closest('.guest').find('input').valid();
     }
   })
