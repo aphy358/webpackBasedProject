@@ -76,11 +76,9 @@ function checkThePrice(params,callback) {
   var settings = {
   type: "POST",
   url:'/order/orderValidate.do',
+    data : params,
   success: function(data) {
     callback(data);
-  },
-  headers: {
-    "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
   }
 };
   $.ajax(settings);

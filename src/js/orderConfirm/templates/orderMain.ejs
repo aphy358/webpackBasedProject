@@ -166,11 +166,15 @@
 						</div>
 					</li>
 				</ul>
-        <input type="hidden" name="staticInfoId" value="<%= staticInfo.staticInfoId %>">
-        <input type="hidden" name="supplierId" value="<%= supplierId %>">
-        <input type="hidden" name="hotelName" value="<%= staticInfo.infoName %>">
-        <input type="hidden" name="adultNum" value="<%= hotelPrice.maxPersonNum %>">
-        <input type="hidden" name="childrenNum" value="<%= childrenNum %>">
+        <!--第一层对象-->
+        <input type="hidden" name="staticInfoId" value="<%= staticInfo.staticInfoId %>"/>
+        <input type="hidden" name="supplierId" value="<%= supplierId %>"/>
+        <input type="hidden" name="hotelName" value="<%= staticInfo.infoName %>"/>
+        <input type="hidden" name="adultNum" value="<%= hotelPrice.maxPersonNum %>"/>
+        <input type="hidden" name="childrenNum" value="<%= childrenNum %>"/>
+        <input type="hidden" name="childrenAgeStr" id="childrenAgeStr" value="<%= childrenAgeStr %>"/>
+        <input type="hidden" name="isQueryPrice" value=""/>
+        <input type="hidden" name="roomId" id="roomId" value="<%= roomId %>"/>
         <input type="hidden" name="startDate" value="<%= startDate %>">
         <input type="hidden" name="endDate" value="<%= endDate %>">
         <input type="hidden" name="dateNum" value="<%= dateNum %>">
@@ -178,11 +182,44 @@
         <input type="hidden" name="payTotalMoney" value="<%= payTotalMoney %>">
         <input type="hidden" name="totalNowPrice" value="<%= nowTotalMoney %>">
         <input type="hidden" name="rateType" value="<%= rateType %>">
-        <input type="hidden" name="roomName" value="<%= hotelPrice.roomName %>">
-        <input type="hidden" name="breakFastName" value="<%= hotelPrice.breakFastName %>">
-        <input type="hidden" name="cancellationDesc" value="<%= hotelPrice.cancellationDesc %>">
+        <input type="hidden" name="hotelPrice.roomName" value="<%= hotelPrice.roomName %>">
+        <input type="hidden" name="hotelPrice.breakFastName" value="<%= hotelPrice.breakFastName %>">
+        <input type="hidden" name="hotelPrice.cancellationDesc" value="<%= hotelPrice.cancellationDesc %>">
         <input type="hidden" name="paymentType" value="<%= paymentType %>">
         <input type="hidden" name="paymentTerm" value="<%= distributor.paymentTerm %>">
+        <input type="hidden" name="willUsedBalance" value="0"/>
+        <input type="hidden" name="hotelPriceStrs" value="<%= hotelPriceStrs %>"/>
+        <input type="hidden" name="bedTypeStrs" value="<%= bedTypeStrs %>"/>
+
+        <!--第二层对象-->
+        <input type="hidden" name="hotelPrice.supplierId" value="<%= hotelPrice.supplierId %>"/>
+        <input type="hidden" name="hotelPrice.hotelId" value="<%= hotelPrice.hotelId %>"/>
+        <input type="hidden" name="hotelPrice.roomId" value="<%= hotelPrice.roomId %>"/>
+        <input type="hidden" name="hotelPrice.roomName" value="<%= hotelPrice.roomName %>"/>
+        <input type="hidden" name="hotelPrice.totalPriceRMB" value="<%= hotelPrice.totalPriceRMB %>"/>
+        <input type="hidden" name="hotelPrice.totalNowPriceRMB" value="<%= hotelPrice.totalNowPriceRMB %>"/>
+        <input type="hidden" name="hotelPrice.totalPrice" value="<%= hotelPrice.totalPrice %>"/>
+        <input type="hidden" name="hotelPrice.averagePrice" value="<%= hotelPrice.averagePrice %>"/>
+        <input type="hidden" name="hotelPrice.taxesAndFees" value="<%= hotelPrice.taxesAndFees %>"/>
+        <input type="hidden" name="hotelPrice.extraPersonFees" value="<%= hotelPrice.extraPersonFees %>"/>
+        <input type="hidden" name="hotelPrice.taxesAndFeesRMB" value="<%= hotelPrice.taxesAndFeesRMB %>"/>
+        <input type="hidden" name="hotelPrice.extraPersonFeesRMB" value="<%= hotelPrice.extraPersonFeesRMB %>"/>
+        <input type="hidden" name="hotelPrice.cancellationType" value="<%= hotelPrice.cancellationType %>"/>
+        <input type="hidden" name="hotelPrice.clause" value="<%= hotelPrice.clause %>"/>
+        <!--<input type="hidden" name="hotelPrice.cancellationDesc" value="<%= hotelPrice.cancellationDesc %>"/>-->
+        <input type="hidden" name="hotelPrice.currentAlloment" value="<%= hotelPrice.currentAlloment %>"/>
+        <!--<input type="hidden" name="hotelPrice.breakFastName" value="<%= hotelPrice.breakFastName %>"/>-->
+        <input type="hidden" name="hotelPrice.breakfastPriceBase" value="<%= hotelPrice.breakfastPriceBase %>"/>
+        <input type="hidden" name="hotelPrice.breakfastPriceRMB" value="<%= hotelPrice.breakfastPriceRMB %>"/>
+        <input type="hidden" name="hotelPrice.internet" value="<%= hotelPrice.internet %>"/>
+        <input type="hidden" name="hotelPrice.arriveStartTime" value="<%= hotelPrice.arriveStartTime %>"/>
+        <input type="hidden" name="hotelPrice.arriveEndTime" value="<%= hotelPrice.arriveEndTime %>"/>
+        <input type="hidden" name="hotelPrice.rateType" value="<%= hotelPrice.rateType %>"/>
+        <input type="hidden" name="hotelPrice.rateTypeName" value="<%= hotelPrice.rateTypeName %>"/>
+        <input type="hidden" name="hotelPrice.breakFastId" value="<%= hotelPrice.breakFastId %>"/>
+        <input type="hidden" name="hotelPrice.paymentType" value="<%= hotelPrice.paymentType %>"/>
+        <input type="hidden" name="hotelPrice.confirm" value="<%= hotelPrice.confirm %>"/>
+        <input type="hidden" name="hotelPrice.supplierAttr" value="<%= hotelPrice.supplierAttr %>"/>
 			</form>
 		</div>
 		<div class="content-right">

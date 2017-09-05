@@ -26,6 +26,10 @@ function isComplete() {
           var formSingle = formify[i].split('=');
           formObj[formSingle[0]] = formSingle[1];
         }
+        //hotelPrice相关
+        formObj['roomName'] = formObj['hotelPrice.roomName'];
+        formObj['breakFastName'] = formObj['hotelPrice.breakFastName'];
+        formObj['cancellationDesc'] = formObj['hotelPrice.cancellationDesc'];
         //将加床、加早、加宽带信息加入到formObj中
         formObj['breakfastNum'] = 0;
         formObj['bedNum'] = 0;
@@ -108,80 +112,53 @@ function isComplete() {
           
           //进行验价
           //获取参数
-          var params = {
-            staticInfoId:438,
-            adultNum:1,
-            dateNum:3,
-            childrenNum:2,
-            childrenAgeStr:null,
-            isQueryPrice:,
-            supplierId:105,
-            roomId:125067,
-            rateType:2,
-            paymentType:0,
-            paymentTerm:1,
-            willUsedBalance:0,
-            hotelPrice.supplierId:105,
-            hotelPrice.hotelId:438,
-            hotelPrice.roomId:125067,
-            hotelPrice.roomName:overseas,
-            hotelPrice.totalPriceRMB:1800.00,
-            hotelPrice.totalNowPriceRMB:0.00,
-            hotelPrice.totalPrice:252.00,
-            hotelPrice.averagePrice:28.00,
-            hotelPrice.taxesAndFees:,
-          hotelPrice.extraPersonFees:,
-          hotelPrice.taxesAndFeesRMB:,
-          hotelPrice.extraPersonFeesRMB:,
-          hotelPrice.cancellationType:,
-          hotelPrice.clause:3_0_0_0_0,
-            hotelPrice.cancellationDesc:此房即订即保，一但预订。不可修改或取消,
-            hotelPrice.currentAlloment:,
-          hotelPrice.breakFastName:一份早餐,
-            hotelPrice.breakfastPriceBase:,
-          hotelPrice.breakfastPriceRMB:,
-          hotelPrice.internet:,
-          hotelPrice.arriveStartTime:,
-          hotelPrice.arriveEndTime:,
-          hotelPrice.rateType:2,
-            hotelPrice.rateTypeName:单早,
-            hotelPrice.breakFastId:8,
-            hotelPrice.paymentType:0,
-            hotelPrice.confirm:true,
-            hotelPrice.supplierAttr:,
-          hotelPriceStrs:[{"date":"2017-09-05","formulaType":"1","occupancyStock":3,"price":28,"salePrice":200,"nowPrice":0,"skuId":153426,"stock":100,"sellStock":0,"status":1,"clauses":[{"createTime":null,"createBy":null,"updateTime":null,"updateBy":null,"orderBy":null,"limitString":null,"andWhereString":null,"and_where_string":null,"or_where_string":null,"clauseId":3603507,"itemId":440,"staticInfoId":438,"skuId":7198,"clauseType":1,"clauseNumber":3,"clauseDate":0,"clauseTime":0,"cancelFineType":0,"cancelFine":null,"remark":null,"attr":"","companyAccountId":null,"subAccountId":null,"bookBeginDate":null,"bookBeginDateStr":null,"bookEndDate":null,"bookEndDateStr":null,"checkInDate":null,"checkInDateStr":null,"checkOutDate":null,"checkOutDateStr":null,"formulaType":null,"default":false}],"nightlyStr":null,"discount":null,"reserveShow":null},{"date":"2017-09-06","formulaType":"1","occupancyStock":3,"price":28,"salePrice":200,"nowPrice":0,"skuId":153427,"stock":100,"sellStock":0,"status":1,"clauses":[{"createTime":null,"createBy":null,"updateTime":null,"updateBy":null,"orderBy":null,"limitString":null,"andWhereString":null,"and_where_string":null,"or_where_string":null,"clauseId":3603507,"itemId":440,"staticInfoId":438,"skuId":7198,"clauseType":1,"clauseNumber":3,"clauseDate":0,"clauseTime":0,"cancelFineType":0,"cancelFine":null,"remark":null,"attr":"","companyAccountId":null,"subAccountId":null,"bookBeginDate":null,"bookBeginDateStr":null,"bookEndDate":null,"bookEndDateStr":null,"checkInDate":null,"checkInDateStr":null,"checkOutDate":null,"checkOutDateStr":null,"formulaType":null,"default":false}],"nightlyStr":null,"discount":null,"reserveShow":null},{"date":"2017-09-07","formulaType":"1","occupancyStock":3,"price":28,"salePrice":200,"nowPrice":0,"skuId":153428,"stock":100,"sellStock":0,"status":1,"clauses":[{"createTime":null,"createBy":null,"updateTime":null,"updateBy":null,"orderBy":null,"limitString":null,"andWhereString":null,"and_where_string":null,"or_where_string":null,"clauseId":3603507,"itemId":440,"staticInfoId":438,"skuId":7198,"clauseType":1,"clauseNumber":3,"clauseDate":0,"clauseTime":0,"cancelFineType":0,"cancelFine":null,"remark":null,"attr":"","companyAccountId":null,"subAccountId":null,"bookBeginDate":null,"bookBeginDateStr":null,"bookEndDate":null,"bookEndDateStr":null,"checkInDate":null,"checkInDateStr":null,"checkOutDate":null,"checkOutDateStr":null,"formulaType":null,"default":false}],"nightlyStr":null,"discount":null,"reserveShow":null}],
-            bedTypeStrs:,
-          startDate:2017-09-05,
-            endDate:2017-09-08,
-            roomNum:3,
-            userNames:d#d#阿森松岛,d#d#阿拉伯联合酋长国,d#d#爱尔兰,
-            surname:d,
-            userName:d,
-            countryId:阿森松岛,
-            surname:,
-          userName:,
-          countryId:,
-          surname:d,
-            userName:d,
-            countryId:阿拉伯联合酋长国,
-            surname:,
-          userName:,
-          countryId:,
-          surname:d,
-            userName:d,
-            countryId:爱尔兰,
-            surname:,
-          userName:,
-          countryId:,
-          specialRequire:,
-          checkType:9,
-            voucherEmail:,
-          voucherFax:,
-          voucherMobile:,
-          payTotalMoney:1800.0,
-            toatlBasePrice:252.0,
-            totalNowPrice:0.0
-        }
+          //取得form表单的数据
+          var params = $('form').serialize();
+          //处理该数据
+          var paramify = params.split('&');
+          var paramObj = {};
+          for (var i = 0; i < paramify.length; i++) {
+            var paramSingle = paramify[i].split('=');
+            paramObj[paramSingle[0]] = paramSingle[1];
+          }
+          console.log(paramObj);
+          
+          //获取入住人
+          $.each(formObj['guestArr'],function(index,value){
+            paramObj['userNames'] = value.surname + value.aftername + value.national;
+            if(index == 1){
+              params += '&userNames=' + value.surname + value.aftername + value.national;
+            }else{
+              params += value.surname + value.aftername + value.national;
+            }
+            paramObj['surname'] = value.surname;
+            params.replace('surname',value.surname);
+            paramObj['userName'] = value.aftername;
+            params += 'userName=' + value.aftername;
+            paramObj['countryId'] = value.national;
+            params += 'countryId=' + value.national;
+          });
+          
+          //特殊要求
+          params += '&specialRequire=' + formObj['specialReq'];
+          paramObj['specialRequire'] = formObj['specialReq'];
+          
+          //hotelPriceStrs
+          params.replace('&hotelPriceStrs=',sessionStorage.getItem("hotelPriceStrs"));
+          paramObj['hotelPriceStrs'] = sessionStorage.getItem("hotelPriceStrs");
+          
+          //确认方式
+          if(decodeURIComponent(paramObj['checkType'],true) == '在线确认'){
+            params.replace('checkType',9);
+            paramObj['checkType'] = 9;
+          }
+  
+          console.log(paramObj);
+          params = '';
+          for (var k in paramObj) {
+            params += k + '=' + paramObj[k] + "&";
+          }
+          params.replace(/(.*)and/, '');
           //发送请求
           const checkThePrice = require('./sendRequest.js').checkThePrice;
           checkThePrice(params,function (data) {

@@ -28,6 +28,8 @@ function getData() {
         //请求页面中用于显示信息的数据
         // const write = require('../testData/write.do.js');
         getWrite(function (write) {
+          //将hotelPriceStrs放入sessionStorage
+          sessionStorage.setItem("hotelPriceStrs",write.content.hotelPriceStrs);
           if (write.success == true) {
             write.content.paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结','不固定', '三日结', '十日结','额度结'];
     
