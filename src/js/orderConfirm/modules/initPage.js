@@ -36,14 +36,19 @@ function getData() {
           //再将入住信息替换好并添加进页面中
           var guestMsgStr = guestMsg(write);
           $('.guest-msg-box').append(guestMsgStr);
+  
+  
+          //ie10以下的placeholder兼容
+          placeholder();
         }
       });
   
 }
 
 //将替换好的html结构添加到页面中以显示
-function add(write) {
+function add() {
   $('.main').html(writeStr);
+  
   
   //添加加床、加早、加宽带模块
   addBreakfast();
@@ -59,15 +64,19 @@ function add(write) {
     Util.loadAsync(['../../webpacked/static/js/datePick/datepickPacked.js', '../../webpacked/static/js/validator/validatorPacked.js'], initActive);
   } else {
     require.ensure([], function () {
+       //引入页面主交互逻辑
+       const initActive = require('./initActive.js').run;
+       
       require('../../../static/js/datePick/datepickPacked');
       require('../../../static/js/validator/validatorPacked');
       
-      //引入页面主交互逻辑
-      const initActive = require('./initActive.js').run;
+     
       
       initActive();
     }, 'validator');
   }
+  
+  
 }
 
 module.exports.getData = getData;

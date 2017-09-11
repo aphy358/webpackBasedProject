@@ -430,6 +430,10 @@ function reloadAddItem() {
   var guestMsgStr = guestMsg(write);
   $('.guest-msg-box').empty().append(guestMsgStr);
   
+  
+  //ie10以下的placeholder兼容
+  placeholder()
+  
   //清除右边的所有加床、加早、加宽带信息
   $('.hotel-msg-mid ul li .hotel-item-box').empty()
     .closest('.hotel-msg').hide()

@@ -152,13 +152,13 @@ function sendData(formObj) {
   //获取入住人
   paramObj['userNames'] = "";
   $.each(formObj['guestArr'], function (index, value) {
-    paramObj['surname'] = value.surname;
-    paramObj['userName'] = value.aftername;
+    paramObj['surname'] = value.surname.trim();
+    paramObj['userName'] = value.aftername.trim();
     if (value.national) {
-      paramObj['userNames'] += value.surname + '#' + value.aftername + '#' + value.national + ',';
-      paramObj['countryId'] = value.national;
+      paramObj['userNames'] += value.surname.trim() + '#' + value.aftername.trim() + '#' + value.national.trim() + ',';
+      paramObj['countryId'] = value.national.trim();
     } else {
-      paramObj['userNames'] += value.surname + '#' + value.aftername + ',';
+      paramObj['userNames'] += value.surname.trim() + '#' + value.aftername.trim() + ',';
     }
   });
   paramObj['userNames'] = paramObj['userNames'].replace(/,$/, '');

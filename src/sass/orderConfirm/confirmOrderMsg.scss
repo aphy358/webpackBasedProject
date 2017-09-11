@@ -6,6 +6,7 @@
   left: 0;
   background-color: #000000;
   opacity: 0.5;
+  filter: alpha(opacity = 50);
 }
 .confirm-order-msg{
   z-index: 100;
