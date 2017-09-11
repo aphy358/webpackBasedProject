@@ -40,7 +40,7 @@ function getWrite(callback,roomNum) {
     });
 }
 
-//用于请求加早信息的函数
+//用于请求加床、加早、加宽带信息的函数
 function getPrice(callback,typeId) {
   var breakfastParams = {
     startDate : queryString('startDate'),

@@ -78,16 +78,16 @@
 						<div class="confirm-way">
 							<div class="confirm-select">
 								<label>
-									<input type="radio" class="other-confirm-way" name="checkType" value="在线确认" checked>在线确认
+									<input type="radio" checkType="9" class="other-confirm-way" name="checkType" value="在线确认" checked>在线确认
 								</label>
 								<label>
-									<input type="radio" class="other-confirm-way" name="checkType" confirm-way="email" value="电子邮件确认">电子邮件确认
+									<input type="radio" checkType="1" class="other-confirm-way" name="checkType" confirm-way="email" value="电子邮件确认">电子邮件确认
 								</label>
 								<label>
-									<input type="radio" class="other-confirm-way" name="checkType" confirm-way="fax" value="传真确认">传真确认
+									<input type="radio" checkType="2" class="other-confirm-way" name="checkType" confirm-way="fax" value="传真确认">传真确认
 								</label>
 								<label>
-									<input type="radio" class="other-confirm-way" name="checkType" confirm-way="phone" value="短信确认">短信确认
+									<input type="radio" checkType="3" class="other-confirm-way" name="checkType" confirm-way="phone" value="短信确认">短信确认
 								</label>
 								<ul class="confirm-way-msg">
 									<li>
@@ -127,10 +127,10 @@
 										<% if(distributor.paymentTerm == 0){ %>
 										<option value="0">单结</option>
 										<% }else{ %>
-                    <option value="0">单结</option>
-										<option value="<%= distributor.paymentTerm %>">
+										<option value="<%= distributor.paymentTerm %>" selected>
                       <%= paymentTermName[distributor.paymentTerm + 1] %>
                     </option>
+                    <option value="0">单结</option>
                     <% } %>
                   </select>
                   <% } %>
@@ -138,7 +138,7 @@
                 <% if(distributor.paymentTerm == 0){ %>
 								<li>
 									<span>使用预收款</span>
-									<input id="use-per-payment" name="willUsedBalance" type="text">
+									<input id="usePerPayment" name="willUsedBalance" type="text">
 									<b class="per-payment-prompt"></b>
 								</li>
                 <% } %>
@@ -168,6 +168,7 @@
 				</ul>
         <!--第一层对象-->
         <input type="hidden" name="staticInfoId" value="<%= staticInfo.staticInfoId %>"/>
+        <input type="hidden" name="country" value="<%= staticInfo.country %>"/>
         <input type="hidden" name="supplierId" value="<%= supplierId %>"/>
         <input type="hidden" name="hotelName" value="<%= staticInfo.infoName %>"/>
         <input type="hidden" name="adultNum" value="<%= hotelPrice.maxPersonNum %>"/>
@@ -188,7 +189,7 @@
         <input type="hidden" name="paymentType" value="<%= paymentType %>">
         <input type="hidden" name="paymentTerm" value="<%= distributor.paymentTerm %>">
         <input type="hidden" name="willUsedBalance" value="0"/>
-        <input type="hidden" name="hotelPriceStrs" value="<%= hotelPriceStrs %>"/>
+        <!--<input type="hidden" name="hotelPriceStrs" value="<%= hotelPriceStrs %>"/>-->
         <input type="hidden" name="bedTypeStrs" value="<%= bedTypeStrs %>"/>
 
         <!--第二层对象-->
@@ -285,5 +286,5 @@
 	</div>
 </div>
 <div class="payment-confirm">
-	<button>下一步，支付</button>
+	<button id="nextToPay">下一步，支付</button>
 </div>

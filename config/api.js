@@ -1,6 +1,6 @@
 //所有被代理的api
-//let proxy_addr = 'http://192.168.101.60:8083';
-let proxy_addr = 'http://192.168.101.83:4000';
+let proxy_addr = 'http://192.168.101.60:8083';
+//let proxy_addr = 'http://192.168.101.83:4000';
 let ex = {};
 
 var test = [
@@ -34,6 +34,9 @@ var test = [
 
 	//验价成功后，保存订单
 	'/order/saveOrder.do',
+
+	//发送统计数据
+	'/count/record.do',
 
 ].forEach(function (o, i) {
 	ex[o] = proxy_addr;

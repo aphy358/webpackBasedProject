@@ -1,15 +1,14 @@
 const addStr = require('../templates/addBreakfast.ejs');
 
 //获取加早的数据
-// var addData = require('../testData/addBreakfastData.js');
 var getPrice = require('./sendRequest.js').getPrice;
 
 var addData;
 
-// const write=require('../testData/write.do.js');
 
 //将替换好的html结构添加到页面指定位置中
-function add(write) {
+function add() {
+  const write = $.orderInfo;
   getPrice(function (data) {
     addData = data;
   
@@ -27,9 +26,4 @@ function add(write) {
 	
 }
 
-module.exports = {
-	  run: function (write) {
-	      //将替换好的html结构添加到页面指定位置中
-        add(write);
-    }
-};
+module.exports = add;

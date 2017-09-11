@@ -1,32 +1,36 @@
 const addStr = require('../templates/addBed.ejs');
 
-// var addData = require('../testData/addBedData.js');
 var getPrice = require('./sendRequest.js').getPrice;
-
-// const write=require('../testData/write.do.js');
 
 var addData;
 
 //将替换好的html结构添加到页面指定位置中
-function add(write) {
-  getPrice(function (data) {
-    addData = data;
-    if (data.result == "success") {
-      addData.startDate = write.content.startDate;
-      addData.endDate = write.content.endDate;
-      addData.roomNum = write.content.roomNum;
+function add() {
+  const write = $.orderInfo;
+  if(write){
+    getPrice(function (res) {
+      addData = res;
+      if (res.result == "success") {
+        addData.startDate = write.content.startDate;
+        addData.endDate = write.content.endDate;
+        addData.roomNum = write.content.roomNum;
+        addData.ofType = [];
+        for (var i = 0; i < res.data[0].length; i++) {
+          addData.ofType[i] = res.data[0][i].type;
+        }
       
-      var htmlStr = addStr(addData);
+        var htmlStr = addStr(addData);
       
-      $('.main').find('.bed-msg-box')
-        .show()
-        .html(htmlStr);
+        $('.main').find('.bed-msg-box')
+          .show()
+          .html(htmlStr);
       
       
-      //限制用户加床的总数
-      limitBedNum();
-    }
-  }, 2);
+        //限制用户加床的总数
+        limitBedNum();
+      }
+    }, 2);
+  }
 }
 
 function limitBedNum() {
@@ -37,10 +41,4 @@ function limitBedNum() {
   $('.add-bed').attr("addBedTotal", addBedTotal);
 }
 
-module.exports = {
-  run: function (write) {
-    
-    //将替换好的html结构添加到页面指定位置中
-    add(write);
-  }
-};
+module.exports = add;

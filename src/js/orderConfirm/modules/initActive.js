@@ -1,19 +1,14 @@
-
-//引入 util
-const Util = require('../../../common/util');
-
 //引入日期控件模块
 const selectDate = require('../../../common/selectDate/selectDate.js');
 
-
-//引入初始化验证模块
-const InitValidator = require('./initValidator.js');
-
 //请求静态数据
-// const write = require('../testData/write.do.js');
+var write = $.orderInfo;
 
 //引入加床、加早、加宽带的交互模块
 const extraService = require('./extraService.js');
+
+//引入初始化验证模块
+const InitValidator = require('./initValidator.js');
 
 
 //引入用户点击支付时，检查信息是否填写完整的模块
@@ -34,7 +29,7 @@ function openAddMsg() {
 //加载日期控件
 function addSelectDate() {
 	var minDate = $('.main').find('.start-date').text();
-	var maxDate = $('.main').find('.end-date').text()	
+	var maxDate = $('.main').find('.end-date').text()
 
 	var breakfastStart = $('.main').find('.breakfast-start');
 	var breakfastEnd = $('.main').find('.breakfast-end');
@@ -50,7 +45,7 @@ function addSelectDate() {
 }
 
 //用户切换确认方式时，自动将用户预留的相关信息显示在对应区域内
-function changeConfirmWay(write) {
+function changeConfirmWay() {
 	$('.other-confirm-way').click(function () {
 		var confirmWay = $(this).attr('confirm-way');
 		var confirmId = '#' + $(this).attr('confirm-way');
@@ -89,43 +84,40 @@ function validateTheSame() {
 }
 
 //用户选择使用预收款时，数目不能小于0，不能大于需要支付的总金额，不能大于能预支付的总金额
-function limitPerPayment(write) {
-	$('#use-per-payment').keyup(function () {
+function limitPerPayment() {
+	$('#usePerPayment').keyup(function () {
 	    //判断用户所能预支付的最大款项
 	    var totalPayment = Number($('#totalPay').text());
 	    var maxPayment = write.content.balance > totalPayment ? totalPayment : write.content.balance;
 	    
-	    var payMent = $('#use-per-payment').val();
+	    var payMent = $('#usePerPayment').val();
 	    
-	    if (payMent < 0) {
-	    	$('.per-payment-prompt').text('请输入一个大于0的数字');
-	    } else if (payMent > maxPayment) {
-	    	$('.per-payment-prompt').text('您的余额不足或预付款超出本次消费总金额');
-	    } else {
-	    	$('.per-payment-prompt').text('');
+	    if (payMent > maxPayment) {
+        $('#usePerPayment').rules('add',{max:maxPayment});
+        $('#usePerPayment').valid();
 	    }
     })
 }
 
 
 module.exports = {
-	run: function (write) {
+	run: function () {
 		//用户点击加早或加床等的“+”号时展开操作列表
 		openAddMsg();
   
 		//初始化验证
-		InitValidator(write);
+		InitValidator();
     
     validateTheSame();
   
 		//引入加床、加早、加宽带的交互模块
-		extraService.run(write);
+		extraService.run();
   
 		//用户切换确认方式时，自动将用户预留的相关信息显示在对应区域内
-		changeConfirmWay(write);
+		changeConfirmWay();
   
 		//用户使用预收款时，数目不能小于0，不能大于需要支付的总金额或能预支付的总金额
-		limitPerPayment(write);
+		limitPerPayment();
 		
 		//用户点击支付时，检查信息是否填写完整
 		isComplete();

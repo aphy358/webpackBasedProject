@@ -1,30 +1,4 @@
 
-/*
-* 对Date的扩展，将 Date 转化为指定格式的String
-* 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
-* 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
-* 例子： 
-* (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
-* (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
-*/
-// Date.prototype.Format = function (fmt) {
-//     var o = {
-//         "M+": this.getMonth() + 1,  //月份 
-//         "d+": this.getDate(), 		//日 
-//         "h+": this.getHours(), 		//小时 
-//         "m+": this.getMinutes(), 	//分 
-//         "s+": this.getSeconds(), 	//秒 
-//         "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
-//         "S": this.getMilliseconds() //毫秒 
-//     };
-//     if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-//     for (var k in o)
-//     if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-//     return fmt;
-// }
-
-
-
 //判断是否是IE浏览器
 function isIE(){ return !!window.ActiveXObject || "ActiveXObject" in window; }
 
@@ -32,7 +6,7 @@ function isIE(){ return !!window.ActiveXObject || "ActiveXObject" in window; }
 
 //判断浏览器版本是否低于IE9
 function ltIE9() {
-    var 
+    var
     	browser   = navigator.appName,
     	b_version = navigator.appVersion,
     	version   = b_version.split(";");
@@ -51,11 +25,11 @@ function ltIE9() {
 
 /**
  * 在 < IE9 的环境下采用的按需加载 js 的方法
- * @param {插入的 script 标签的src} src 
- * @param {script 加载完成后的回调函数} callback 
+ * @param {插入的 script 标签的src} src
+ * @param {script 加载完成后的回调函数} callback
  */
 function loadAsync(src, callback){
-	//如果是单个字符串，则修正为字符串数组
+  //如果是单个字符串，则修正为字符串数组
 	if( typeof src === 'string' ){
 		src = [src];
 	}
@@ -63,16 +37,16 @@ function loadAsync(src, callback){
 	for (var i = 0; i < src.length; i++) {
 		var script = document.createElement('script');
 		script.src = src[i];
-
-		//给最后加载的插件绑定 onload 事件，IE8不能正确处理 onload 事件，所以这里用 onreadystatechange 事件
+    
+    //给最后加载的插件绑定 onload 事件，IE8不能正确处理 onload 事件，所以这里用 onreadystatechange 事件
 		if( callback && $.type(callback) === 'function' && (i + 1) === src.length ){
 			script.onreadystatechange = function() {
 				if (script.readyState === 'loaded' || script.readyState === 'complete') {
-					callback(); 
-				} 
+					callback();
+				}
 			}
 		}
-		document.body.appendChild(script);
+		document.getElementsByTagName("head")[0].appendChild(script);
 	}
 }
 
@@ -80,7 +54,7 @@ function loadAsync(src, callback){
 
 /**
  * 获取指定的url参数值
- * @param {指定的url参数名} name 
+ * @param {指定的url参数名} name
  */
 function queryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");

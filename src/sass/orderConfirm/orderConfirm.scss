@@ -65,7 +65,7 @@ html {
 							margin: 0 5px;
 						}
 						.sign-out {
-							display: block;
+							display: none;
 							width: 52px;
 							height: 24px;
 							line-height: 20px;
@@ -162,7 +162,7 @@ html {
 						border-left: 1px solid #d7e8f5;
 						border-right: 1px solid #d7e8f5;
 						font-size: 14px;
-						> form {
+						@at-root #orderForm {
 							> ul {
 								> li {
 									width: 856px;
@@ -178,7 +178,7 @@ html {
 										text-align: center;
 										color: black;
 									}
-									.order-msg {
+									@at-root .order-msg {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
@@ -233,7 +233,7 @@ html {
 											}
 										}
 									}
-									.other-msg {
+									@at-root .other-msg {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
@@ -261,7 +261,7 @@ html {
 											}
 										}
 									}
-									.open-add-msg {
+									@at-root .open-add-msg {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
@@ -272,8 +272,9 @@ html {
 											padding-left: 20px;
 											height: 50px;
 											line-height: 50px;
+											color: #f49647;
 										}
-										.add-msg-option {
+										@at-root .add-msg-option {
 											width: 100%;
 											padding-left: 20px;
 											height: 50px;
@@ -315,10 +316,12 @@ html {
 													cursor: pointer;
 												}
 											}
-											.msg-item-box {
+											@at-root .msg-item-box {
 												width: 100%;
 												float: left;
+
 												.msg-item {
+													position: relative;
 													width: 400px;
 													padding: 0 20px;
 													margin: 10px 0;
@@ -334,12 +337,16 @@ html {
 														color: #000;
 														cursor: pointer;
 														font-weight: normal;
+														margin-top: -7px;
+														margin-right: -10px;
+														opacity: 0.5;
+														filter:alpha(Opacity=50);
 													}
 												}
 											}
 										}
 									}
-									.stay-msg {
+									@at-root .stay-msg {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
@@ -361,7 +368,7 @@ html {
 													float: left;
 													line-height: 50px;
 												}
-												.nation-box{
+												@at-root .nation-box{
 													float: left;
 													position: relative;
                           .national-result-wrap{
@@ -405,7 +412,7 @@ html {
 											}
 										}
 									}
-									.personal-requirement {
+									@at-root .personal-requirement {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
@@ -430,7 +437,7 @@ html {
 											}
 										}
 									}
-									.confirm-way {
+									@at-root .confirm-way {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
@@ -476,7 +483,7 @@ html {
 											}
 										}
 									}
-									.balance-msg {
+									@at-root .balance-msg {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
@@ -522,7 +529,7 @@ html {
 											}
 										}
 									}
-									.kindly-tips {
+									@at-root .kindly-tips {
 										width: 756px;
 										float: left;
 										background-color: #f7fcfd;
@@ -556,7 +563,7 @@ html {
 						width: 300px;
 						color: #000;
 						border: 1px solid #dddddd;
-						.hotel-msg-top {
+						@at-root .hotel-msg-top {
 							width: 100%;
 							border-bottom: 1px solid #dddddd;
 							.hotel-name {
@@ -578,7 +585,7 @@ html {
 									height: 100%;
 								}
 							}
-							.hotel-msg-right {
+							@at-root .hotel-msg-right {
 								float: right;
 								width: 170px;
 								height: 100px;
@@ -609,7 +616,7 @@ html {
 								}
 							}
 						}
-						.hotel-msg-mid {
+						@at-root .hotel-msg-mid {
 							width: 300px;
 							overflow: hidden;
 							ul {
@@ -639,18 +646,9 @@ html {
 										}
 									}
 								}
-								.hotel-msg-breakfast {
-
-								}
-								.hotel-msg-bed {
-
-								}
-								.hotel-msg-network {
-
-								}
 							}
 						}
-						.hotel-msg-bot {
+						@at-root .hotel-msg-bot {
 							background-color: #fffaed;
 							height: 206px;
 							> .need-to-pay {

@@ -1,6 +1,6 @@
-
+var write = $.orderInfo;
 //初始化验证
-function InitValidator(write) {
+function InitValidator() {
 
 	//国内允许输入中文或英文
 	$.validator.addMethod("demostic", function (value, element) {
@@ -74,7 +74,11 @@ function InitValidator(write) {
 			voucherMobile: {
 				number: true,
 				rangelength: [6, 14]
-			}
+			},
+      willUsedBalance: {
+			  number: true,
+        min: 0
+      }
 		},
 		messages: {
 			voucherEmail: {
@@ -87,14 +91,18 @@ function InitValidator(write) {
 			voucherMobile: {
 				number: '请填写正确的手机号码',
 				rangelength: '手机号码长度必须为6位到14位之间',
-			}
+			},
+      willUsedBalance: {
+        number: '请输入一个数字',
+        min: '请输入一个至少大于0的数字',
+        max: '您的余额不足或预付款超出本次消费总金额'
+      }
 		}
 	};
 
-
+	var o1 = {};
 	if (write.content.staticInfo.country == 70007) {	//国内
-		
-		var o1 = {
+		o1 = {
 			rules: {
 				surname: {
 					demostic: true,
@@ -104,12 +112,8 @@ function InitValidator(write) {
 				},
 			},
 		};
-
-		$.extend(true, o, o1);
-
 	} else {		//国外
-
-		var o1 = {
+		o1 = {
 			rules: {
 				surname: {
 					letter: true
@@ -123,11 +127,9 @@ function InitValidator(write) {
 				},
 			},
 		};
-
-		$.extend(true, o, o1);
-
 	}
 
+	$.extend(true, o, o1);
 	$("#orderForm").validate(o);
 }
 
