@@ -1,6 +1,7 @@
 //所有被代理的api
 let proxy_addr = 'http://192.168.101.60:8083';
 //let proxy_addr = 'http://192.168.101.83:4000';
+// let proxy_addr = 'http://192.168.101.60:8083';
 let ex = {};
 
 var test = [
@@ -22,10 +23,10 @@ var test = [
 
 	//获取加床、加早、加宽带信息、
 	'/order/surchargeRoom.do',
-  
+
 	//获取护照国籍信息
 	'/order/countrySuggest.do',
-	  
+
 	//验证酒店价格是否适合于某国际客户
 	'/order/properMarket.do',
 
@@ -36,7 +37,7 @@ var test = [
 	'/order/saveOrder.do',
 
 	//发送统计数据
-	'/count/record.do',
+	'/count/record.do'
 
 ].forEach(function (o, i) {
 	ex[o] = proxy_addr;
