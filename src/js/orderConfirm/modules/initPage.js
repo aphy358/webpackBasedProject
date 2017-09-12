@@ -20,63 +20,63 @@ var writeStr;
 
 //将获取到的数据动态加载到页面中
 function getData() {
-      getWrite(function (write) {
+    getWrite(function (write) {
         $.orderInfo = write;
         //将hotelPriceStrs放入sessionStorage
         sessionStorage.setItem("hotelPriceStrs", write.content.hotelPriceStrs);
         if (write.success == true) {
-          write.content.paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结', '不固定', '三日结', '十日结', '额度结'];
-          
-          const content = write.content;
-          
-          writeStr = orderMain(content);
-          //将替换好的结构添加到页面中
-          add(write);
-          
-          //再将入住信息替换好并添加进页面中
-          var guestMsgStr = guestMsg(write);
-          $('.guest-msg-box').append(guestMsgStr);
-  
-  
-          //ie10以下的placeholder兼容
-          placeholder();
+            write.content.paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结', '不固定', '三日结', '十日结', '额度结'];
+
+            const content = write.content;
+
+            writeStr = orderMain(content);
+            //将替换好的结构添加到页面中
+            add(write);
+
+            //再将入住信息替换好并添加进页面中
+            var guestMsgStr = guestMsg(write);
+            $('.guest-msg-box').append(guestMsgStr);
+
+
+            //ie10以下的placeholder兼容
+            placeholder();
         }
-      });
-  
+    });
+
 }
 
 //将替换好的html结构添加到页面中以显示
 function add() {
-  $('.main').html(writeStr);
-  
-  
-  //添加加床、加早、加宽带模块
-  addBreakfast();
-  addBed();
-  addNetwork();
-  //引入页面主交互逻辑
-  // initActive(write);
-  
-  //IE9以下和IE9以上的浏览器采用不同方式加载插件（日期控件、验证控件）
-  if (Util.ltIE9()) {
+    $('.main').html(writeStr);
+
+
+    //添加加床、加早、加宽带模块
+    addBreakfast();
+    addBed();
+    addNetwork();
     //引入页面主交互逻辑
-    const initActive = require('./initActive.js').run;
-    Util.loadAsync(['../../webpacked/static/js/datePick/datepickPacked.js', '../../webpacked/static/js/validator/validatorPacked.js'], initActive);
-  } else {
-    require.ensure([], function () {
-       //引入页面主交互逻辑
-       const initActive = require('./initActive.js').run;
-       
-      require('../../../static/js/datePick/datepickPacked');
-      require('../../../static/js/validator/validatorPacked');
-      
-     
-      
-      initActive();
-    }, 'validator');
-  }
-  
-  
+    // initActive(write);
+
+    //IE9以下和IE9以上的浏览器采用不同方式加载插件（日期控件、验证控件）
+    if (Util.ltIE9()) {
+        //引入页面主交互逻辑
+        const initActive = require('./initActive.js').run;
+        Util.loadAsync(['../../webpacked/static/js/datePick/datepickPacked.js', '../../webpacked/static/js/validator/validatorPacked.js'], initActive);
+    } else {
+        require.ensure([], function () {
+            //引入页面主交互逻辑
+            const initActive = require('./initActive.js').run;
+
+            require('../../../static/js/datePick/datepickPacked');
+            require('../../../static/js/validator/validatorPacked');
+
+
+
+            initActive();
+        }, 'validator');
+    }
+
+
 }
 
 module.exports.getData = getData;

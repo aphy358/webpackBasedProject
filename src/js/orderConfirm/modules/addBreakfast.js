@@ -1,29 +1,31 @@
-const addStr = require('../templates/addBreakfast.ejs');
+const addBreakfastStr = require('../templates/addBreakfast.ejs');
 
 //获取加早的数据
-var getPrice = require('./sendRequest.js').getPrice;
-
-var addData;
-
+const getParamsForExtraService = require('./sendRequest.js').getParamsForExtraService;
 
 //将替换好的html结构添加到页面指定位置中
-function add() {
-  const write = $.orderInfo;
-  getPrice(function (data) {
-    addData = data;
-  
-    if (addData.result == "success") {
-      addData.startDate = write.content.startDate;
-      addData.endDate = write.content.endDate;
-      
-      var htmlStr = addStr(addData);
+function addBreakfast() {
+
+    var params = getParamsForExtraService(1);
+
+    $.post('/order/surchargeRoom.do', params, function (res) {
+
+        if (res.result == "success") {
+
+            const orderInfo = $.orderInfo;
+            
+            if( orderInfo ){
+                res.startDate = orderInfo.content.startDate;
+                res.endDate = orderInfo.content.endDate;
     
-      $('.main').find('.breakfast-msg-box')
-        .show()
-        .html(htmlStr);
-    }
-  },1);
-	
+                var htmlStr = addBreakfastStr(res);
+    
+                $('.main').find('.breakfast-msg-box')
+                          .show()
+                          .html(htmlStr);
+            }
+        }
+    })
 }
 
-module.exports = add;
+module.exports = addBreakfast;
