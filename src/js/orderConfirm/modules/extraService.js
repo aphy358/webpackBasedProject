@@ -6,6 +6,10 @@ const addNetwork = require('./addNetwork.js');
 //引入入住信息结构
 const guestMsg = require('../templates/guestMessage.ejs');
 
+const getNationalMsg = require('./sendRequest.js').getNationalMsg;
+
+const Util = require('../../../common/util.js');
+
 //获取订单信息
 var write = $.orderInfo;
 
@@ -282,43 +286,24 @@ function delAddItem(addId, itemMsg) {
     updateTotal();
 }
 
-//用户在护照国籍框输入内容时，展示搜索结果
-function openSearchNationalResult() {
-    $('.main').on('keyup', '.nationality-msg', function (e) {
-        //取得用户输入的值并作为key发送请求
-        var inputMsg = $(this).val();
+//初始化国籍点击事件，然后设置选中的国籍
+function initClickEventForNational(){
+    $('.main').on('click', '.national-single-result', function (e) {
+        //将国家的id也赋值给input标签
+        var countryId = $(e.target).attr('data-cid');
+        $(this).closest('.nation-box').find('.nationality-msg').attr('data-cid', countryId)
+            .val($(this).text());
 
-        //当用户输入的内容为空时，隐藏结果显示框
-        if (!inputMsg) {
-            $(this).closest('.national-result-wrap').hide();
-            return;
-        }
-        const getNationalMsg = require('./sendRequest.js').getNationalMsg;
-        //发送请求
-        getNationalMsg(inputMsg, function (data) {
-            var countries = "";
-            for (var i = 0; i < data.list.length && i < 10; i++) {
-                countries += '<li class="national-single-result" ' +
-                    'data-cid="' + data.list[i].countryid + '">' +
-                    data.list[i].name.split("-")[1] + '</li>';
-            }
-            //当用户选择相应国家时，将其内容放入输入框中
-            $('.main').on('click', '.national-single-result', function (e) {
-                //将国家的id也赋值给input标签
-                var countryId = $(e.target).attr('data-cid');
-                $(this).closest('.nation-box').find('.nationality-msg').attr('data-cid', countryId)
-                    .val($(this).text());
+        //发送验证请求
+        sendProperMarket($(this), countryId);
 
-                //发送验证请求
-                sendProperMarket($(this), countryId);
-
-                //将遮罩层的父元素列表隐藏
-                $(this).closest('.national-result-wrap').hide();
-            });
-            $(e.target).parent().find('.search-result').html(countries)
-                .closest('.national-result-wrap').show();
-        });
+        //将遮罩层的父元素列表隐藏
+        $(this).closest('.national-result-wrap').hide();
     });
+}
+
+//初始化国籍遮罩层点击事件
+function initClickEventForNationalMask(){
     //用户点击遮罩层时，获取输入框中的countryId
     $('.main').on('click', '.national-result-mask', function (e) {
         //对用户输入的内容作验证
@@ -330,6 +315,63 @@ function openSearchNationalResult() {
         //将遮罩层的父元素列表隐藏
         $(this).closest('.national-result-wrap').hide();
     });
+}
+
+//根据关键字，查找国籍
+function getCountries(_this){
+
+    //取得用户输入的值并作为key发送请求
+    var inputMsg = _this.val();
+    
+    //当用户输入的内容为空时，隐藏结果显示框
+    if (!inputMsg) {
+        _this.closest('.national-result-wrap').hide();
+        return;
+    }
+    
+
+    //获取一个临时时间戳
+    var tmpTimeStamp = new Date().getTime();
+
+    //和全局的一个时间戳对比，如果临时时间戳比全局存的时间戳大，则更新全局时间戳
+    if( !window.timeStampKW || window.timeStampKW < tmpTimeStamp ){
+        window.timeStampKW = tmpTimeStamp
+    }
+
+    //发送请求
+    getNationalMsg(inputMsg, function (data) {
+
+        // 如果ajax之前存的临时时间戳比全局时间戳小，则说明这是一个较早的查询，而且花了比较长的时间，比后面的查询还要晚的返回了结果，
+        // 有覆盖后来查询结果的风险，所以直接return，不让它执行函数体
+        if( window.timeStampKW > tmpTimeStamp ){
+            return;
+        }
+
+        var countries = "";
+        for (var i = 0; i < data.list.length && i < 10; i++) {
+            countries += 
+                '<li class="national-single-result" ' + 'data-cid="' + data.list[i].countryid + '">' +
+                    data.list[i].name.split("-")[1] +
+                '</li>';
+        }
+        
+        _this.parent().find('.search-result').html(countries)
+            .closest('.national-result-wrap').show();
+    });
+}
+
+//用户在护照国籍框输入内容时，展示搜索结果
+function openSearchNationalResult() {
+    $('.main').on('keyup input paste', '.nationality-msg', function (e) {
+        //getCountries( $(this) );
+        Util.processAfterTyping(getCountries, null, $(this));
+    });
+    
+    //初始化国籍点击事件，然后设置选中的国籍
+    initClickEventForNational();
+
+    //初始化国籍遮罩层点击事件
+    initClickEventForNationalMask();
 }
 
 function sendProperMarket(_this, countryId) {

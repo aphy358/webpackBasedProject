@@ -77,10 +77,10 @@ function alertConfirmMsg() {
     formObj['specialReq'] = $("input[name='specialReq']:checked").serialize();
 
     //用户预付款
-    formObj['willUsedBalance'] = $('#usePerPayment').val() || 0;
+    formObj['willUsedBalance'] = parseFloat($('#usePerPayment').val()).toFixed(2) || 0;
 
     //用户支付总价
-    formObj['payTotalMoney'] = +$('#totalPay').text();
+    formObj['payTotalMoney'] = parseFloat($('#totalPay').text()).toFixed(2);
 
     formObj['paymentTermName'] = ["客人前台现付", '单结', '周结', '半月结', '月结', '不固定', '三日结', '十日结', '额度结'];
 

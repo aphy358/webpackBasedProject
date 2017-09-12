@@ -346,6 +346,11 @@ html {
 														opacity: 0.5;
 														filter:alpha(Opacity=50);
 
+														&:hover {
+															opacity: 1;
+															filter:alpha(Opacity=100);
+														}
+
                             &.layui-layer-close1 {
                               display: inline-block;
                               position: absolute;

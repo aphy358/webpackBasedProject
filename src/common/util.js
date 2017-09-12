@@ -71,6 +71,9 @@ function queryString(name) {
  * @param {*} option 表示传入回调函数的参数
  */
 function processAfterTyping(func, timeGap, option){
+
+	timeGap = timeGap || 300;
+
 	//启用一个全局变量存储最后一次输入操作的时间
 	window.timeStampPAT = new Date().getTime();
 	
@@ -83,7 +86,7 @@ function processAfterTyping(func, timeGap, option){
 
 			if( func && typeof func === 'function' )	func( option );
 		}
-	}, ( timeGap || 300 ) );
+	}, timeGap );
 }
 
 
