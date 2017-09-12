@@ -410,7 +410,7 @@ function resendRequest(isIncrease) {
                     write = $.orderInfo;
 
                     //更改房费和总金额
-                    $('#roomCost').text(roomNum * write.content.payTotalMoney);
+                    $('#roomCost').text(write.content.payTotalMoney);
 
                     reloadAddItem(write);
                 }

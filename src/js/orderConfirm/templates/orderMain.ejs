@@ -232,7 +232,7 @@
 				<div class="hotel-msg-right">
 					<div id="hotelName" class="hotel-name-Chinese"><%= staticInfo.infoName %></div>
 				</div>
-				<p>经济房[两份早餐]</p>
+				<p><%=decodeURIComponent(hotelPrice.roomName)%>[<%=decodeURIComponent(hotelPrice.breakFastName)%>]</p>
 				<ul>
 					<li>入住日期
 						<i><%= startDate %></i>

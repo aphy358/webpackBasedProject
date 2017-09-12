@@ -45,10 +45,10 @@
           <% for(var i = 0;i < guestArr.length;i ++){ %>
           <%=decodeURIComponent(guestArr[i].surname)%>&nbsp;<%=decodeURIComponent(guestArr[i].aftername)%>
           <%if(!guestArr[i].national){%>
-          ；
-          <% } %>
+          ;
+          <%}%>
           <% if(guestArr[i].national){ %>
-          [<%=decodeURIComponent(guestArr[i].national)%>]；
+          [<%=decodeURIComponent(guestArr[i].national)%>];
           <% } %>
           <% } %>
         </p>
