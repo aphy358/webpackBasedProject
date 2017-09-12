@@ -10,9 +10,9 @@ function isOnline() {
 
         } else {
             //酒店已下线时，提醒客户
-            layer.alert('该酒店已下线');
-            //关掉本页面
-            CloseWebPage();
+            alert('该酒店已下线',function(){
+                CloseWebPage();
+            });
         }
     });
 }
