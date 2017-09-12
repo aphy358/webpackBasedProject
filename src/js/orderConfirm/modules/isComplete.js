@@ -77,7 +77,7 @@ function alertConfirmMsg() {
   formObj['specialReq'] = $("input[name='specialReq']:checked").serialize();
   
   //用户预付款
-  formObj['willUsedBalance'] = $('#usePerPayment').val();
+  formObj['willUsedBalance'] = $('#usePerPayment').val() || 0;
   
   //用户支付总价
   formObj['payTotalMoney'] = +$('#totalPay').text();
@@ -95,11 +95,11 @@ function alertConfirmMsg() {
       guestArr[guestArr.length] = {};
       if (nationalCollect) {
         //此时数组的长度已经发生变化，所以下面赋值时需-1
-        guestArr[guestArr.length - 1].national = $(nationalCollect).val();
+        guestArr[guestArr.length - 1].national = $.trim($(nationalCollect).val());
       }
       //此时数组的长度已经发生变化，所以下面赋值时需-1
-      guestArr[guestArr.length - 1].surname = $(surnameCollect).val();
-      guestArr[guestArr.length - 1].aftername = $(afternameCollect).val();
+      guestArr[guestArr.length - 1].surname = $.trim($(surnameCollect).val());
+      guestArr[guestArr.length - 1].aftername = $.trim($(afternameCollect).val());
     }
   }
   
@@ -152,13 +152,13 @@ function sendData(formObj) {
   //获取入住人
   paramObj['userNames'] = "";
   $.each(formObj['guestArr'], function (index, value) {
-    paramObj['surname'] = value.surname.trim();
-    paramObj['userName'] = value.aftername.trim();
+    paramObj['surname'] = $.trim(value.surname);
+    paramObj['userName'] = $.trim(value.aftername);
     if (value.national) {
-      paramObj['userNames'] += value.surname.trim() + '#' + value.aftername.trim() + '#' + value.national.trim() + ',';
-      paramObj['countryId'] = value.national.trim();
+      paramObj['countryId'] = $.trim(value.national);
+      paramObj['userNames'] += paramObj['surname'] + '#' + paramObj['userName'] + '#' + paramObj['countryId'] + ',';
     } else {
-      paramObj['userNames'] += value.surname.trim() + '#' + value.aftername.trim() + ',';
+      paramObj['userNames'] += paramObj['surname'] + '#' + paramObj['userName'] + ',';
     }
   });
   paramObj['userNames'] = paramObj['userNames'].replace(/,$/, '');
@@ -224,8 +224,7 @@ function createOrder(params,formObj) {
       })
       
     } else {
-      // hand.info(data.message);
-      alert(data.message);
+      alert(data.returnMsg);
     }
   })
 }

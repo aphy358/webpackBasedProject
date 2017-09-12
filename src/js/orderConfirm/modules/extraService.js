@@ -404,7 +404,10 @@ function resendRequest(isIncrease) {
         if (writeData.success == true) {
           writeData.content.paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结', '不固定', '三日结', '十日结', '额度结'];
           
-          write = writeData;
+          //对全局的write重新赋值
+          $.orderInfo = writeData;
+          
+          write = $.orderInfo;
           
           //更改房费和总金额
           $('#roomCost').text(roomNum * write.content.payTotalMoney);
@@ -417,7 +420,7 @@ function resendRequest(isIncrease) {
 }
 
 //用户改变房间数时，需要清除及重新加载对应的加床加早加宽带信息
-function reloadAddItem() {
+function reloadAddItem(write) {
   //先清除上一个加床、加早、加宽带和住客信息
   $('.need-reload-box').empty();
   
@@ -430,22 +433,23 @@ function reloadAddItem() {
   var guestMsgStr = guestMsg(write);
   $('.guest-msg-box').empty().append(guestMsgStr);
   
-  
   //ie10以下的placeholder兼容
-  placeholder()
+  placeholder();
   
   //清除右边的所有加床、加早、加宽带信息
   $('.hotel-msg-mid ul li .hotel-item-box').empty()
     .closest('.hotel-msg').hide()
     .parent().hide();
   
-  //更新总加床数
-  //存储用户每天加床的数目
+  //更新存储用户每天加床的数目
   var addBedStart = new Date(write.content.startDate);
   addOneDay(addBedStart, write.content.dateNum, function (everyDay) {
     totalBedNum[everyDay] = 0;
     totalNetNum[everyDay] = 0;
   });
+  
+  //更新总加床数
+  
   //更新需要付款的总额
   updateTotal();
 }

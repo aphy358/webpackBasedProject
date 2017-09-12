@@ -7,6 +7,10 @@ input, option, select {
 	border: 1px solid #c5dbec;
 }
 
+input[type=text]::-ms-clear {
+  display:none;
+}
+
 button {
 	border: none;
 }
@@ -334,14 +338,26 @@ html {
 														padding: 0 4px;
 													}
 													.del-msg-item {
-														color: #000;
+                            display: inline-block;
+                            font-size: 12px;
+                            color: #000;
 														cursor: pointer;
 														font-weight: normal;
-														margin-top: -7px;
-														margin-right: -10px;
 														opacity: 0.5;
 														filter:alpha(Opacity=50);
-													}
+
+                            &.layui-layer-close1 {
+                              display: inline-block;
+                              position: absolute;
+                              top: 8px;
+                              right: 5px;
+                              width: 16px;
+                              height: 16px;
+                              _overflow: hidden;
+                              background-position: 1px -40px;
+                            }
+
+                          }
 												}
 											}
 										}
@@ -406,6 +422,7 @@ html {
 													float: left;
 													width: 200px;
 													height: 30px;
+                          line-height: 30px;
 													margin: 10px;
 													padding-left: 10px;
 												}
@@ -596,8 +613,10 @@ html {
 									line-height: 22px;
 								}
 								.hotel-name-Chinese {
-									height: 22px;
+                  width: 150px;
 									line-height: 22px;
+                  padding:0 10px;
+                  overflow: hidden;
 								}
 							}
 							p {

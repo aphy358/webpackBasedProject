@@ -78,7 +78,7 @@ function validateTheSame() {
     if($(this).closest('.guest').find('input').val()){
       $(this).closest('.guest').find('input').valid();
     }else{
-      $(this).closest('.guest').find('input').valid();
+      $(this).closest('.guest').find('input').valid(false);
     }
   })
 }
