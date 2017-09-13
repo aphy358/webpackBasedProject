@@ -77,7 +77,11 @@ function alertConfirmMsg() {
     formObj['specialReq'] = $("input[name='specialReq']:checked").serialize();
 
     //用户预付款
-    formObj['willUsedBalance'] = parseFloat($('#usePerPayment').val()).toFixed(2) || 0;
+    formObj['willUsedBalance'] = parseFloat($('#usePerPayment').val()).toFixed(2);
+    
+    if(isNaN(formObj['willUsedBalance'])){
+      formObj['willUsedBalance'] = 0;
+    }
 
     //用户支付总价
     formObj['payTotalMoney'] = parseFloat($('#totalPay').text()).toFixed(2);
@@ -105,7 +109,6 @@ function alertConfirmMsg() {
 
     formObj['guestArr'] = $(guestArr);
   
-    console.log(formObj);
     //将获取的数据嵌入弹出的确认订单信息框中
     var $confirmOrderMsgStr = $(confirmOrderMsg(formObj));
 
@@ -173,20 +176,24 @@ function sendData(formObj) {
 
     //hotelPriceStrs
     paramObj['hotelPriceStrs'] = $.orderInfo ? $.orderInfo.content.hotelPriceStrs : null;
-    
 
+    paramObj['hotelPrice'] = window.JSON.stringify($.orderInfo.content.hotelPrice);
+  
     //确认方式
     paramObj['checkType'] = $('input[name=checkType]:checked').attr('checkType');
 
     //单结或者其他结算方式
     paramObj['paymentTerm'] = formObj['paymentTermSon'];
+    
+    console.log(paramObj);
 
-    params = '';
     for (var k in paramObj) {
-        params += k + '=' + paramObj[k] + "&";
+        params += k + ':' + paramObj[k] + ',';
     }
+    params.replace(/,$/,'');
+    console.log(params);
     //发送请求
-    createOrder(params, formObj);
+    createOrder(paramObj, formObj);
 }
 
 //创建订单
@@ -227,7 +234,7 @@ function createOrder(params, formObj) {
             })
 
         } else {
-            alert(data.returnMsg);
+            alert(data.returnMsg || data.errinfo);
         }
     })
 }

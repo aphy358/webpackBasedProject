@@ -24,6 +24,10 @@ const
 
 // 开始初始化页面（先判断酒店是否在线）
 function initPage() {
+
+    // 先用空数据把页面撑起来，提高用户体验，后续再用真实数据填充页面
+    $('.main').html( orderMain( require('../testData/initPageMockData') ) );
+
     isHotelOnline(function (res) {
         if (res.isOnline) {
             // 如果酒店在线，请求各个接口，并将返回的数据经模板处理后再填充页面（初始化页面）
@@ -83,13 +87,10 @@ function getOrderInitData() {
 
     getInitData(function (res) {
 
-        // 将返回结果存入全局变量，以便后续取用
-        $.orderInfo = res;
-
-        // 异步加载插件（验证插件、日期插件），这个过程依赖 $.orderInfo
-        loadScriptsAsync();
-
         if (res.success == true) {
+
+            // 将返回结果存入全局变量，以便后续取用
+            $.orderInfo = res;
 
             res.content.paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结', '不固定', '三日结', '十日结', '额度结'];
 
@@ -98,6 +99,9 @@ function getOrderInitData() {
 
             // 再将入住人信息填充到页面中
             $('.guest-msg-box').html( guestMsg(res) );
+
+            // 异步加载插件（验证插件、日期插件），这个过程依赖 $.orderInfo
+            loadScriptsAsync();
 
             // ie10以下的placeholder兼容
             window.placeholder();

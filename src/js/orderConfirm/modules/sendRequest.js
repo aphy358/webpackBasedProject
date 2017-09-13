@@ -78,11 +78,12 @@ function saveOrder(params, callback) {
 
 
 /**
- * 获取请求 加床、加早、加宽带的ajax参数
- * @param {*} flag 1：加早；2：加床；3：加宽带
+ * 加床、加早、加宽带的ajax公共函数
+ * @param {*} cb 回调函数
+ * @param {*} flag 1：加早；2：加床；3：加宽带 
  */
-function getParamsForExtraService(flag) {
-    return {
+function loadBBN(cb, flag) {
+    var params = {
         startDate  : queryString('startDate'),
         endDate    : queryString('endDate'),
         infoId     : queryString('staticInfoId'),
@@ -91,14 +92,38 @@ function getParamsForExtraService(flag) {
         roomNum    : queryString('roomNum'),
         typeId     : flag
     };
+    
+    $.post('/order/surchargeRoom.do', params, function (res) {
+        cb(res);
+    });
+}
+
+
+/**
+ * 加床、加早、加宽带 的公共渲染函数
+ * @param {*} context 这里指相关 DOM 的类名，将 htmlStr 渲染到指定 DOM
+ * @param {*} htmlStr 用于渲染页面的 html 字符串
+ */
+function renderBBN(context , htmlStr){
+    if( !$.orderInfo ){
+        setTimeout(function() {
+            renderBBN(context , htmlStr);
+        }, 100);
+    }else{
+        // 当 $.orderInfo 有值则说明已经完成了页面初步初始化，就可以在页面找到 '.network-msg-box' 元素
+        $('.main').find(context)
+                  .show()
+                  .html(htmlStr);
+    }
 }
 
 module.exports = {
-    isHotelOnline            : isHotelOnline,
-    getInitData              : getInitData,
-    getNationalMsg           : getNationalMsg,
-    isProperMarket           : isProperMarket,
-    checkThePrice            : checkThePrice,
-    saveOrder                : saveOrder,
-    getParamsForExtraService : getParamsForExtraService
+    isHotelOnline  : isHotelOnline,
+    getInitData    : getInitData,
+    getNationalMsg : getNationalMsg,
+    isProperMarket : isProperMarket,
+    checkThePrice  : checkThePrice,
+    saveOrder      : saveOrder,
+    loadBBN        : loadBBN,
+    renderBBN      : renderBBN
 };
