@@ -2,6 +2,9 @@ const addBedStr = require('../templates/addBed.ejs');
 
 const getParamsForExtraService = require('./sendRequest.js').getParamsForExtraService;
 
+// 引入公共函数
+Util = require('../../../common/util');
+
 //将替换好的html结构添加到页面指定位置中
 function addBed() {
 
@@ -11,28 +14,23 @@ function addBed() {
 
         if (res.result == "success") {
 
-            const orderInfo = $.orderInfo;
-
-            if( orderInfo ){
-
-                res.startDate = orderInfo.content.startDate;
-                res.endDate = orderInfo.content.endDate;
-                res.roomNum = orderInfo.content.roomNum;
-                
-                res.ofType = [];
-                for (var i = 0; i < res.data[0].length; i++) {
-                    res.ofType[i] = res.data[0][i].type;
-                }
-    
-                var htmlStr = addBedStr(res);
-    
-                $('.main').find('.bed-msg-box')
-                          .show()
-                          .html(htmlStr);
-    
-                //限制用户加床的总数
-                limitBedNum(res);
+            res.startDate = Util.queryString('startDate');
+            res.endDate = Util.queryString('endDate');
+            res.roomNum = Util.queryString('roomNum');
+            
+            res.ofType = [];
+            for (var i = 0; i < res.data[0].length; i++) {
+                res.ofType[i] = res.data[0][i].type;
             }
+
+            var htmlStr = addBedStr(res);
+
+            $('.main').find('.bed-msg-box')
+                      .show()
+                      .html(htmlStr);
+
+            //限制用户加床的总数
+            limitBedNum(res);
         }
     })
 }

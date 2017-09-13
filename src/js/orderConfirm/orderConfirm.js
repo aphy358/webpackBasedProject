@@ -12,4 +12,4 @@ require('../../sass/orderConfirm/orderConfirm.scss');
 require('../../sass/orderConfirm/confirmOrderMsg.scss');
 
 //页面初始化
-require('./modules/isOnline.js').run();
+require('./modules/initPage').run();

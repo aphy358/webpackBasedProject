@@ -172,7 +172,8 @@ function sendData(formObj) {
     paramObj['specialRequire'] = decodeURIComponent(formObj['specialReq'], true).split('specialReq=').join('').split('&').join(',');
 
     //hotelPriceStrs
-    paramObj['hotelPriceStrs'] = sessionStorage.getItem("hotelPriceStrs");
+    paramObj['hotelPriceStrs'] = $.orderInfo ? $.orderInfo.content.hotelPriceStrs : null;
+    
 
     //确认方式
     paramObj['checkType'] = $('input[name=checkType]:checked').attr('checkType');

@@ -4,7 +4,7 @@
 const queryString = require('../../../common/util.js').queryString;
 
 //用于请求酒店是否下线的函数
-function getCheck(callback) {
+function isHotelOnline(callback) {
     var checkParams = {
         hotelId: queryString('hotelId'),
         suppId: queryString('supplierId')
@@ -14,8 +14,8 @@ function getCheck(callback) {
     });
 }
 
-//用于请求页面中主要信息的函数
-function getWrite(callback, roomNum) {
+// 获取订单页面的初始化信息
+function getInitData(callback, roomNum) {
     //请求页面中用于显示信息的数据
     //获取参数
     var writeParams = {
@@ -94,8 +94,8 @@ function getParamsForExtraService(flag) {
 }
 
 module.exports = {
-    getCheck                 : getCheck,
-    getWrite                 : getWrite,
+    isHotelOnline            : isHotelOnline,
+    getInitData              : getInitData,
     getNationalMsg           : getNationalMsg,
     isProperMarket           : isProperMarket,
     checkThePrice            : checkThePrice,

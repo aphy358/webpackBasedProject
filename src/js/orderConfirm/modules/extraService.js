@@ -420,10 +420,10 @@ function changeRoomNum() {
 
 function resendRequest(isIncrease) {
     //引入用于确认酒店是否下线的请求的函数和引入用于获取页面主要数据的请求函数
-    const getCheck = require('./sendRequest.js').getCheck;
-    const getWrite = require('./sendRequest.js').getWrite;
+    const isHotelOnline = require('./sendRequest.js').isHotelOnline;
+    const getInitData = require('./sendRequest.js').getInitData;
 
-    getCheck(function (checkData) {
+    isHotelOnline(function (checkData) {
         if (checkData.isOnline) {
             //请求页面中用于显示信息的数据
             var roomNum = Number($('#room-num').val());
@@ -442,7 +442,7 @@ function resendRequest(isIncrease) {
             }
             $('#room-num').val(roomNum);
 
-            getWrite(function (writeData) {
+            getInitData(function (writeData) {
                 if (writeData.success == true) {
                     writeData.content.paymentTermName = ["客人前台现付", '单结', '周结', '半月结', '月结', '不固定', '三日结', '十日结', '额度结'];
 
