@@ -176,8 +176,7 @@ function sendData(formObj) {
 
     //hotelPriceStrs
     paramObj['hotelPriceStrs'] = $.orderInfo ? $.orderInfo.content.hotelPriceStrs : null;
-
-    paramObj['hotelPrice'] = window.JSON.stringify($.orderInfo.content.hotelPrice);
+    
   
     //确认方式
     paramObj['checkType'] = $('input[name=checkType]:checked').attr('checkType');
@@ -185,13 +184,6 @@ function sendData(formObj) {
     //单结或者其他结算方式
     paramObj['paymentTerm'] = formObj['paymentTermSon'];
     
-    console.log(paramObj);
-
-    for (var k in paramObj) {
-        params += k + ':' + paramObj[k] + ',';
-    }
-    params.replace(/,$/,'');
-    console.log(params);
     //发送请求
     createOrder(paramObj, formObj);
 }
@@ -230,6 +222,8 @@ function createOrder(params, formObj) {
                         // alert('订单提交成功');
                         location.href = "/internalOrder/orderSucc.do?orderId=" + data.orderId + "&subOrderCode=" + data.subOrderCode;
                     }
+                }else{
+                  alert(data.message);
                 }
             })
 
